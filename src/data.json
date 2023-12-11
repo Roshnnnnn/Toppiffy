@@ -1,0 +1,418 @@
+{
+  "chocolates": [
+    {
+      "id": 1,
+      "brand": "Cadbury",
+      "name": "Dairy Milk Silk",
+      "images": {
+        "image_primary": "https://5.imimg.com/data5/OY/EU/OW/SELLER-39546977/cadbury-dairy-milk-silk-valentine-chocolate-bar-250.jpeg",
+        "image_secondary": "https://m.media-amazon.com/images/I/61-7eZr2jdS._SL1500_.jpg"
+      },
+      "price": 5.99,
+      "description": "Experience the smooth and creamy taste of Cadbury Dairy Milk Silk.",
+      "nutrition": {
+        "calories": 220,
+        "fat": 15,
+        "carbohydrates": 22,
+        "protein": 3
+      },
+      "ingredients": ["Milk Solids", "Sugar", "Cocoa Butter", "Cocoa Mass"],
+      "rating": 4.7
+    },
+    {
+      "id": 2,
+      "brand": "Cadbury",
+      "name": "5 Star",
+      "images": {
+        "image_primary": "https://5.imimg.com/data5/SELLER/Default/2023/2/VG/HV/OS/144328445/5star3d-b-300719-500x500.jpg",
+        "image_secondary": "https://www.vishalmegamart.com/dw/image/v2/BGHT_PRD/on/demandware.static/-/Sites-vmm-fmcg-master-catalog/default/dwb47f3c92/images/large/1310015571.jpg?sw=900&sh=900"
+      },
+      "price": 4.49,
+      "description": "Get a burst of chocolatey flavor with Cadbury 5 Star.",
+      "nutrition": {
+        "calories": 200,
+        "fat": 12,
+        "carbohydrates": 20,
+        "protein": 2
+      },
+      "ingredients": ["Milk Solids", "Sugar", "Cocoa Butter", "Cocoa Mass"],
+      "rating": 4.5
+    },
+    {
+      "id": 3,
+      "brand": "Cadbury",
+      "name": "Silk Oreo",
+      "images": {
+        "image_primary": "https://5.imimg.com/data5/SELLER/Default/2023/7/327404398/JS/EQ/OS/48534106/cadbury-dairy-milk-silk-oreo-chocolate-bar-130-g-pack-of-4-500x500.jpeg",
+        "image_secondary": "https://images.pexels.com/photos/2373520/pexels-photo-2373520.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      },
+      "price": 6.99,
+      "description": "Indulge in the delightful combination of Cadbury Silk and Oreo biscuits.",
+      "nutrition": {
+        "calories": 240,
+        "fat": 18,
+        "carbohydrates": 24,
+        "protein": 3
+      },
+      "ingredients": [
+        "Milk Solids",
+        "Sugar",
+        "Cocoa Butter",
+        "Cocoa Mass",
+        "Oreo Biscuits"
+      ],
+      "rating": 4.8
+    },
+    {
+      "id": 4,
+      "brand": "Cadbury",
+      "name": "Bournville",
+      "images": {
+        "image_primary": "https://images-na.ssl-images-amazon.com/images/I/81EsS5q3umL.jpg",
+        "image_secondary": "https://5.imimg.com/data5/BV/NM/MY-39546977/cadbury-bournville-chocolate-special-gift-box-with-happy-anniversary-messaging-sleeve-2c-320-gm.png"
+      },
+      "price": 7.49,
+      "description": "Savor the rich and intense flavor of dark chocolate with Cadbury Bournville.",
+      "nutrition": {
+        "calories": 210,
+        "fat": 16,
+        "carbohydrates": 22,
+        "protein": 2
+      },
+      "ingredients": ["Cocoa Mass", "Sugar", "Cocoa Butter", "Vanilla"],
+      "rating": 4.6
+    },
+    {
+      "id": 5,
+      "brand": "Hershey's",
+      "name": "Hershey's Milk Chocolate",
+      "images": {
+        "image_primary": "https://5.imimg.com/data5/SELLER/Default/2021/11/BK/BB/BL/61730468/hershey-s-kisses-milk-chocolate.jpg",
+        "image_secondary": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6-pCc1W3WbkmD7O9wsp-XhWcN9p2U301pRyssOwoMzsYtOzF4IEDsceoE1uBr1cJulwU&usqp=CAU"
+      },
+      "price": 4.99,
+      "description": "Enjoy the classic Hershey's Milk Chocolate bar.",
+      "nutrition": {
+        "calories": 190,
+        "fat": 11,
+        "carbohydrates": 23,
+        "protein": 3
+      },
+      "ingredients": ["Milk Solids", "Sugar", "Cocoa Butter", "Cocoa Mass"],
+      "rating": 4.5
+    },
+    {
+      "id": 6,
+      "brand": "Hershey's",
+      "name": "Hershey's Cookies 'n' Creme",
+      "images": {
+        "image_primary": "https://ajwadryfruits.in/wp-content/uploads/2021/08/71VeexNTHkS._SL1500_-1.jpg",
+        "image_secondary": "https://m.media-amazon.com/images/I/61GlLbaW2SL.jpg"
+      },
+      "price": 6.49,
+      "description": "Experience the delightful blend of white chocolate and cookie pieces.",
+      "nutrition": {
+        "calories": 210,
+        "fat": 13,
+        "carbohydrates": 24,
+        "protein": 2
+      },
+      "ingredients": ["Sugar", "Cocoa Butter", "Milk Solids", "Cookie Pieces"],
+      "rating": 4.7
+    },
+    {
+      "id": 7,
+      "brand": "Hershey's",
+      "name": "Hershey's Special Dark",
+      "images": {
+        "image_primary": "https://m.media-amazon.com/images/I/71plSEL97tL.jpg",
+        "image_secondary": "https://5.imimg.com/data5/GA/UK/MW/SELLER-19730871/hershey-s-nuggets-special-dark-chocolate-with-almonds.jpg"
+      },
+      "price": 7.99,
+      "description": "Indulge in the rich and intense flavor of Hershey's Special Dark chocolate.",
+      "nutrition": {
+        "calories": 200,
+        "fat": 14,
+        "carbohydrates": 21,
+        "protein": 2
+      },
+      "ingredients": ["Cocoa Mass", "Sugar", "Cocoa Butter", "Vanilla"],
+      "rating": 4.8
+    },
+    {
+      "id": 8,
+      "brand": "Hershey's",
+      "name": "Hershey's Almond Bar",
+      "images": {
+        "image_primary": "https://frugivore-storage.s3.amazonaws.com/media/package/img_one/2019-09-19/hersheys_Almond_chocolate_100gm.jpg",
+        "image_secondary": "https://www.foodbusinessnews.net/ext/resources/2020/12/HersheysWholeAlmonds_Lead.jpg?height=667&t=1607952390&width=1080"
+      },
+      "price": 8.49,
+      "description": "Enjoy the perfect combination of Hershey's chocolate and crunchy almonds.",
+      "nutrition": {
+        "calories": 220,
+        "fat": 15,
+        "carbohydrates": 20,
+        "protein": 4
+      },
+      "ingredients": ["Cocoa Mass", "Sugar", "Almonds", "Cocoa Butter"],
+      "rating": 4.6
+    },
+    {
+      "id": 9,
+      "brand": "Amul",
+      "name": "Amul Dark Chocolate",
+      "images": {
+        "image_primary": "https://cdn.dotpe.in/longtail/store-items/1292550/x5P0F4lJ.jpeg",
+        "image_secondary": "https://images.pexels.com/photos/4110101/pexels-photo-4110101.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      },
+      "price": 3.99,
+      "description": "Savor the goodness of rich and flavorful Amul Dark Chocolate.",
+      "nutrition": {
+        "calories": 180,
+        "fat": 12,
+        "carbohydrates": 21,
+        "protein": 2
+      },
+      "ingredients": ["Cocoa Mass", "Sugar", "Cocoa Butter", "Vanilla"],
+      "rating": 4.5
+    },
+    {
+      "id": 10,
+      "brand": "Amul",
+      "name": "Amul Milk Chocolate",
+      "images": {
+        "image_primary": "https://m.media-amazon.com/images/I/81MwNiGs4TL.jpg",
+        "image_secondary": "https://cdn.dotpe.in/longtail/store-items/8050713/Dul15zSa.jpeg"
+      },
+      "price": 2.99,
+      "description": "Indulge in the classic taste of Amul Milk Chocolate.",
+      "nutrition": {
+        "calories": 160,
+        "fat": 10,
+        "carbohydrates": 18,
+        "protein": 3
+      },
+      "ingredients": ["Milk Solids", "Sugar", "Cocoa Butter", "Cocoa Mass"],
+      "rating": 4.3
+    },
+    {
+      "id": 11,
+      "brand": "Ferrero Rocher",
+      "name": "Ferrero Rocher",
+      "images": {
+        "image_primary": "https://www.fnp.com/images/pr/l/v20200206131638/luxury-ferrero-rocher_1.jpg",
+        "image_secondary": "https://assets.winni.in/product/primary/2014/8/35075.jpeg?dpr=1&w=500"
+      },
+      "price": 9.99,
+      "description": "Experience the luxury of Ferrero Rocher's hazelnut chocolate.",
+      "nutrition": {
+        "calories": 250,
+        "fat": 15,
+        "carbohydrates": 26,
+        "protein": 3
+      },
+      "ingredients": ["Milk Chocolate", "Hazelnuts", "Sugar", "Palm Oil"],
+      "rating": 4.9
+    },
+    {
+      "id": 12,
+      "brand": "Ferrero Rocher",
+      "name": "Ferrero Rondnoir",
+      "images": {
+        "image_primary": "https://snaktime.in/images/chocolates/ferrero-rocher-hazelnut-milk-chocolates-48-pieces-600g-1.jpg",
+        "image_secondary": "https://www.ferrerorocher.com/int/sites/ferrerorocher20_int/files/2021-05/gfx-12x.jpg?t=1699451426"
+      },
+      "price": 10.49,
+      "description": "Indulge in the exquisite taste of Ferrero Rondnoir's dark chocolate.",
+      "nutrition": {
+        "calories": 260,
+        "fat": 17,
+        "carbohydrates": 22,
+        "protein": 3
+      },
+      "ingredients": ["Dark Chocolate", "Cocoa Mass", "Sugar", "Palm Oil"],
+      "rating": 4.8
+    },
+    {
+      "id": 13,
+      "brand": "Nestle",
+      "name": "Kit Kat",
+      "images": {
+        "image_primary": "https://www.bigbasket.com/media/uploads/p/l/286721_2-nestle-kit-kat-4-finger-bar-dark-chocolate.jpg",
+        "image_secondary": "https://www.luluhypermarket.in/medias/766676-001.jpg-1200Wx1200H?context=bWFzdGVyfGltYWdlc3wyMjU2NTN8aW1hZ2UvanBlZ3xhR1UyTDJoalppODRPRFk0TmpVME5UUTJPVGMwTHpjMk5qWTNOaTB3TURFdWFuQm5YekV5TURCWGVERXlNREJJfDM5YzUxOWEyZWU3ZDAxYjM5MjBmZmY5NGE3ZWI2NmE5YzBkZTlkYjE1Y2RiNjc2NzZmNjUyZjUyMzA2NDM1M2E"
+      },
+      "price": 3.49,
+      "description": "Have a break, have a Kit Kat - the classic wafer chocolate bar.",
+      "nutrition": {
+        "calories": 210,
+        "fat": 11,
+        "carbohydrates": 25,
+        "protein": 2
+      },
+      "ingredients": ["Sugar", "Wheat Flour", "Cocoa Butter", "Cocoa Mass"],
+      "rating": 4.6
+    },
+    {
+      "id": 14,
+      "brand": "Nestle",
+      "name": "Nestle Crunch",
+      "images": {
+        "image_primary": "https://images-cdn.ubuy.co.in/633aaafcfc37f67e727aab5b-36-bars-of-nestle-crunch.jpg",
+        "image_secondary": "https://www.justgotochef.com/uploads/1526533735-Nestle-Crunch%20Bar-Front.jpg"
+      },
+      "price": 2.99,
+      "description": "Experience the crispy delight of Nestle Crunch.",
+      "nutrition": {
+        "calories": 180,
+        "fat": 8,
+        "carbohydrates": 24,
+        "protein": 2
+      },
+      "ingredients": [
+        "Milk Chocolate",
+        "Crisped Rice",
+        "Sugar",
+        "Cocoa Butter"
+      ],
+      "rating": 4.4
+    },
+    {
+      "id": 15,
+      "brand": "Nestle",
+      "name": "Milky Bar",
+      "images": {
+        "image_primary": "https://www.bigbasket.com/media/uploads/p/l/40090019_4-nestle-milkybar-bar.jpg",
+        "image_secondary": "https://m.media-amazon.com/images/I/61UAWGSV05L.jpg"
+      },
+      "price": 3.99,
+      "description": "Delight in the smooth and creamy taste of Nestle Milky Bar.",
+      "nutrition": {
+        "calories": 190,
+        "fat": 12,
+        "carbohydrates": 22,
+        "protein": 2
+      },
+      "ingredients": ["Sugar", "Milk Solids", "Cocoa Butter", "Vanilla"],
+      "rating": 4.7
+    },
+    {
+      "id": 16,
+      "brand": "Nestle",
+      "name": "Aero",
+      "images": {
+        "image_primary": "https://m.media-amazon.com/images/I/418KFSpg72L.jpg",
+        "image_secondary": "https://www.chocotown.in/cdn/shop/products/NestleAeroPeppermintChocolateBlock118gmchocotown.jpg?v=1641232751"
+      },
+      "price": 4.49,
+      "description": "Experience the light and bubbly texture of Nestle Aero chocolate.",
+      "nutrition": {
+        "calories": 180,
+        "fat": 11,
+        "carbohydrates": 21,
+        "protein": 2
+      },
+      "ingredients": [
+        "Milk Chocolate",
+        "Sugar",
+        "Cocoa Butter",
+        "Aerated Center"
+      ],
+      "rating": 4.5
+    },
+    {
+      "id": 17,
+      "brand": "Amul",
+      "name": "Amul Fruit & Nut",
+      "images": {
+        "image_primary": "https://cdn.dotpe.in/longtail/store-items/5477836/70m4XBOi.jpeg",
+        "image_secondary": "https://www.bigbasket.com/media/uploads/p/xxl/100006128_2-amul-fruit-n-nut-chocolate.jpg"
+      },
+      "price": 5.49,
+      "description": "Enjoy the delightful combination of rich chocolate, almonds, and raisins.",
+      "nutrition": {
+        "calories": 230,
+        "fat": 14,
+        "carbohydrates": 25,
+        "protein": 3
+      },
+      "ingredients": [
+        "Milk Solids",
+        "Sugar",
+        "Cocoa Butter",
+        "Almonds",
+        "Raisins"
+      ],
+      "rating": 4.6
+    },
+    {
+      "id": 18,
+      "brand": "Amul",
+      "name": "Amul White Chocolate",
+      "images": {
+        "image_primary": "https://m.media-amazon.com/images/W/MEDIAX_792452-T2/images/I/61-pg5u+9pL.jpg",
+        "image_secondary": "https://www.bigbasket.com/media/uploads/p/xxl/40184338-2_4-amul-white-limon-chocolate.jpg"
+      },
+      "price": 4.99,
+      "description": "Indulge in the sweet and creamy taste of Amul White Chocolate.",
+      "nutrition": {
+        "calories": 200,
+        "fat": 12,
+        "carbohydrates": 22,
+        "protein": 2
+      },
+      "ingredients": ["Milk Solids", "Sugar", "Cocoa Butter", "Vanilla"],
+      "rating": 4.4
+    },
+    {
+      "id": 19,
+      "brand": "Ferrero Rocher",
+      "name": "Ferrero Golden Gallery",
+      "images": {
+        "image_primary": "https://www.ferrerorocher.com/in/sites/ferrerorocher20_in/files/2022-09/t16.png?t=1700752105",
+        "image_secondary": "https://www.ferrerorocher.com/in/sites/ferrerorocher20_in/files/2022-09/t16-side.png?t=1700752105"
+      },
+      "price": 14.99,
+      "description": "Indulge in the luxurious assortment of chocolates with Ferrero Golden Gallery.",
+      "nutrition": {
+        "calories": 300,
+        "fat": 20,
+        "carbohydrates": 26,
+        "protein": 3
+      },
+      "ingredients": [
+        "Milk Chocolate",
+        "Dark Chocolate",
+        "White Chocolate",
+        "Hazelnuts",
+        "Palm Oil"
+      ],
+      "rating": 4.8
+    },
+    {
+      "id": 20,
+      "brand": "Ferrero Rocher",
+      "name": "Ferrero Collection",
+      "images": {
+        "image_primary": "https://images.pexels.com/photos/11689199/pexels-photo-11689199.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "image_secondary": "https://images.pexels.com/photos/17939215/pexels-photo-17939215/free-photo-of-layered-cake-with-chocolate-topping.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      },
+      "price": 12.99,
+      "description": "Enjoy a variety of Ferrero chocolates with the Ferrero Collection.",
+      "nutrition": {
+        "calories": 280,
+        "fat": 18,
+        "carbohydrates": 24,
+        "protein": 4
+      },
+      "ingredients": [
+        "Milk Chocolate",
+        "Dark Chocolate",
+        "Hazelnuts",
+        "Sugar",
+        "Palm Oil"
+      ],
+      "rating": 4.7
+    }
+  ]
+}
