@@ -85,10 +85,10 @@
     {
       "id": 5,
       "brand": "Hershey's",
-      "name": "Hershey's Milk Chocolate",
+      "name": "Hershey's Kisses Special Dark ",
       "images": {
-        "image_primary": "https://5.imimg.com/data5/SELLER/Default/2021/11/BK/BB/BL/61730468/hershey-s-kisses-milk-chocolate.jpg",
-        "image_secondary": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6-pCc1W3WbkmD7O9wsp-XhWcN9p2U301pRyssOwoMzsYtOzF4IEDsceoE1uBr1cJulwU&usqp=CAU"
+        "image_primary": "https://cococart.in/cdn/shop/products/710xriaH_PL._SL1500_720x.jpg?v=1676358909",
+        "image_secondary": "https://cococart.in/cdn/shop/products/Hershey_s-08_1800x1800.png?v=1659950348"
       },
       "price": 4.99,
       "description": "Enjoy the classic Hershey's Milk Chocolate bar.",
@@ -104,10 +104,10 @@
     {
       "id": 6,
       "brand": "Hershey's",
-      "name": "Hershey's Cookies 'n' Creme",
+      "name": "Hershey's Kisses Creamy Milk Chocolate",
       "images": {
-        "image_primary": "https://ajwadryfruits.in/wp-content/uploads/2021/08/71VeexNTHkS._SL1500_-1.jpg",
-        "image_secondary": "https://m.media-amazon.com/images/I/61GlLbaW2SL.jpg"
+        "image_primary": "https://cococart.in/cdn/shop/files/1CH1979_1800x1800.png?v=1690526595",
+        "image_secondary": "https://cococart.in/cdn/shop/files/1CH1979_1800x1800.jpg?v=1693552206"
       },
       "price": 6.49,
       "description": "Experience the delightful blend of white chocolate and cookie pieces.",
@@ -123,10 +123,10 @@
     {
       "id": 7,
       "brand": "Hershey's",
-      "name": "Hershey's Special Dark",
+      "name": "Hershey's Kisses Extra Creamy Milk Chocolate With Almonds",
       "images": {
-        "image_primary": "https://m.media-amazon.com/images/I/71plSEL97tL.jpg",
-        "image_secondary": "https://5.imimg.com/data5/GA/UK/MW/SELLER-19730871/hershey-s-nuggets-special-dark-chocolate-with-almonds.jpg"
+        "image_primary": "https://cococart.in/cdn/shop/files/1CH1975_1800x1800.png?v=1690526455",
+        "image_secondary": "https://cococart.in/cdn/shop/files/1CH1975_1800x1800.jpg?v=1693552155"
       },
       "price": 7.99,
       "description": "Indulge in the rich and intense flavor of Hershey's Special Dark chocolate.",
@@ -142,10 +142,10 @@
     {
       "id": 8,
       "brand": "Hershey's",
-      "name": "Hershey's Almond Bar",
+      "name": "Hershey's Kisses Milk Chocolate With Hazelnuts",
       "images": {
-        "image_primary": "https://frugivore-storage.s3.amazonaws.com/media/package/img_one/2019-09-19/hersheys_Almond_chocolate_100gm.jpg",
-        "image_secondary": "https://www.foodbusinessnews.net/ext/resources/2020/12/HersheysWholeAlmonds_Lead.jpg?height=667&t=1607952390&width=1080"
+        "image_primary": "https://cococart.in/cdn/shop/files/1CH1977_1800x1800.png?v=1690526525",
+        "image_secondary": "https://cococart.in/cdn/shop/files/1CH1977_1800x1800.jpg?v=1693552187"
       },
       "price": 8.49,
       "description": "Enjoy the perfect combination of Hershey's chocolate and crunchy almonds.",
@@ -160,14 +160,14 @@
     },
     {
       "id": 9,
-      "brand": "Amul",
-      "name": "Amul Dark Chocolate",
+      "brand": "Whittaker's",
+      "name": "Pick & Mix : Whittakers Loose Creamy Milk Squares",
       "images": {
-        "image_primary": "https://cdn.dotpe.in/longtail/store-items/1292550/x5P0F4lJ.jpeg",
-        "image_secondary": "https://images.pexels.com/photos/4110101/pexels-photo-4110101.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        "image_primary": "https://cococart.in/cdn/shop/products/1CH1672_1800x1800.jpg?v=1672997960",
+        "image_secondary": "https://cococart.in/cdn/shop/products/1CH1672-1_1800x1800.png?v=1672997966"
       },
       "price": 3.99,
-      "description": "Savor the goodness of rich and flavorful Amul Dark Chocolate.",
+      "description": "Savor the goodness of rich and flavorful Whittaker's Dark Chocolate.",
       "nutrition": {
         "calories": 180,
         "fat": 12,
@@ -179,14 +179,14 @@
     },
     {
       "id": 10,
-      "brand": "Amul",
-      "name": "Amul Milk Chocolate",
+      "brand": "Whittakers",
+      "name": "Whittakers White Bar",
       "images": {
-        "image_primary": "https://m.media-amazon.com/images/I/81MwNiGs4TL.jpg",
-        "image_secondary": "https://cdn.dotpe.in/longtail/store-items/8050713/Dul15zSa.jpeg"
+        "image_primary": "https://cococart.in/cdn/shop/products/Whittaker_s-25_1800x1800.png?v=1659949366",
+        "image_secondary": "https://cococart.in/cdn/shop/products/Whittakers-White-Chocolate-Block-2_1800x1800.jpg?v=1673527769"
       },
       "price": 2.99,
-      "description": "Indulge in the classic taste of Amul Milk Chocolate.",
+      "description": "Indulge in the classic taste of Whittaker's Milk Chocolate.",
       "nutrition": {
         "calories": 160,
         "fat": 10,
@@ -322,11 +322,11 @@
     },
     {
       "id": 17,
-      "brand": "Amul",
-      "name": "Amul Fruit & Nut",
+      "brand": "Whittaker's",
+      "name": "Whittaker's Creamy Milk Bar",
       "images": {
-        "image_primary": "https://cdn.dotpe.in/longtail/store-items/5477836/70m4XBOi.jpeg",
-        "image_secondary": "https://www.bigbasket.com/media/uploads/p/xxl/100006128_2-amul-fruit-n-nut-chocolate.jpg"
+        "image_primary": "https://cococart.in/cdn/shop/products/1CH1607_1800x1800.png?v=1665385810",
+        "image_secondary": "https://cococart.in/cdn/shop/products/Capture_67e8a8be-c1f0-4085-8c58-7d8b5ee08a4e_1800x1800.jpg?v=1673611302"
       },
       "price": 5.49,
       "description": "Enjoy the delightful combination of rich chocolate, almonds, and raisins.",
@@ -347,14 +347,14 @@
     },
     {
       "id": 18,
-      "brand": "Amul",
-      "name": "Amul White Chocolate",
+      "brand": "Whittaker's",
+      "name": "Whittaker's Creamy Milk Mini Slabs",
       "images": {
-        "image_primary": "https://m.media-amazon.com/images/W/MEDIAX_792452-T2/images/I/61-pg5u+9pL.jpg",
-        "image_secondary": "https://www.bigbasket.com/media/uploads/p/xxl/40184338-2_4-amul-white-limon-chocolate.jpg"
+        "image_primary": "https://cococart.in/cdn/shop/products/1CH1376_1800x1800.png?v=1659948836",
+        "image_secondary": "https://cococart.in/cdn/shop/products/Whittakers-Share-Pack-Mini-Slab-Creamy-Milk-2_1800x1800.jpg?v=1673528079"
       },
       "price": 4.99,
-      "description": "Indulge in the sweet and creamy taste of Amul White Chocolate.",
+      "description": "Indulge in the sweet and creamy taste of Whittaker's White Chocolate.",
       "nutrition": {
         "calories": 200,
         "fat": 12,
