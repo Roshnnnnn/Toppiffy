@@ -1,4 +1,5 @@
 import "./App.css";
+import Cards from "./components/Cards/Cards";
 import Header from "./components/HomePage/Header";
 import Navbar from "./components/Navbar/Navbar";
 // import Footer from "./components/Footer/Footer";
@@ -6,8 +7,9 @@ import Navbar from "./components/Navbar/Navbar";
 function App() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Header />
+      {/* <Cards /> */}
       {/* <Footer /> */}
     </>
   );
