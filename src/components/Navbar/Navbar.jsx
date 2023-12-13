@@ -4,7 +4,7 @@ import Image from "../../assets/logo.webp";
 const Navbar = () => {
   return (
     <header className="relative w-full">
-      <nav className="bg-white z-6 text-amber-800 w-full">
+      <nav className="bg-white z-6 text-amber-800 w-full top-0">
         <div className="flex items-center justify-center bg-white">
           <div className="flex-grow-0 w-200">
             <img src={Image} alt="" className="w-[20rem] ml-20" />

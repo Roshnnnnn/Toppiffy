@@ -22,6 +22,10 @@ const Header = () => {
           className="w-screen h-full"
         />
       </div>
+      <div className="text-4xl justify-center text-center my-6">
+        <div>Top Brands</div>
+        <div></div>
+      </div>
     </div>
   );
 };
