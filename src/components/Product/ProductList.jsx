@@ -1,6 +1,6 @@
 import React from "react";
-import FilterSection from "../Cards/FilterSection";
-import CardsDetail from "../Cards/CardsDetail";
+import FilterSection from "../Sections/FilterSection";
+import CardsDetail from "../Sections/CardsDetail";
 import data from "../../data.json";
 
 const ProductList = () => {

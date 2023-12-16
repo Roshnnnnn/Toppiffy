@@ -3,11 +3,11 @@ import Image1 from "../../assets/carousel1.webp";
 import Image2 from "../../assets/carousel2.webp";
 import Image3 from "../../assets/carousel3.webp";
 import Image4 from "../../assets/carousel4.webp";
-import Card from "../Cards/Cards";
+import Card from "../Sections/Cards";
 import Image5 from "../../assets/hershey.webp";
 import Image6 from "../../assets/Nestle.webp";
 import Image7 from "../../assets/Whittakars.webp";
-import CardsDetail from "../Cards/CardsDetail";
+import CardsDetail from "../Sections/CardsDetail";
 import data from "../../data.json";
 
 const Header = () => {
@@ -40,8 +40,7 @@ const Header = () => {
       </div>
       <div className="text-4xl justify-center text-center m-12">
         <h2 className="my-8">Best Sellers</h2>
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 ">
-          {/* <CardsDetail /> */}
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
           {data.slice(0, 3).map((item, index) => (
             <div key={index}>
               <CardsDetail item={item} />
