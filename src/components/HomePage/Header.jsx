@@ -33,15 +33,9 @@ const Header = () => {
       <div className="text-4xl justify-center text-center m-12">
         <div className="my-8">Top Brands</div>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-          <a href="/">
-            <Card image={Image5} />
-          </a>
-          <a href="/">
-            <Card image={Image6} />
-          </a>
-          <a href="/">
-            <Card image={Image7} />
-          </a>
+          <Card image={Image5} />
+          <Card image={Image6} />
+          <Card image={Image7} />
         </div>
       </div>
       <div className="text-4xl justify-center text-center m-12">
@@ -50,9 +44,7 @@ const Header = () => {
           {/* <CardsDetail /> */}
           {data.slice(0, 3).map((item, index) => (
             <div key={index}>
-              <a href="/">
-                <CardsDetail item={item} />
-              </a>
+              <CardsDetail item={item} />
             </div>
           ))}
         </div>
