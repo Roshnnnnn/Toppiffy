@@ -1,67 +1,11 @@
-// import { FaRegUser, FaSearch, FaShoppingBag } from "react-icons/fa";
-// import Image from "../../assets/logo.webp";
-
-// const Navbar = () => {
-//   const Link = [
-//     // { name: Image, link: "/" },
-//     { name: "Home", link: "/" },
-//     { name: "Product", link: "/product" },
-//     { name: "About", link: "/about" },
-//     { name: "Contact", link: "/contact" },
-//   ];
-//   return (
-//     <header className="relative w-full">
-//       <nav className="bg-white z-6 text-amber-800 w-full top-0">
-//         <div className="md:flex md:items-center justify-center bg-white h-[5rem]">
-//           <div className="flex-grow-0">
-//             <a href="/">
-//               <img src={Image} alt="" className="w-[15rem] m-8" />
-//             </a>
-//           </div>
-
-//           {Link.map((item, index) => (
-//             <div
-//               key={index}
-//               className="md:flex md:items-center w-[20rem] justify-center hover:text-black duration-500"
-//             >
-//               <ul className="flex justify-center flex-wrap list-none mx-10 w-full text-xl">
-//                 <li className="static mb-1 mx-8">
-//                   <a href="/">{item.name}</a>
-//                 </li>
-//               </ul>
-//             </div>
-//           ))}
-
-//           <div className="flex justify-between text-xl">
-//             <div className="flex items-center mx-12">
-//               <div className="mx-4">
-//                 <a href="/search">
-//                   <FaSearch />
-//                 </a>
-//               </div>
-//               <div className="mx-4">
-//                 <a href="/profile">
-//                   <FaRegUser />
-//                 </a>
-//               </div>
-//               <div className="mx-4">
-//                 <a href="/cart">
-//                   <FaShoppingBag />
-//                 </a>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </nav>
-//     </header>
-//   );
-// };
-
-// export default Navbar;
-
 import { useState } from "react";
 import Image from "../../assets/logo.webp";
-import { FaHamburger } from "react-icons/fa";
+import {
+  FaHamburger,
+  FaShoppingBag,
+  FaSearch,
+  FaRegUser,
+} from "react-icons/fa";
 
 const Nav = () => {
   let Links = [
@@ -69,6 +13,9 @@ const Nav = () => {
     { name: "PRODUCT", link: "/product" },
     { name: "ABOUT", link: "/about" },
     { name: "CONTACT", link: "/contact" },
+    { name: <FaSearch />, link: "/search" },
+    { name: <FaRegUser />, link: "/user" },
+    { name: <FaShoppingBag />, link: "/cart" },
   ];
   let [open, setOpen] = useState(false);
   return (
