@@ -3,11 +3,11 @@ import Image1 from "../../assets/carousel1.webp";
 import Image2 from "../../assets/carousel2.webp";
 import Image3 from "../../assets/carousel3.webp";
 import Image4 from "../../assets/carousel4.webp";
-import Card from "../Sections/Cards";
+import Card from "../features/Cards";
 import Image5 from "../../assets/hershey.webp";
 import Image6 from "../../assets/Nestle.webp";
 import Image7 from "../../assets/Whittakars.webp";
-import CardsDetail from "../Sections/CardsDetail";
+import CardsDetail from "../features/CardsDetail";
 import data from "../../data.json";
 
 const Header = () => {
