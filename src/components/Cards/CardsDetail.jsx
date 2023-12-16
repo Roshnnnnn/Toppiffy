@@ -1,13 +1,17 @@
-import React from "react";
-
-const CardsDetail = ({ image, cardStyle }) => {
-  const cardClasses = `bg-gray-200 p-8 ${cardStyle}`;
-
+const CardsDetail = ({ item }) => {
   return (
     <div className="flex justify-center items-center h-screen">
-      <div className={cardClasses}>
-        <div className="w-[12rem] h-[16rem] bg-slate-500">
-          <img src={image} alt="" className="object-contain w-full h-full" />
+      <div className="bg-gray-200 p-8 ">
+        <div className="w-[12rem] h-[16rem] ">
+          <img
+            src={item.image}
+            alt=""
+            className="object-contain w-full h-full"
+          />
+        </div>
+        <div className="flex flex-col">
+          <span className="text-sm mb-2">{item.name}</span>
+          <span className="text-lg">${item.price}</span>
         </div>
       </div>
     </div>

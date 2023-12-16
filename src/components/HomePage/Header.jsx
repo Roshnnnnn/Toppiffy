@@ -7,8 +7,8 @@ import Card from "../Cards/Cards";
 import Image5 from "../../assets/hershey.webp";
 import Image6 from "../../assets/Nestle.webp";
 import Image7 from "../../assets/Whittakars.webp";
-import Image8 from "../../assets/cadbury.webp";
 import CardsDetail from "../Cards/CardsDetail";
+import data from "../../data.json";
 
 const Header = () => {
   const [image, setImage] = useState(0);
@@ -47,9 +47,12 @@ const Header = () => {
       <div className="text-4xl justify-center text-center m-12">
         <div className="my-8">Best Sellers</div>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 ">
-          <CardsDetail />
-          <CardsDetail />
-          <CardsDetail />
+          {/* <CardsDetail /> */}
+          {data.slice(0, 3).map((item, index) => (
+            <div key={index}>
+              <CardsDetail item={name} />
+            </div>
+          ))}
         </div>
       </div>
     </div>
