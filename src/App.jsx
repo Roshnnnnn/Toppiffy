@@ -8,10 +8,10 @@ import CardsDetail from "./components/Cards/CardsDetail";
 function App() {
   return (
     <>
-      <Navbar />
-      {/* <Header /> */}
-      <FilterSection />
-      <CardsDetail />
+      {/* <Navbar /> */}
+      <Header />
+      {/* <FilterSection /> */}
+      {/* <CardsDetail /> */}
       <Footer />
     </>
   );

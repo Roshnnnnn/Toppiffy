@@ -8,16 +8,19 @@ import Image5 from "../../assets/hershey.webp";
 import Image6 from "../../assets/Nestle.webp";
 import Image7 from "../../assets/Whittakars.webp";
 import Image8 from "../../assets/cadbury.webp";
+import CardsDetail from "../Cards/CardsDetail";
 
 const Header = () => {
   const [image, setImage] = useState(0);
   const images = [Image1, Image2, Image3, Image4];
+
   useEffect(() => {
     const timeout = setTimeout(() => {
       setImage((prev) => (prev + 1) % images.length);
     }, 2000);
     return () => clearTimeout(timeout);
   }, [image]);
+
   return (
     <div>
       <div className="w-full">
@@ -27,17 +30,27 @@ const Header = () => {
           className="w-screen h-[40rem]"
         />
       </div>
-      <div className="text-4xl justify-center text-center my-6">
-        <div>Top Brands</div>
-        <div className=" w-full h-[30rem] flex justify-center items-center space-x-12">
-          <Card image={Image5} />
-          <Card image={Image6} />
-          <Card image={Image7} />
-          <Card image={Image8} />
+      <div className="text-4xl justify-center text-center m-12">
+        <div className="my-8">Top Brands</div>
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <a href="/">
+            <Card image={Image5} />
+          </a>
+          <a href="/">
+            <Card image={Image6} />
+          </a>
+          <a href="/">
+            <Card image={Image7} />
+          </a>
         </div>
       </div>
-      <div className="text-4xl justify-center text-center my-6">
-        <div>Best Sellers</div>
+      <div className="text-4xl justify-center text-center m-12">
+        <div className="my-8">Best Sellers</div>
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 ">
+          <CardsDetail />
+          <CardsDetail />
+          <CardsDetail />
+        </div>
       </div>
     </div>
   );
