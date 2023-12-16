@@ -50,7 +50,7 @@ const Header = () => {
           {/* <CardsDetail /> */}
           {data.slice(0, 3).map((item, index) => (
             <div key={index}>
-              <CardsDetail item={name} />
+              <CardsDetail item={item} />
             </div>
           ))}
         </div>

@@ -4,7 +4,7 @@ const CardsDetail = ({ item }) => {
       <div className="bg-gray-200 p-8 ">
         <div className="w-[12rem] h-[16rem] ">
           <img
-            src={item.image}
+            src={item.images.image}
             alt=""
             className="object-contain w-full h-full"
           />
