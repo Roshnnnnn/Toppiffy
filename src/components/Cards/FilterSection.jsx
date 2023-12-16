@@ -1,8 +1,6 @@
-import React from "react";
-
 const FilterSection = () => {
   return (
-    <div className="flex justify-between items-center p-4 bg-gray-200">
+    <div className="flex justify-between items-center p-4 mx-12 bg-gray-200">
       <select className="p-2 border border-gray-300 rounded">
         <option value="">All Brands</option>
         <option value="brand1">Brand 1</option>

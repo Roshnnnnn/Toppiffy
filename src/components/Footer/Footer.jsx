@@ -3,7 +3,7 @@ import Image from "../../assets/logo_here.avif";
 const Footer = () => {
   return (
     <div>
-      <footer className="p-5 md:p-12 lg:p-25 text-amber-800 leading-5">
+      <footer className="p-5 md:p-12 lg:p-25 text-amber-800 leading-5 ">
         <div className="bg-slate-300 rounded-20">
           <div className="py-6 md:py-12 border-t border-solid">
             <div className="max-w-7xl mx-auto">
