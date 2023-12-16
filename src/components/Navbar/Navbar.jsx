@@ -7,7 +7,9 @@ const Navbar = () => {
       <nav className="bg-white z-6 text-amber-800 w-full top-0">
         <div className="flex items-center justify-center bg-white">
           <div className="flex-grow-0 w-200">
-            <img src={Image} alt="" className="w-[20rem] ml-20" />
+            <a href="/">
+              <img src={Image} alt="" className="w-[20rem] ml-20" />
+            </a>
           </div>
           <div className="flex items-center w-[40rem] justify-center">
             <ul className="flex justify-center flex-wrap list-none mx-10 w-full text-xl">

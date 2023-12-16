@@ -1,7 +1,7 @@
 const CardsDetail = ({ item }) => {
   return (
-    <div className="flex justify-center items-center">
-      <div className="bg-gray-200 p-8 ">
+    <div className="flex justify-center items-center my-12">
+      <div className="border border-solid border-gray-500 rounded-md p-8 ">
         <div className="w-[12rem] h-[16rem] ">
           <img
             src={item.images.image}
@@ -9,9 +9,9 @@ const CardsDetail = ({ item }) => {
             className="object-contain w-full h-full"
           />
         </div>
-        <div className="flex flex-col">
-          <span className="text-sm mb-2">{item.name}</span>
-          <span className="text-lg">${item.price}</span>
+        <div className="flex flex-col justify-center">
+          <span className="text-sm mb-2 text-center">{item.name}</span>
+          <span className="text-lg text-center">${item.price}</span>
         </div>
       </div>
     </div>

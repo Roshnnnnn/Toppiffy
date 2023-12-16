@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <Navbar />
-      {/* <Header /> */}
+      <Header />
       {/* <FilterSection /> */}
       <ProductList />
 
