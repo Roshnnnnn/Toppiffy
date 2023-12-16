@@ -1,6 +1,6 @@
 const CardsDetail = ({ item }) => {
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center">
       <div className="bg-gray-200 p-8 ">
         <div className="w-[12rem] h-[16rem] ">
           <img

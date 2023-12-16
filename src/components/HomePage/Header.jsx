@@ -45,12 +45,14 @@ const Header = () => {
         </div>
       </div>
       <div className="text-4xl justify-center text-center m-12">
-        <div className="my-8">Best Sellers</div>
+        <h2 className="my-8">Best Sellers</h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 ">
           {/* <CardsDetail /> */}
           {data.slice(0, 3).map((item, index) => (
             <div key={index}>
-              <CardsDetail item={item} />
+              <a href="/">
+                <CardsDetail item={item} />
+              </a>
             </div>
           ))}
         </div>

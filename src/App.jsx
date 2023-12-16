@@ -4,14 +4,16 @@ import Header from "./components/HomePage/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import CardsDetail from "./components/Cards/CardsDetail";
+import ProductList from "./components/Product/ProductList";
 
 function App() {
   return (
     <>
-      {/* <Navbar /> */}
-      <Header />
+      <Navbar />
+      {/* <Header /> */}
       {/* <FilterSection /> */}
-      {/* <CardsDetail /> */}
+      <ProductList />
+
       <Footer />
     </>
   );

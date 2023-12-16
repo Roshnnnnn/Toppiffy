@@ -84,7 +84,7 @@
   {
     "id": 5,
     "brand": "Hershey's",
-    "name": "Hershey's Kisses Special Dark ",
+    "name": "Kisses Dark ",
     "images": {
       "image": "https://cococart.in/cdn/shop/products/710xriaH_PL._SL1500_720x.jpg?v=1676358909",
       "image_secondary": "https://cococart.in/cdn/shop/products/Hershey_s-08_1800x1800.png?v=1659950348"
@@ -103,7 +103,7 @@
   {
     "id": 6,
     "brand": "Hershey's",
-    "name": "Hershey's Kisses Creamy Milk Chocolate",
+    "name": "Kisses Creamy Milk",
     "images": {
       "image": "https://cococart.in/cdn/shop/files/1CH1979_1800x1800.png?v=1690526595",
       "image_secondary": "https://cococart.in/cdn/shop/files/1CH1979_1800x1800.jpg?v=1693552206"
@@ -122,7 +122,7 @@
   {
     "id": 7,
     "brand": "Hershey's",
-    "name": "Hershey's Kisses Extra Creamy Milk Chocolate With Almonds",
+    "name": "Kisses Extra Creamy Milk",
     "images": {
       "image": "https://cococart.in/cdn/shop/files/1CH1975_1800x1800.png?v=1690526455",
       "image_secondary": "https://cococart.in/cdn/shop/files/1CH1975_1800x1800.jpg?v=1693552155"
@@ -141,7 +141,7 @@
   {
     "id": 8,
     "brand": "Hershey's",
-    "name": "Hershey's Kisses Milk Chocolate With Hazelnuts",
+    "name": "Kisses Milk With Hazelnuts",
     "images": {
       "image": "https://cococart.in/cdn/shop/files/1CH1977_1800x1800.png?v=1690526525",
       "image_secondary": "https://cococart.in/cdn/shop/files/1CH1977_1800x1800.jpg?v=1693552187"
@@ -160,7 +160,7 @@
   {
     "id": 9,
     "brand": "Whittaker's",
-    "name": "Pick & Mix : Whittakers Loose Creamy Milk Squares",
+    "name": "Pick & Mix Milk Squares",
     "images": {
       "image": "https://cococart.in/cdn/shop/products/1CH1672_1800x1800.jpg?v=1672997960",
       "image_secondary": "https://cococart.in/cdn/shop/products/1CH1672-1_1800x1800.png?v=1672997966"
@@ -179,7 +179,7 @@
   {
     "id": 10,
     "brand": "Whittakers",
-    "name": "Whittakers White Bar",
+    "name": "White Bar",
     "images": {
       "image": "https://cococart.in/cdn/shop/products/Whittaker_s-25_1800x1800.png?v=1659949366",
       "image_secondary": "https://cococart.in/cdn/shop/products/Whittakers-White-Chocolate-Block-2_1800x1800.jpg?v=1673527769"
@@ -255,7 +255,7 @@
   {
     "id": 14,
     "brand": "Nestle",
-    "name": "Nestle Crunch",
+    "name": "Crunch",
     "images": {
       "image": "https://images-cdn.ubuy.co.in/633aaafcfc37f67e727aab5b-36-bars-of-nestle-crunch.jpg",
       "image_secondary": "https://www.justgotochef.com/uploads/1526533735-Nestle-Crunch%20Bar-Front.jpg"
@@ -317,7 +317,7 @@
   {
     "id": 17,
     "brand": "Whittaker's",
-    "name": "Whittaker's Creamy Milk Bar",
+    "name": "Creamy Milk Bar",
     "images": {
       "image": "https://cococart.in/cdn/shop/products/1CH1607_1800x1800.png?v=1665385810",
       "image_secondary": "https://cococart.in/cdn/shop/products/Capture_67e8a8be-c1f0-4085-8c58-7d8b5ee08a4e_1800x1800.jpg?v=1673611302"
@@ -342,7 +342,7 @@
   {
     "id": 18,
     "brand": "Whittaker's",
-    "name": "Whittaker's Creamy Milk Mini Slabs",
+    "name": "Creamy Milk Mini Slabs",
     "images": {
       "image": "https://cococart.in/cdn/shop/products/1CH1376_1800x1800.png?v=1659948836",
       "image_secondary": "https://cococart.in/cdn/shop/products/Whittakers-Share-Pack-Mini-Slab-Creamy-Milk-2_1800x1800.jpg?v=1673528079"
@@ -361,7 +361,7 @@
   {
     "id": 19,
     "brand": "Ferrero Rocher",
-    "name": "Ferrero Golden Gallery",
+    "name": "Golden Gallery",
     "images": {
       "image": "https://www.ferrerorocher.com/in/sites/ferrerorocher20_in/files/2022-09/t16.png?t=1700752105",
       "image_secondary": "https://www.ferrerorocher.com/in/sites/ferrerorocher20_in/files/2022-09/t16-side.png?t=1700752105"
