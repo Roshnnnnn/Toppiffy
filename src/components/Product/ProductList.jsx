@@ -1,4 +1,3 @@
-import React from "react";
 import FilterSection from "../features/FilterSection";
 import CardsDetail from "../features/CardsDetail";
 import data from "../../data.json";
