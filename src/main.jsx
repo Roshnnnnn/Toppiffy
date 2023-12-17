@@ -11,6 +11,7 @@ import {
 import Header from "./components/HomePage/Header.jsx";
 import Login from "./components/Profile/Login.jsx";
 import ProductList from "./components/Product/ProductList.jsx";
+import ProductDetails from "./components/Product/ProductDetails.jsx";
 import ContactUs from "./components/Contact/ContactUs.jsx";
 import Signup from "./components/Profile/Signup.jsx";
 import Error from "./Error.jsx";
@@ -20,6 +21,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<App />}>
       <Route path="/" element={<Header />} />
       <Route path="product" element={<ProductList />} />
+      <Route path="product-details" element={<ProductDetails />} />
       <Route path="contact" element={<ContactUs />} />
       <Route path="login" element={<Login />} />
       <Route path="signup" element={<Signup />} />
