@@ -9,6 +9,8 @@ import Image6 from "../../assets/Nestle.webp";
 import Image7 from "../../assets/Whittakars.webp";
 import CardsDetail from "../features/CardsDetail";
 import data from "../../data.json";
+import Navbar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
 
 const Header = () => {
   const [image, setImage] = useState(0);
@@ -23,6 +25,7 @@ const Header = () => {
 
   return (
     <div>
+      <Navbar />
       <div className="w-full">
         <img
           src={images[image]}
@@ -48,6 +51,7 @@ const Header = () => {
           ))}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
