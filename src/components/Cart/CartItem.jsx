@@ -1,6 +1,4 @@
-// CartItem.jsx
-
-import React, { useState } from "react";
+import { useState } from "react";
 
 const CartItem = ({ item }) => {
   const [quantity, setQuantity] = useState(item.quantity);
