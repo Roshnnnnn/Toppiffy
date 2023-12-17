@@ -15,6 +15,7 @@ import ProductDetails from "./components/Product/ProductDetails.jsx";
 import ContactUs from "./components/Contact/ContactUs.jsx";
 import Signup from "./components/Profile/Signup.jsx";
 import Error from "./Error.jsx";
+import Cart from "./components/Cart/CartPage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,6 +26,7 @@ const router = createBrowserRouter(
       <Route path="contact" element={<ContactUs />} />
       <Route path="login" element={<Login />} />
       <Route path="signup" element={<Signup />} />
+      <Route path="cart" element={<Cart />} />
       <Route path="*" element={<Error />} />
     </Route>
   )
