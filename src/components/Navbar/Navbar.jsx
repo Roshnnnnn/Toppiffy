@@ -6,6 +6,7 @@ import {
   FaSearch,
   FaRegUser,
 } from "react-icons/fa";
+import { Link, NavLink } from "react-router-dom";
 
 const Nav = () => {
   let Links = [
@@ -14,7 +15,7 @@ const Nav = () => {
     // { name: "ABOUT", link: "/about" },
     { name: "CONTACT", link: "/contact" },
     { name: <FaSearch />, link: "/search" },
-    { name: <FaRegUser />, link: "/user" },
+    { name: <FaRegUser />, link: "/login" },
     { name: <FaShoppingBag />, link: "/cart" },
   ];
   let [open, setOpen] = useState(false);
@@ -22,7 +23,9 @@ const Nav = () => {
     <div className="shadow-md w-full sticky top-0 left-0">
       <div className="md:flex items-center justify-between bg-white py-4 md:px-10 px-7">
         <div className="cursor-pointer flex items-center">
-          <img src={Image} alt="" className="w-[15rem]" />
+          <Link to="/">
+            <img src={Image} alt="" className="w-[15rem]" />
+          </Link>
         </div>
 
         <div
@@ -38,9 +41,17 @@ const Nav = () => {
         >
           {Links.map((link, index) => (
             <li key={index} className="md:ml-8 text-xl md:my-0 my-7 mx-8">
-              <a href={link.link} className=" hover:text-gray-400 duration-500">
+              <NavLink
+                to={link.link}
+                key={index}
+                className={({ isActive }) =>
+                  ` hover:text-gray-400 duration-500 ${
+                    isActive ? "text-black" : "text-amber-600"
+                  }`
+                }
+              >
                 {link.name}
-              </a>
+              </NavLink>
             </li>
           ))}
         </ul>

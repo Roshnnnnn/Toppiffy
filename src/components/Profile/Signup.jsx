@@ -53,9 +53,12 @@ const Signup = () => {
                 <AiOutlineUnlock className="absolute top-0 right-4" />
               </div>
               <div className="flex justify-between items-center">
-                <Link to="/" className="text-blue-600">
-                  Already Member
-                </Link>
+                <span className="m-4">
+                  Already Member?
+                  <Link to="/login" className="text-blue-600">
+                    Login
+                  </Link>
+                </span>
               </div>
               <button
                 type="submit"
