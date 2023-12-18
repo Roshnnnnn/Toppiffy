@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import { BiUser } from "react-icons/bi";
 import { AiOutlineUnlock } from "react-icons/ai";
+import { useState } from "react";
 
 const Signup = () => {
+  const [value, setValue] = useState({ email: "", password: "" });
   return (
     <div>
-      {" "}
       <div
         className="bg-cover bg-center h-screen flex justify-center items-center"
         style={{

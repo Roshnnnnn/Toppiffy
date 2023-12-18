@@ -1,8 +1,18 @@
 import { Link } from "react-router-dom";
 import { BiUser } from "react-icons/bi";
 import { AiOutlineUnlock } from "react-icons/ai";
+import { useState } from "react";
+import { auth } from "../config/firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const Login = () => {
+  const [email, setEmail] = useState({});
+  const [password, setPassword] = useState({});
+
+  const signin = async () => {
+    await createUserWithEmailAndPassword(auth, email, password);
+  };
+
   return (
     <div
       className="bg-cover bg-center h-screen flex justify-center items-center"
@@ -22,6 +32,7 @@ const Login = () => {
                 type="email"
                 className="block w-72 py-2.3 px-0 text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:text-white focus:border-blue-600 peer"
                 placeholder=""
+                onChange={(e) => setEmail(e.target.value)}
               />
               <label className="absolute text-sm text-white duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark-text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-4 peer-focus:scale-75 peer-focus:-translate-y-6">
                 Your Email
@@ -33,6 +44,7 @@ const Login = () => {
                 type="password"
                 placeholder=""
                 className="block w-72 py-2.3 px-0 text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:text-white focus:border-blue-600 peer"
+                onChange={(e) => setPassword(e.target.value)}
               />
               <label className="absolute text-sm text-white duration-300 transform -translate-y-8 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark-text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-4 peer-focus:scale-75 peer-focus:-translate-y-6">
                 Your Password
@@ -51,6 +63,7 @@ const Login = () => {
             <button
               type="submit"
               className="w-full mb-4 text-[18px] mt-6 rounded-full bg-white text-emerald-800 hover:bg-amber-600 hover:text-white py-2 transition-colors duration-300"
+              onClick={signin}
             >
               Login
             </button>
