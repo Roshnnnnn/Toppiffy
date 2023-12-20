@@ -34,6 +34,7 @@ const cartSlice = createSlice({
         (total, item) => total + item.price * item.quantity
       );
     },
+    removeItems: (state, action) => {},
   },
 });
 

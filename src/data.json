@@ -16,7 +16,8 @@
       "protein": 3
     },
     "ingredients": ["Milk Solids", "Sugar", "Cocoa Butter", "Cocoa Mass"],
-    "rating": 4.7
+    "rating": 4.7,
+    "quantity": 10
   },
   {
     "id": 2,
@@ -35,7 +36,8 @@
       "protein": 2
     },
     "ingredients": ["Milk Solids", "Sugar", "Cocoa Butter", "Cocoa Mass"],
-    "rating": 4.5
+    "rating": 4.5,
+    "quantity": 10
   },
   {
     "id": 3,
@@ -60,7 +62,8 @@
       "Cocoa Mass",
       "Oreo Biscuits"
     ],
-    "rating": 4.8
+    "rating": 4.8,
+    "quantity": 10
   },
   {
     "id": 4,
@@ -79,7 +82,8 @@
       "protein": 2
     },
     "ingredients": ["Cocoa Mass", "Sugar", "Cocoa Butter", "Vanilla"],
-    "rating": 4.6
+    "rating": 4.6,
+    "quantity": 10
   },
   {
     "id": 5,
@@ -98,7 +102,8 @@
       "protein": 3
     },
     "ingredients": ["Milk Solids", "Sugar", "Cocoa Butter", "Cocoa Mass"],
-    "rating": 4.5
+    "rating": 4.5,
+    "quantity": 10
   },
   {
     "id": 6,
@@ -117,7 +122,8 @@
       "protein": 2
     },
     "ingredients": ["Sugar", "Cocoa Butter", "Milk Solids", "Cookie Pieces"],
-    "rating": 4.7
+    "rating": 4.7,
+    "quantity": 10
   },
   {
     "id": 7,
@@ -136,7 +142,8 @@
       "protein": 2
     },
     "ingredients": ["Cocoa Mass", "Sugar", "Cocoa Butter", "Vanilla"],
-    "rating": 4.8
+    "rating": 4.8,
+    "quantity": 10
   },
   {
     "id": 8,
@@ -155,7 +162,8 @@
       "protein": 4
     },
     "ingredients": ["Cocoa Mass", "Sugar", "Almonds", "Cocoa Butter"],
-    "rating": 4.6
+    "rating": 4.6,
+    "quantity": 10
   },
   {
     "id": 9,
@@ -174,7 +182,8 @@
       "protein": 2
     },
     "ingredients": ["Cocoa Mass", "Sugar", "Cocoa Butter", "Vanilla"],
-    "rating": 4.5
+    "rating": 4.5,
+    "quantity": 10
   },
   {
     "id": 10,
@@ -193,7 +202,8 @@
       "protein": 3
     },
     "ingredients": ["Milk Solids", "Sugar", "Cocoa Butter", "Cocoa Mass"],
-    "rating": 4.3
+    "rating": 4.3,
+    "quantity": 10
   },
   {
     "id": 11,
@@ -212,7 +222,8 @@
       "protein": 3
     },
     "ingredients": ["Milk Chocolate", "Hazelnuts", "Sugar", "Palm Oil"],
-    "rating": 4.9
+    "rating": 4.9,
+    "quantity": 10
   },
   {
     "id": 12,
@@ -231,7 +242,8 @@
       "protein": 3
     },
     "ingredients": ["Dark Chocolate", "Cocoa Mass", "Sugar", "Palm Oil"],
-    "rating": 4.8
+    "rating": 4.8,
+    "quantity": 10
   },
   {
     "id": 13,
@@ -250,7 +262,8 @@
       "protein": 2
     },
     "ingredients": ["Sugar", "Wheat Flour", "Cocoa Butter", "Cocoa Mass"],
-    "rating": 4.6
+    "rating": 4.6,
+    "quantity": 10
   },
   {
     "id": 14,
@@ -269,7 +282,8 @@
       "protein": 2
     },
     "ingredients": ["Milk Chocolate", "Crisped Rice", "Sugar", "Cocoa Butter"],
-    "rating": 4.4
+    "rating": 4.4,
+    "quantity": 10
   },
   {
     "id": 15,
@@ -288,7 +302,8 @@
       "protein": 2
     },
     "ingredients": ["Sugar", "Milk Solids", "Cocoa Butter", "Vanilla"],
-    "rating": 4.7
+    "rating": 4.7,
+    "quantity": 10
   },
   {
     "id": 16,
@@ -312,7 +327,8 @@
       "Cocoa Butter",
       "Aerated Center"
     ],
-    "rating": 4.5
+    "rating": 4.5,
+    "quantity": 10
   },
   {
     "id": 17,
@@ -337,7 +353,8 @@
       "Almonds",
       "Raisins"
     ],
-    "rating": 4.6
+    "rating": 4.6,
+    "quantity": 10
   },
   {
     "id": 18,
@@ -356,7 +373,8 @@
       "protein": 2
     },
     "ingredients": ["Milk Solids", "Sugar", "Cocoa Butter", "Vanilla"],
-    "rating": 4.4
+    "rating": 4.4,
+    "quantity": 10
   },
   {
     "id": 19,
@@ -381,7 +399,8 @@
       "Hazelnuts",
       "Palm Oil"
     ],
-    "rating": 4.8
+    "rating": 4.8,
+    "quantity": 10
   },
   {
     "id": 20,
@@ -406,6 +425,7 @@
       "Sugar",
       "Palm Oil"
     ],
-    "rating": 4.7
+    "rating": 4.7,
+    "quantity": 10
   }
 ]
