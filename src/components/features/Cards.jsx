@@ -1,11 +1,13 @@
+import { Link } from "react-router-dom";
+
 const Card = ({ image }) => {
   return (
     <div className="m-8">
-      <a href="/product-details">
+      <Link to={"/product"}>
         <div className="">
           <img src={image} alt="" className="h-full w-full rounded-custom" />
         </div>
-      </a>
+      </Link>
     </div>
   );
 };

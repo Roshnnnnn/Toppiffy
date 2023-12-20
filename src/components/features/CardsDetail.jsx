@@ -2,7 +2,7 @@ const CardsDetail = ({ item }) => {
   return (
     <div className="flex justify-center items-center my-12">
       <div className="border border-solid border-gray-500 rounded-md p-8 ">
-        <a href="/product-details">
+        <a href="/product-details/:id">
           <div className="w-[12rem] h-[16rem] ">
             <img
               src={item.images.image}
