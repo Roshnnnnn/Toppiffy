@@ -35,7 +35,12 @@ export default function Example() {
 
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={setOpen}>
+      <Dialog
+        as="div"
+        className="fixed inset-0 overflow-hidden"
+        onClose={setOpen}
+      >
+        {/* Dialog overlay */}
         <Transition.Child
           as={Fragment}
           enter="ease-in-out duration-500"
@@ -48,8 +53,10 @@ export default function Example() {
           <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
         </Transition.Child>
 
+        {/* Dialog content */}
         <div className="fixed inset-0 overflow-hidden">
           <div className="absolute inset-0 overflow-hidden">
+            {/* Close button */}
             <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
               <Transition.Child
                 as={Fragment}
@@ -62,6 +69,7 @@ export default function Example() {
               >
                 <Dialog.Panel className="pointer-events-auto w-screen max-w-md">
                   <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
+                    {/* Cart header */}
                     <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                       <div className="flex items-start justify-between">
                         <Dialog.Title className="text-lg font-medium text-gray-900">
@@ -80,6 +88,7 @@ export default function Example() {
                         </div>
                       </div>
 
+                      {/* Cart items */}
                       <div className="mt-8">
                         <div className="flow-root">
                           <ul
@@ -88,6 +97,7 @@ export default function Example() {
                           >
                             {products.map((product) => (
                               <li key={product.id} className="flex py-6">
+                                {/* Product image */}
                                 <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                   <img
                                     src={product.imageSrc}
@@ -96,6 +106,7 @@ export default function Example() {
                                   />
                                 </div>
 
+                                {/* Product details */}
                                 <div className="ml-4 flex flex-1 flex-col">
                                   <div>
                                     <div className="flex justify-between text-base font-medium text-gray-900">
@@ -115,6 +126,7 @@ export default function Example() {
                                       Qty {product.quantity}
                                     </p>
 
+                                    {/* Remove button */}
                                     <div className="flex">
                                       <button
                                         type="button"
@@ -132,6 +144,7 @@ export default function Example() {
                       </div>
                     </div>
 
+                    {/* Cart footer */}
                     <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
                       <div className="flex justify-between text-base font-medium text-gray-900">
                         <p>Subtotal</p>
