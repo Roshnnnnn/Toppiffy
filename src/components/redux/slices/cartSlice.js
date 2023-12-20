@@ -35,12 +35,12 @@ const cartSlice = createSlice({
         0
       );
     },
-    removeItems: (state, action) => {
-      const itemId = action.payload;
-      state.totalQuantity = state.totalQuantity.filter(
-        (item) => item.id !== itemId
-      );
-    },
+    // removeItems: (state, action) => {
+    //   const itemId = action.payload;
+    //   state.totalQuantity = state.totalQuantity.filter(
+    //     (item) => item.id !== itemId
+    //   );
+    // },
   },
 });
 
