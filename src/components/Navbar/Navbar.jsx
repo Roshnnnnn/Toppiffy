@@ -1,11 +1,7 @@
 // import { useState } from "react";
 // import Image from "../../assets/logo.webp";
-// import {
-//   FaHamburger,
-//   FaShoppingBag,
-//   FaSearch,
-//   FaRegUser,
-// } from "react-icons/fa";
+// import { FaHamburger, FaShoppingBag, FaSearch } from "react-icons/fa";
+// import { RiLoginBoxFill, RiLogoutBoxFill } from "react-icons/ri";
 // import { Link, NavLink } from "react-router-dom";
 
 // const Nav = () => {
@@ -14,7 +10,7 @@
 //     { name: "PRODUCT", link: "/product" },
 //     { name: "CONTACT", link: "/contact" },
 //     { name: <FaSearch />, link: "/search" },
-//     { name: <FaRegUser />, link: "/login" },
+//     { name: <RiLoginBoxFill />, link: "/login" },
 //   ];
 //   let [open, setOpen] = useState(false);
 //   let cartAmount = 0;
@@ -54,10 +50,10 @@
 //               </NavLink>
 //             </li>
 //           ))}
+//           <span className="inline-flex items-center rounded-md -ml-3 bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
+//             {cartAmount}
+//           </span>
 //           <li className="md:ml-8 text-xl md:my-0 my-7 mx-8">
-//             <span className="inline-flex items-center rounded-md -ml-3 bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
-//               {cartAmount}
-//             </span>
 //             <NavLink
 //               to="/cart"
 //               className={({ isActive }) =>
@@ -79,12 +75,8 @@
 
 import { useState } from "react";
 import Image from "../../assets/logo.webp";
-import {
-  FaHamburger,
-  FaShoppingBag,
-  FaSearch,
-  FaRegUser,
-} from "react-icons/fa";
+import { FaHamburger, FaShoppingBag, FaSearch } from "react-icons/fa";
+import { RiLoginBoxFill, RiLogoutBoxFill } from "react-icons/ri";
 import { Link, NavLink } from "react-router-dom";
 
 const Nav = () => {
@@ -93,10 +85,10 @@ const Nav = () => {
     { name: "PRODUCT", link: "/product" },
     { name: "CONTACT", link: "/contact" },
     { name: <FaSearch />, link: "/search" },
-    { name: <FaRegUser />, link: "/login" },
   ];
   let [open, setOpen] = useState(false);
   let cartAmount = 0;
+  let isLoggedIn = false; // Set this to true if the user is logged in
 
   return (
     <div className="shadow-md w-full sticky top-0 left-0">
@@ -147,6 +139,31 @@ const Nav = () => {
             >
               <FaShoppingBag />
             </NavLink>
+          </li>
+          <li className="md:ml-8 text-xl md:my-0 my-7 mx-8">
+            {isLoggedIn ? (
+              <NavLink
+                to="/logout"
+                className={({ isActive }) =>
+                  ` mb-7 hover:text-gray-400 duration-500 ${
+                    isActive ? "text-black" : "text-amber-600"
+                  }`
+                }
+              >
+                <RiLogoutBoxFill />
+              </NavLink>
+            ) : (
+              <NavLink
+                to="/login"
+                className={({ isActive }) =>
+                  ` mb-7 hover:text-gray-400 duration-500 ${
+                    isActive ? "text-black" : "text-amber-600"
+                  }`
+                }
+              >
+                <RiLoginBoxFill />
+              </NavLink>
+            )}
           </li>
         </ul>
       </div>
