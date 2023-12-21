@@ -4,6 +4,7 @@ import {
   FaShoppingBag,
   FaSearch,
   FaRegUser,
+  FaArrowLeft,
 } from "react-icons/fa";
 import Image from "../../assets/logo.webp";
 import { Link, NavLink, useNavigate } from "react-router-dom";
@@ -17,10 +18,11 @@ const Nav = () => {
     { name: "HOME", link: "/" },
     { name: "PRODUCT", link: "/product" },
     { name: "CONTACT", link: "/contact" },
-    // { name: <FaSearch />, link: "/search" },
   ];
+
   let [open, setOpen] = useState(false);
   let [drop, setDrop] = useState(false);
+  let [searchBar, setSearchBar] = useState(false);
   let cartAmount = 0;
 
   const navigate = useNavigate();
@@ -38,6 +40,14 @@ const Nav = () => {
 
   const handleLogin = () => {
     navigate("/login");
+  };
+
+  const handleSearch = () => {
+    setSearchBar(true);
+  };
+
+  const handleBack = () => {
+    setSearchBar(false);
   };
 
   return (
@@ -75,9 +85,26 @@ const Nav = () => {
               </NavLink>
             </li>
           ))}
-          <li className="md:ml-8 text-xl md:my-0 my-7 mx-8 ">
-            <FaSearch />
-          </li>
+          <div className="relative">
+            <li
+              className="md:ml-8 text-xl md:my-0 my-7 mx-8 cursor-pointer"
+              onClick={handleSearch}
+            >
+              <FaSearch />
+            </li>
+            {searchBar && (
+              <div className="flex absolute -top-[4rem] -left-[69rem] w-[87rem] h-[9rem] bg-white p-2 ocus:outline-none">
+                <button className="p-2 ml-2" onClick={handleBack}>
+                  <FaArrowLeft />
+                </button>
+                <input
+                  type="text"
+                  className="w-full p-2 rounded focus:outline-none "
+                  placeholder="Search your favourite"
+                />
+              </div>
+            )}
+          </div>
           <li className="md:ml-8 text-xl md:my-0 my-7 mx-8">
             <NavLink
               to="/cart"
