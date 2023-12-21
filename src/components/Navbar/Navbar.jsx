@@ -18,16 +18,14 @@ const Nav = () => {
     { name: "PRODUCT", link: "/product" },
     { name: "CONTACT", link: "/contact" },
     { name: <FaSearch />, link: "/search" },
-    // { name: <FaRegUser />, link: "/login" },
   ];
   let [open, setOpen] = useState(false);
+  let [drop, setDrop] = useState(false);
   let cartAmount = 0;
-
-  const menu = ["Login", "Logout"];
 
   const navigate = useNavigate();
 
-  const signin = () => {
+  const handleLogout = () => {
     signOut(auth)
       .then(() => {
         toast.success("Logout Done");
@@ -36,6 +34,10 @@ const Nav = () => {
       .catch((error) => {
         toast.error(error);
       });
+  };
+
+  const handleLogin = () => {
+    navigate("/login");
   };
 
   return (
@@ -73,9 +75,6 @@ const Nav = () => {
               </NavLink>
             </li>
           ))}
-          {/* <span className="inline-flex items-center rounded-md -ml-3 bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
-            {cartAmount}
-          </span> */}
           <li className="md:ml-8 text-xl md:my-0 my-7 mx-8">
             <NavLink
               to="/cart"
@@ -88,24 +87,68 @@ const Nav = () => {
               <FaShoppingBag />
             </NavLink>
           </li>
-          <li className="md:ml-8 text-xl md:my-0 my-7 mx-8 justify-center cursor-pointer">
-            <NavLink
-              to="/login"
-              className={({ isActive }) =>
-                ` mb-7 hover:text-gray-400 duration-500 ${
-                  isActive ? "text-black" : "text-amber-600"
-                }`
-              }
+          {/* <li className="md:ml-8 text-xl md:my-0 my-7 mx-8 justify-center cursor-pointer">
+            <button
+              className=" text-amber-600 font-semibold rounded inline-flex items-center"
+              onClick={auth.currentUser ? handleLogout : handleLogin}
             >
-              <FaRegUser className="" />
-              {/* <div className="bg-amber-600 px-6 py-6 text-white justify-center"> */}
-              <ul className="">
-                {menu.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
-              {/* </div> */}
-            </NavLink>
+              <span className="mr-1">
+                <FaRegUser />
+              </span>
+            </button>
+            <div className="absolute z-10 hidden right-0 mt-2 w-36 bg-white rounded-md shadow-lg">
+              {auth.currentUser ? (
+                <button className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left">
+                  Logout
+                </button>
+              ) : (
+                <button className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left">
+                  Login
+                </button>
+              )}
+            </div>
+          </li> */}
+          <li className="md:ml-8 text-xl md:my-0 my-7 mx-8 justify-center cursor-pointer">
+            <button
+              className="text-amber-600 font-semibold rounded inline-flex items-center"
+              onClick={() => setDrop(!drop)} // Toggle dropdown on click
+            >
+              <span className="mr-1">
+                <FaRegUser />
+              </span>
+              {drop && (
+                <svg
+                  className="ml-2 -mr-1 h-4 w-4 rotate-180"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              )}
+            </button>
+            {drop && ( // Show dropdown content when open
+              <div className="absolute z-10 mt-2 right-0 w-36 bg-white rounded-md shadow-lg">
+                {auth.currentUser ? (
+                  <button
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </button>
+                ) : (
+                  <button
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
+                    onClick={handleLogin}
+                  >
+                    Login
+                  </button>
+                )}
+              </div>
+            )}
           </li>
         </ul>
       </div>
