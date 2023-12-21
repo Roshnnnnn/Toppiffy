@@ -1,12 +1,41 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BiUser } from "react-icons/bi";
 import { AiOutlineUnlock } from "react-icons/ai";
 import { useState } from "react";
+import { auth } from "../config/firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Signup = () => {
-  const [value, setValue] = useState({ email: "", password: "" });
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [cnfrmPass, setCnfrmPass] = useState("");
+
+  const navigate = useNavigate();
+
+  const registerUser = (e) => {
+    e.preventDefault();
+    if (password !== cnfrmPass) {
+      toast.error("Password not matched");
+    }
+
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed up
+        const user = userCredential.user;
+        console.log(user);
+        toast.success("Sign up complete");
+        navigate("/login");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
+
   return (
     <div>
+      <ToastContainer />
       <div
         className="bg-cover bg-center h-screen flex justify-center items-center"
         style={{
@@ -19,12 +48,14 @@ const Signup = () => {
             <h1 className="text-4xl font-bold text-white mb-6 text-center">
               Sign Up
             </h1>
-            <form action="" className="flex flex-col">
+            <form action="" className="flex flex-col" onSubmit={registerUser}>
               <div className="my-4 relative">
                 <input
                   type="email"
                   className="block w-72 py-2.3 px-0 text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:text-white focus:border-blue-600 peer"
                   placeholder=""
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
                 <label className="absolute text-sm text-white duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark-text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-4 peer-focus:scale-75 peer-focus:-translate-y-6">
                   Your Email
@@ -34,8 +65,10 @@ const Signup = () => {
               <div className="my-4 relative">
                 <input
                   type="password"
-                  placeholder=""
                   className="block w-72 py-2.3 px-0 text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:text-white focus:border-blue-600 peer"
+                  placeholder=""
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
                 <label className="absolute text-sm text-white duration-300 transform -translate-y-8 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark-text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-4 peer-focus:scale-75 peer-focus:-translate-y-6">
                   Password
@@ -45,8 +78,10 @@ const Signup = () => {
               <div className="my-4 relative">
                 <input
                   type="password"
-                  placeholder=""
                   className="block w-72 py-2.3 px-0 text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:text-white focus:border-blue-600 peer"
+                  placeholder=""
+                  value={cnfrmPass}
+                  onChange={(e) => setCnfrmPass(e.target.value)}
                 />
                 <label className="absolute text-sm text-white duration-300 transform -translate-y-8 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark-text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-4 peer-focus:scale-75 peer-focus:-translate-y-6">
                   Confirm Password
