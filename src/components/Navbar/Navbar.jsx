@@ -66,7 +66,7 @@ const Nav = () => {
           <FaHamburger name={open ? "close" : "menu"} />
         </div>
         <ul
-          className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static cursor-pointer text-amber-600  bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-200 ease-in-out ${
+          className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static text-amber-600  bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-200 ease-in-out ${
             open ? "top-20" : "top-[-490px]"
           }`}
         >
@@ -93,8 +93,8 @@ const Nav = () => {
               <FaSearch />
             </li>
             {searchBar && (
-              <div className="flex absolute -top-[4rem] -left-[69rem] w-[87rem] h-[9rem] bg-white p-2 ocus:outline-none">
-                <button className="p-2 ml-2" onClick={handleBack}>
+              <div className="flex lg:absolute lg:-top-[4rem] lg:-left-[69rem] md:relative lg:w-[87rem] md:w-full lg:h-[9rem] bg-white p-2 focus:outline-none">
+                <button className="p-2 ml-2 text-2xl" onClick={handleBack}>
                   <FaArrowLeft />
                 </button>
                 <input
