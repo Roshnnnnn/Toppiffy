@@ -31,6 +31,7 @@ const Login = () => {
   return (
     <div>
       <ToastContainer />
+
       <div
         className="bg-cover bg-center h-screen flex justify-center items-center"
         style={{
@@ -77,7 +78,7 @@ const Login = () => {
                   <input type="checkbox" name="" id="" className="mr-2" />
                   <label htmlFor="Remember Me">Remember me</label>
                 </div>
-                <Link to="/" className="text-blue-600">
+                <Link to="/reset" className="text-blue-600">
                   Forgot Password
                 </Link>
               </div>

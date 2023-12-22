@@ -23,7 +23,7 @@ const Nav = () => {
   let [open, setOpen] = useState(false);
   let [drop, setDrop] = useState(false);
   let [searchBar, setSearchBar] = useState(false);
-  let cartAmount = 0;
+  // let cartAmount = 0;
 
   const navigate = useNavigate();
 

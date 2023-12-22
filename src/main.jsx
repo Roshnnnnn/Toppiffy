@@ -18,6 +18,7 @@ import Error from "./Error.jsx";
 import Cart from "./components/Cart/Cart.jsx";
 import { store } from "./components/redux/store.js";
 import { Provider } from "react-redux";
+import Reset from "./components/Profile/Reset.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,6 +29,7 @@ const router = createBrowserRouter(
       <Route path="contact" element={<ContactUs />} />
       <Route path="login" element={<Login />} />
       <Route path="signup" element={<Signup />} />
+      <Route path="reset" element={<Reset />} />
       <Route path="cart" element={<Cart />} />
       <Route path="*" element={<Error />} />
     </Route>
