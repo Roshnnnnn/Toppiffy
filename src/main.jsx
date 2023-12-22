@@ -16,7 +16,7 @@ import ContactUs from "./components/Contact/ContactUs.jsx";
 import Signup from "./components/Profile/Signup.jsx";
 import Error from "./Error.jsx";
 import Cart from "./components/Cart/Cart.jsx";
-import { store } from "./components/redux/store.js";
+import store from "./components/redux/store.js";
 import { Provider } from "react-redux";
 import Reset from "./components/Profile/Reset.jsx";
 

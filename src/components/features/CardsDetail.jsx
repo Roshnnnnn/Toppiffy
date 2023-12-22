@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const CardsDetail = ({ item }) => {
   return (
     <div className="flex justify-center items-center my-12">
-      <div className="border border-solid border-gray-500 rounded-md p-8 ">
+      <div className="p-8 ">
         <Link to="/product-details/:id">
           <div className="w-[12rem] h-[16rem] ">
             <img

@@ -6,6 +6,9 @@ export default {
       borderRadius: {
         custom: "10%",
       },
+      width: {
+        80: "80%",
+      },
     },
   },
   plugins: [],

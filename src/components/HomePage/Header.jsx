@@ -30,7 +30,7 @@ const Header = () => {
         <img
           src={images[image]}
           alt={`Image ${image + 1}`}
-          className="w-screen h-[40rem]"
+          className="w-full lg:h-[40rem] object-contain md:object-cover"
         />
       </div>
       <div className="text-4xl justify-center text-center m-12">
@@ -41,7 +41,7 @@ const Header = () => {
           <Card image={Image7} />
         </div>
       </div>
-      <div className="text-4xl justify-center text-center m-12">
+      <div className="text-4xl justify-center text-center m-8">
         <h2 className="my-8">Best Sellers</h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
           {data.slice(0, 3).map((item, index) => (

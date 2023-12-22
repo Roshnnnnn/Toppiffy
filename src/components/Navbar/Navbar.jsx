@@ -93,18 +93,19 @@ const Nav = () => {
               <FaSearch />
             </li>
             {searchBar && (
-              <div className="flex lg:absolute lg:-top-[4rem] lg:-left-[69rem] md:relative lg:w-[87rem] md:w-full lg:h-[9rem] bg-white p-2 focus:outline-none">
+              <div className="flex md:absolute lg:top-[5rem] lg:-left-[40rem] lg:w-[50rem] md:w-[20rem] md:top-[5rem] md:-left-[4rem] lg:h-[7rem] bg-white p-2 focus:outline-none transition-all duration-500 ease-in-out opacity-100 delay-100">
                 <button className="p-2 ml-2 text-2xl" onClick={handleBack}>
                   <FaArrowLeft />
                 </button>
                 <input
                   type="text"
-                  className="w-full p-2 rounded focus:outline-none "
+                  className="w-full p-2 rounded focus:outline-none"
                   placeholder="Search your favourite"
                 />
               </div>
             )}
           </div>
+
           <li className="md:ml-8 text-xl md:my-0 my-7 mx-8">
             <NavLink
               to="/cart"
