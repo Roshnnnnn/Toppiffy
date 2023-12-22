@@ -1,11 +1,11 @@
 import { useState } from "react";
 import {
-  FaHamburger,
   FaShoppingBag,
   FaSearch,
   FaRegUser,
   FaArrowLeft,
 } from "react-icons/fa";
+import { GiChocolateBar } from "react-icons/gi";
 import Image from "../../assets/logo.webp";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -63,7 +63,7 @@ const Nav = () => {
           onClick={() => setOpen(!open)}
           className="text-3xl absolute right-8 top-6 cursor-pointer md:hidden"
         >
-          <FaHamburger name={open ? "close" : "menu"} />
+          <GiChocolateBar name={open ? "close" : "menu"} />
         </div>
         <ul
           className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static text-amber-600  bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-200 ease-in-out ${
