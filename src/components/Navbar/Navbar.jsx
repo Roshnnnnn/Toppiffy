@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   FaShoppingBag,
   FaSearch,
@@ -10,8 +10,10 @@ import Image from "../../assets/logo.webp";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { signOut } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../config/firebase";
+import { useDispatch } from "react-redux";
+import { SET_ACTIVE_USER } from "../redux/slices/authSlice";
 
 const Nav = () => {
   let Links = [
@@ -22,10 +24,12 @@ const Nav = () => {
 
   let [open, setOpen] = useState(false);
   let [drop, setDrop] = useState(false);
+  let [displayName, setDisplayName] = useState("");
   let [searchBar, setSearchBar] = useState(false);
   // let cartAmount = 0;
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleLogout = () => {
     signOut(auth)
@@ -45,6 +49,18 @@ const Nav = () => {
   const handleSearch = () => {
     setSearchBar(!searchBar);
   };
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const uid = user.uid;
+        dispatch(SET_ACTIVE_USER({ email: user.email, userId: user.uid }));
+        setDisplayName(user.displayName);
+      } else {
+        setDisplayName("");
+      }
+    });
+  }, []);
 
   return (
     <div className="shadow-md w-full sticky top-0 left-0">

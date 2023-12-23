@@ -6,26 +6,51 @@ import { auth } from "../config/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { SET_ACTIVE_USER } from "../redux/slices/authSlice";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const signinUser = async (e) => {
     e.preventDefault();
-    // console.log(email, password);
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in
         const user = userCredential.user;
         console.log(user);
-        toast.success("Welcome");
+        toast.success("Welcome Login Successful");
         navigate("/");
       })
       .catch((error) => {
         toast.error(error.message);
       });
+  };
+
+  const guestLogin = async () => {
+    try {
+      const response = await signInWithEmailAndPassword(
+        auth,
+        "hello@gmail.com",
+        "Hello@1234"
+      );
+      if (response) {
+        dispatch(
+          SET_ACTIVE_USER({
+            email: "hello@.com",
+            userId: response.userId,
+          })
+        );
+        toast.success("Welcome Login Successful");
+        navigate("/");
+      } else {
+        console.log(response.message);
+      }
+    } catch (error) {
+      console.error("An error occurred:", error);
+    }
   };
 
   return (
@@ -88,7 +113,13 @@ const Login = () => {
               >
                 Login
               </button>
-
+              <button
+                type="submit"
+                onClick={guestLogin}
+                className="w-full mb-4 text-[18px] mt-6 rounded-full bg-white text-emerald-800 hover:bg-amber-600 hover:text-white py-2 transition-colors duration-300"
+              >
+                Guest Login
+              </button>
               <div>
                 <span className="m-4 ">
                   New Here?
