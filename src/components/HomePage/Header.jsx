@@ -30,7 +30,7 @@ const Header = () => {
         <img
           src={images[image]}
           alt={`Image ${image + 1}`}
-          className="w-full lg:h-[40rem] object-contain md:object-cover"
+          className="w-full lg:h-[40rem] object-contain md:object-cover md:w-screen md:h-[25rem] sm:h-[19rem]"
         />
       </div>
       <div className="text-4xl justify-center text-center m-12">

@@ -46,10 +46,6 @@ const Nav = () => {
     setSearchBar(!searchBar);
   };
 
-  const handleBack = () => {
-    setSearchBar(false);
-  };
-
   return (
     <div className="shadow-md w-full sticky top-0 left-0">
       <div className="md:flex items-center justify-between bg-white py-4 md:px-10 px-7">
@@ -87,14 +83,17 @@ const Nav = () => {
           ))}
           <div className="relative">
             <li
-              className="md:ml-8 text-xl md:my-0 my-7 mx-8 cursor-pointer"
+              className="md:ml-8 text-xl md:my-0  my-7 mx-8 cursor-pointer"
               onClick={handleSearch}
             >
               <FaSearch />
             </li>
             {searchBar && (
-              <div className="flex md:absolute lg:top-[5rem] lg:-left-[40rem] lg:w-[50rem] md:w-[20rem] md:top-[5rem] md:-left-[4rem] lg:h-[7rem] bg-white p-2 focus:outline-none transition-all duration-500 ease-in-out opacity-100 delay-100">
-                <button className="p-2 ml-2 text-2xl" onClick={handleBack}>
+              <div className="flex md:absolute lg:top-[5rem] lg:-left-[40rem] lg:w-[50rem] md:w-[20rem] md:top-[5rem] sm:-top-[1rem] md:-left-[4rem] lg:h-[7rem] bg-white p-2 focus:outline-none transition-all duration-500 ease-in-out opacity-100 delay-100">
+                <button
+                  className="p-2 ml-2 sm:ml-4 text-2xl"
+                  onClick={handleSearch}
+                >
                   <FaArrowLeft />
                 </button>
                 <input
