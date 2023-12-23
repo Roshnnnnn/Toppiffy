@@ -24,12 +24,12 @@ const Nav = () => {
 
   let [open, setOpen] = useState(false);
   let [drop, setDrop] = useState(false);
-  let [displayName, setDisplayName] = useState("");
+  // let [displayName, setDisplayName] = useState("");
   let [searchBar, setSearchBar] = useState(false);
   // let cartAmount = 0;
 
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const handleLogout = () => {
     signOut(auth)
@@ -50,17 +50,17 @@ const Nav = () => {
     setSearchBar(!searchBar);
   };
 
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        const uid = user.uid;
-        dispatch(SET_ACTIVE_USER({ email: user.email, userId: user.uid }));
-        setDisplayName(user.displayName);
-      } else {
-        setDisplayName("");
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   onAuthStateChanged(auth, (user) => {
+  //     if (user) {
+  //       const uid = user.uid;
+  //       dispatch(SET_ACTIVE_USER({ email: user.email, userId: user.uid }));
+  //       setDisplayName(user.displayName);
+  //     } else {
+  //       setDisplayName("");
+  //     }
+  //   });
+  // }, []);
 
   return (
     <div className="shadow-md w-full sticky top-0 left-0">
