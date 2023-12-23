@@ -43,7 +43,7 @@ const Nav = () => {
   };
 
   const handleSearch = () => {
-    setSearchBar(true);
+    setSearchBar(!searchBar);
   };
 
   const handleBack = () => {
