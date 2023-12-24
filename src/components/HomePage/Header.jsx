@@ -14,6 +14,8 @@ import Footer from "../Footer/Footer";
 
 const Header = () => {
   const [image, setImage] = useState(0);
+  const [cadbury, setCadbury] = useState([]);
+  const [nestle, setNestle] = useState([]);
   const images = [Image1, Image2, Image3, Image4];
 
   useEffect(() => {
@@ -22,6 +24,13 @@ const Header = () => {
     }, 2000);
     return () => clearTimeout(timeout);
   }, [image]);
+
+  useEffect(() => {
+    const filterCadbury = data.filter((item) => item.brand === "CADBURY");
+    const filterNestle = data.filter((item) => item.brand === "NESTLE");
+    setCadbury(filterCadbury);
+    setNestle(filterNestle);
+  }, []);
 
   return (
     <div>

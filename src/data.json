@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "brand": "Cadbury",
+    "brand": "CADBURY",
     "name": "Dairy Milk Silk",
     "images": {
       "image": "https://5.imimg.com/data5/OY/EU/OW/SELLER-39546977/cadbury-dairy-milk-silk-valentine-chocolate-bar-250.jpeg",
@@ -21,7 +21,7 @@
   },
   {
     "id": 2,
-    "brand": "Cadbury",
+    "brand": "CADBURY",
     "name": "5 Star",
     "images": {
       "image": "https://5.imimg.com/data5/SELLER/Default/2023/2/VG/HV/OS/144328445/5star3d-b-300719-500x500.jpg",
@@ -41,7 +41,7 @@
   },
   {
     "id": 3,
-    "brand": "Cadbury",
+    "brand": "CADBURY",
     "name": "Silk Oreo",
     "images": {
       "image": "https://5.imimg.com/data5/SELLER/Default/2023/7/327404398/JS/EQ/OS/48534106/cadbury-dairy-milk-silk-oreo-chocolate-bar-130-g-pack-of-4-500x500.jpeg",
@@ -67,7 +67,7 @@
   },
   {
     "id": 4,
-    "brand": "Cadbury",
+    "brand": "CADBURY",
     "name": "Bournville",
     "images": {
       "image": "https://images-na.ssl-images-amazon.com/images/I/81EsS5q3umL.jpg",
@@ -87,7 +87,7 @@
   },
   {
     "id": 5,
-    "brand": "Hershey's",
+    "brand": "HERSHEYS",
     "name": "Kisses Dark ",
     "images": {
       "image": "https://cococart.in/cdn/shop/products/710xriaH_PL._SL1500_720x.jpg?v=1676358909",
@@ -107,7 +107,7 @@
   },
   {
     "id": 6,
-    "brand": "Hershey's",
+    "brand": "HERSHEYS",
     "name": "Kisses Creamy Milk",
     "images": {
       "image": "https://cococart.in/cdn/shop/files/1CH1979_1800x1800.png?v=1690526595",
@@ -127,7 +127,7 @@
   },
   {
     "id": 7,
-    "brand": "Hershey's",
+    "brand": "HERSHEYS",
     "name": "Kisses Extra Creamy Milk",
     "images": {
       "image": "https://cococart.in/cdn/shop/files/1CH1975_1800x1800.png?v=1690526455",
@@ -147,7 +147,7 @@
   },
   {
     "id": 8,
-    "brand": "Hershey's",
+    "brand": "HERSHEYS",
     "name": "Kisses Milk With Hazelnuts",
     "images": {
       "image": "https://cococart.in/cdn/shop/files/1CH1977_1800x1800.png?v=1690526525",
@@ -167,7 +167,7 @@
   },
   {
     "id": 9,
-    "brand": "Whittaker's",
+    "brand": "WHITTAKER",
     "name": "Pick & Mix Milk Squares",
     "images": {
       "image": "https://cococart.in/cdn/shop/products/1CH1672_1800x1800.jpg?v=1672997960",
@@ -187,7 +187,7 @@
   },
   {
     "id": 10,
-    "brand": "Whittakers",
+    "brand": "WHITTAKER",
     "name": "White Bar",
     "images": {
       "image": "https://cococart.in/cdn/shop/products/Whittaker_s-25_1800x1800.png?v=1659949366",
@@ -247,7 +247,7 @@
   },
   {
     "id": 13,
-    "brand": "Nestle",
+    "brand": "NESTLE",
     "name": "Kit Kat",
     "images": {
       "image": "https://www.bigbasket.com/media/uploads/p/l/286721_2-nestle-kit-kat-4-finger-bar-dark-chocolate.jpg",
@@ -267,7 +267,7 @@
   },
   {
     "id": 14,
-    "brand": "Nestle",
+    "brand": "NESTLE",
     "name": "Crunch",
     "images": {
       "image": "https://images-cdn.ubuy.co.in/633aaafcfc37f67e727aab5b-36-bars-of-nestle-crunch.jpg",
@@ -287,7 +287,7 @@
   },
   {
     "id": 15,
-    "brand": "Nestle",
+    "brand": "NESTLE",
     "name": "Milky Bar",
     "images": {
       "image": "https://www.bigbasket.com/media/uploads/p/l/40090019_4-nestle-milkybar-bar.jpg",
@@ -307,7 +307,7 @@
   },
   {
     "id": 16,
-    "brand": "Nestle",
+    "brand": "NESTLE",
     "name": "Aero",
     "images": {
       "image": "https://m.media-amazon.com/images/I/418KFSpg72L.jpg",
@@ -332,7 +332,7 @@
   },
   {
     "id": 17,
-    "brand": "Whittaker's",
+    "brand": "WHITTAKER",
     "name": "Creamy Milk Bar",
     "images": {
       "image": "https://cococart.in/cdn/shop/products/1CH1607_1800x1800.png?v=1665385810",
@@ -358,7 +358,7 @@
   },
   {
     "id": 18,
-    "brand": "Whittaker's",
+    "brand": "WHITTAKER",
     "name": "Creamy Milk Mini Slabs",
     "images": {
       "image": "https://cococart.in/cdn/shop/products/1CH1376_1800x1800.png?v=1659948836",
