@@ -1,6 +1,13 @@
-import React from "react";
+// import { useState, useEffect } from "react";
+// import products from '../../data.json'
 
 const FilterSection = () => {
+  // const [data, setData] = useState(products);
+
+  // useEffect(() => {
+  //   const filterProducts = products.filter((item) => item.brand === "Cadbury");
+  //   setData(filterProducts);
+  // }, []);
   return (
     <div className="flex flex-col md:flex-row justify-between items-center p-4 mx-12 bg-gray-200">
       <select className="p-2 border border-gray-300 rounded mb-2 md:mb-0 md:mr-2">

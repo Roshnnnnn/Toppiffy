@@ -2,7 +2,7 @@
 import Navbar from "../Navbar/Navbar";
 // import Footer from "../Footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../redux/slices/cartSlice";
+// import { addItems } from "../redux/slices/cartSlice";
 
 // const ProductDetails = ({ product }) => {
 //   const [images, setImages] = useState({
@@ -163,7 +163,7 @@ const ProductDetails = () => {
               <div className="flex justify-center items-center mt-4">
                 <button
                   className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                  onClick={() => dispatch(addToCart(items))}
+                  onClick={() => dispatch()}
                 >
                   Add to Cart
                 </button>
