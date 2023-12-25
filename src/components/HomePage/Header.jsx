@@ -7,6 +7,7 @@ import data from "../../data";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import Slider from "./Slider";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -19,10 +20,16 @@ const Header = () => {
       </div>
       <div className="text-4xl justify-center text-center m-12">
         <div className="my-8">Top Brands</div>
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-          <Card image={Image5} />
-          <Card image={Image6} />
-          <Card image={Image7} />
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-[8rem]">
+          <Link to={"/product"}>
+            <Card image={Image5} />
+          </Link>
+          <Link to={"/product"}>
+            <Card image={Image6} />
+          </Link>
+          <Link to={"/product"}>
+            <Card image={Image7} />
+          </Link>
         </div>
       </div>
       <div className="text-4xl justify-center text-center m-8">
