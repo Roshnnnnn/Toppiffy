@@ -11,11 +11,10 @@ import CardsDetail from "../features/CardsDetail";
 import data from "../../data";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
+import Slider from "./Slider";
 
 const Header = () => {
   const [image, setImage] = useState(0);
-  const [cadbury, setCadbury] = useState([]);
-  const [nestle, setNestle] = useState([]);
   const images = [Image1, Image2, Image3, Image4];
 
   useEffect(() => {
@@ -25,32 +24,26 @@ const Header = () => {
     return () => clearTimeout(timeout);
   }, [image]);
 
-  useEffect(() => {
-    const filterCadbury = data.filter((item) => item.brand === "CADBURY");
-    const filterNestle = data.filter((item) => item.brand === "NESTLE");
-    setCadbury(filterCadbury);
-    setNestle(filterNestle);
-  }, []);
-
   return (
     <div>
       <Navbar />
-      <div className="w-full">
+      <Slider />
+      {/* <div className="w-full">
         <img
           src={images[image]}
           alt={`Image ${image + 1}`}
           className="w-full lg:h-[40rem] object-contain md:object-cover md:w-screen md:h-[25rem] sm:h-[19rem]"
         />
-      </div>
-      <div className="text-4xl justify-center text-center m-12">
+      </div> */}
+      {/* <div className="text-4xl justify-center text-center m-12">
         <div className="my-8">Top Brands</div>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
           <Card image={Image5} />
           <Card image={Image6} />
           <Card image={Image7} />
         </div>
-      </div>
-      <div className="text-4xl justify-center text-center m-8">
+      </div> */}
+      {/* <div className="text-4xl justify-center text-center m-8">
         <h2 className="my-8">Best Sellers</h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
           {data.slice(0, 3).map((item, index) => (
@@ -59,8 +52,8 @@ const Header = () => {
             </div>
           ))}
         </div>
-      </div>
-      <Footer />
+      </div> */}
+      {/* <Footer /> */}
     </div>
   );
 };
