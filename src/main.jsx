@@ -15,7 +15,7 @@ import ProductDetails from "./components/Product/ProductDetails.jsx";
 import ContactUs from "./components/Contact/ContactUs.jsx";
 import Signup from "./components/Profile/Signup.jsx";
 import Error from "./Error.jsx";
-import Cart from "./components/Cart/Cart.jsx";
+// import Cart from "./components/Cart/Cart.jsx";
 import Reset from "./components/Profile/Reset.jsx";
 import store from "./components/redux/store.js";
 import { Provider } from "react-redux";
@@ -30,7 +30,7 @@ const router = createBrowserRouter(
       <Route path="login" element={<Login />} />
       <Route path="signup" element={<Signup />} />
       <Route path="reset" element={<Reset />} />
-      <Route path="cart" element={<Cart />} />
+      {/* <Route path="cart" element={<Cart />} /> */}
       <Route path="*" element={<Error />} />
     </Route>
   )

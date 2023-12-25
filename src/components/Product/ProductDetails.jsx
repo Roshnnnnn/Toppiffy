@@ -2,7 +2,8 @@
 import Navbar from "../Navbar/Navbar";
 // import Footer from "../Footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
-// import { addItems } from "../redux/slices/cartSlice";
+import cartActions from "../redux/slices/cartSlice";
+import { useParams } from "react-router-dom";
 
 // const ProductDetails = ({ product }) => {
 //   const [images, setImages] = useState({
@@ -140,37 +141,42 @@ import { useDispatch, useSelector } from "react-redux";
 const ProductDetails = () => {
   const items = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
+  const { id } = useParams();
 
   return (
     <div>
       <Navbar />
       <div>
-        {items.map((item, index) => (
-          <div key={index}>
-            <div className="container mx-auto">
-              <div className="flex justify-center items-center">
-                <img
-                  src={item.images.image}
-                  alt="Product"
-                  className="w-64 h-64"
-                />
+        {items.filter((product) =>
+          (product.id === id).map((item, index) => (
+            <>
+              <div key={index}>
+                <div className="container mx-auto">
+                  <div className="flex justify-center items-center">
+                    <img
+                      src={item.images.image}
+                      alt="Product"
+                      className="w-64 h-64"
+                    />
+                  </div>
+                  <div className="text-center mt-4">
+                    <h2 className="text-xl font-bold">{item.name}</h2>
+                    <p className="text-gray-500">{item.description}</p>
+                    <p className="text-lg font-bold mt-2">${item.price}</p>
+                  </div>
+                  <div className="flex justify-center items-center mt-4">
+                    <button
+                      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                      onClick={() => dispatch()}
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
               </div>
-              <div className="text-center mt-4">
-                <h2 className="text-xl font-bold">{item.name}</h2>
-                <p className="text-gray-500">{item.description}</p>
-                <p className="text-lg font-bold mt-2">${item.price}</p>
-              </div>
-              <div className="flex justify-center items-center mt-4">
-                <button
-                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                  onClick={() => dispatch()}
-                >
-                  Add to Cart
-                </button>
-              </div>
-            </div>
-          </div>
-        ))}
+            </>
+          ))
+        )}
       </div>
       =
     </div>

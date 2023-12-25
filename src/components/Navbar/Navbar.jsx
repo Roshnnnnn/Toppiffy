@@ -1,19 +1,12 @@
-import { useState, useEffect } from "react";
-import {
-  FaShoppingBag,
-  FaSearch,
-  FaRegUser,
-  FaArrowLeft,
-} from "react-icons/fa";
+import { useState } from "react";
+import { FaShoppingBag, FaSearch, FaRegUser } from "react-icons/fa";
 import { GiChocolateBar } from "react-icons/gi";
 import Image from "../../assets/logo.webp";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { signOut } from "firebase/auth";
 import { auth } from "../config/firebase";
-import { useDispatch } from "react-redux";
-import { SET_ACTIVE_USER } from "../redux/slices/authSlice";
 
 const Nav = () => {
   let Links = [
@@ -22,14 +15,12 @@ const Nav = () => {
     { name: "CONTACT", link: "/contact" },
   ];
 
-  let [open, setOpen] = useState(false);
-  let [drop, setDrop] = useState(false);
-  // let [displayName, setDisplayName] = useState("");
-  let [searchBar, setSearchBar] = useState(false);
-  // let cartAmount = 0;
+  const [open, setOpen] = useState(false);
+  const [drop, setDrop] = useState(false);
+  const [searchBar, setSearchBar] = useState(false);
+  const [term, setTerm] = useState("");
 
   const navigate = useNavigate();
-  // const dispatch = useDispatch();
 
   const handleLogout = () => {
     signOut(auth)
@@ -50,17 +41,10 @@ const Nav = () => {
     setSearchBar(!searchBar);
   };
 
-  // useEffect(() => {
-  //   onAuthStateChanged(auth, (user) => {
-  //     if (user) {
-  //       const uid = user.uid;
-  //       dispatch(SET_ACTIVE_USER({ email: user.email, userId: user.uid }));
-  //       setDisplayName(user.displayName);
-  //     } else {
-  //       setDisplayName("");
-  //     }
-  //   });
-  // }, []);
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log(term);
+  };
 
   return (
     <div className="shadow-md w-full sticky top-0 left-0">
@@ -105,18 +89,23 @@ const Nav = () => {
               <FaSearch />
             </li>
             {searchBar && (
-              <div className="flex md:absolute lg:top-[5rem] lg:-left-[40rem] lg:w-[50rem] md:w-[20rem] md:top-[5rem] sm:-top-[1rem] md:-left-[4rem] lg:h-[7rem] bg-white p-2 focus:outline-none transition-all duration-500 ease-in-out opacity-100 delay-100">
-                <button
-                  className="p-2 ml-2 sm:ml-4 text-2xl"
-                  onClick={handleSearch}
-                >
-                  <FaArrowLeft />
-                </button>
-                <input
-                  type="text"
-                  className="w-full p-2 rounded focus:outline-none"
-                  placeholder="Search your favourite"
-                />
+              <div className="flex md:absolute lg:top-[5rem] lg:-left-[15rem] lg:w-[30rem] md:w-[20rem] md:top-[5rem] sm:-top-[1rem] md:-left-[4rem] bg-white p-2 focus:outline-none transition-all duration-500 ease-in-out opacity-100 delay-100">
+                <form onSubmit={submitHandler}>
+                  <div className="relative flex">
+                    <input
+                      type="text"
+                      value={term}
+                      onChange={(e) => {
+                        setTerm(e.target.value);
+                      }}
+                      className="lg:w-[28rem] p-2 rounded focus:outline-none pl-16"
+                      placeholder="Search your favourite"
+                    />
+                    <span className="absolute inset-y-0 left-4 flex items-center pl-3">
+                      <FaSearch onClick={handleSearch} />
+                    </span>
+                  </div>
+                </form>
               </div>
             )}
           </div>

@@ -8,7 +8,7 @@ import Image5 from "../../assets/hershey.webp";
 import Image6 from "../../assets/Nestle.webp";
 import Image7 from "../../assets/Whittakars.webp";
 import CardsDetail from "../features/CardsDetail";
-import data from "../../data.json";
+import data from "../../data";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 
