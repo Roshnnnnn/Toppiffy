@@ -2,14 +2,14 @@ import { Link } from "react-router-dom";
 
 const CardsDetail = ({ item }) => {
   return (
-    <div className="flex justify-center items-center my-12">
-      <div className="p-4 md:p-8 lg:p-12">
+    <div className="flex justify-center items-center my-0">
+      <div className="bg-slate-400 md:p-8 lg:p-12 top-8 ">
         <Link to={`/product-details/${item.id}`}>
-          <div className="w-full lg:w-[12rem] md:h-[16rem] lg:h-[20rem]">
+          <div className="lg:w-full md:h-[10rem] lg:h-[10rem]">
             <img
               src={item.images.image}
               alt=""
-              className="object-cover w-full h-full rounded-md"
+              className="object-cover w-[10rem] h-[10rem] rounded-md"
             />
           </div>
         </Link>

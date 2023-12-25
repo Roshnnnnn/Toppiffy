@@ -1,9 +1,11 @@
-import Navbar from "../Navbar/Navbar";
+// import Navbar from "../Navbar/Navbar";
+import { Link } from "react-router-dom";
+import { FaHandPointLeft } from "react-icons/fa";
 
 const ContactUs = () => {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div
         className="bg-cover bg-center h-screen flex justify-center items-center"
         style={{
@@ -56,6 +58,13 @@ const ContactUs = () => {
               </button>
             </form>
           </div>
+        </div>
+        <div className="absolute top-10 left-12 transform -translate-x-1 -translate-y-1 text-amber-600 text-center">
+          <p className="text-5xl font-semibold">
+            <Link to={"/"}>
+              <FaHandPointLeft />
+            </Link>
+          </p>
         </div>
       </div>
     </div>

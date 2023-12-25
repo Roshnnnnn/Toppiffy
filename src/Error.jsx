@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const NotFoundPage = () => {
   return (
@@ -27,15 +28,14 @@ const NotFoundPage = () => {
         alt="Error"
         className="mt-8 w-64"
       />
-      <motion.a
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.6 }}
-        href="/"
         className="mt-4 text-blue-500 hover:underline"
       >
-        Go back to homepage
-      </motion.a>
+        <Link to={"/"}>Go back to homepage</Link>
+      </motion.div>
     </div>
   );
 };
