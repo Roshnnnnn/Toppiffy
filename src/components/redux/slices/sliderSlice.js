@@ -1,40 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {
-  Carousel1,
-  Carousel2,
-  Carousel3,
-  Carousel4,
-} from "../../features/ImagesFile.jsx";
+import { sliderData } from "../../features/ImagesFile";
 
-const sliderData = [
-  { id: 1, image: Carousel1 },
-  { id: 2, image: Carousel2 },
-  { id: 3, image: Carousel3 },
-  { id: 4, image: Carousel4 },
-];
-
-const initialState = {
-  value: 0,
-  length: sliderData.length,
-};
-
-const sliderSlice = createSlice({
+export const sliderSlice = createSlice({
   name: "slider",
-  initialState,
+  initialState: {
+    value: 1,
+    length: sliderData.length + 1,
+  },
   reducers: {
-    nextSlider: (state, action) => {
-      state.value = action.payload > state.length - 1 ? 0 : action.payload;
+    nextSlide(state, action) {
+      state.value = action.payload > state.length - 1 ? 1 : action.payload;
     },
-    prevSlider: (state, action) => {
-      state.value = action.payload < 0 ? state.length - 1 : action.payload;
-    },
-    dotSlide: (state, action) => {
-      const slide = action.payload;
-      state.value = slide;
+    prevSlide(state, action) {
+      state.value = action.payload <= 1 ? state.length - 1 : action.payload;
     },
   },
 });
 
-export const { nextSlider, prevSlider, dotSlide } = sliderSlice.actions;
-
+export const { nextSlide, prevSlide } = sliderSlice.actions;
 export default sliderSlice.reducer;
