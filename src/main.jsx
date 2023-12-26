@@ -19,6 +19,7 @@ import Error from "./Error.jsx";
 import Reset from "./components/Profile/Reset.jsx";
 import store from "./components/redux/store.js";
 import { Provider } from "react-redux";
+import FilteredProduct from "./components/Product/FilteredProduct.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -30,6 +31,8 @@ const router = createBrowserRouter(
       <Route path="login" element={<Login />} />
       <Route path="signup" element={<Signup />} />
       <Route path="reset" element={<Reset />} />
+      <Route path="filteredProducts/:brand" element={<FilteredProduct />} />
+
       {/* <Route path="cart" element={<Cart />} /> */}
       <Route path="*" element={<Error />} />
     </Route>

@@ -2,13 +2,15 @@ import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import authReducer from "./slices/authSlice";
 import cartReducer from "./slices/cartSlice";
 import filterReducer from "./slices/filterSlice";
-import sliderReducer from "./slices/sliderSlice";
+import productReducer from "./slices/productSlice";
+// import sliderReducer from "./slices/sliderSlice";
 
 const rootReducer = combineReducers({
   auth: authReducer,
   cart: cartReducer,
   filter: filterReducer,
-  slider: sliderReducer,
+  product: productReducer,
+  // slider: sliderReducer,
 });
 
 const store = configureStore({
