@@ -3,19 +3,17 @@ import CardsDetail from "../features/CardsDetail";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import data from "../../data.json";
 import { filterChocolate } from "../redux/slices/productSlice";
 
 const ProductList = () => {
-  const items = useSelector((state) => state.cart.items);
-  const dispatch = useDispatch();
   return (
     <div>
       <Navbar />
       <div>
         <FilterSection />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-[6rem] my-[6rem]">
-          {items.map((item, index) => (
+          {data.map((item, index) => (
             <div key={index} className="">
               <div key={index} className="flex justify-center items-center">
                 <Link to={`/product-details/${item.id}`}>
