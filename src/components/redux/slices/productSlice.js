@@ -2,7 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 import { chocolates } from "../../../data.jsx";
 
 const initialState = {
-  filteredChocolate: [],
+  filteredChocolate:
+    JSON.parse(sessionStorage.getItem("filteredData")) || chocolates,
+  singleProduct:
+    JSON.parse(sessionStorage.getItem("filteredData")) || chocolates,
 };
 
 const productSlice = createSlice({
@@ -23,12 +26,22 @@ const productSlice = createSlice({
         state.error = true;
       }
     },
+    singleProduct: (state, action) => {
+      try {
+        const oneProduct = chocolates.filter(
+          (item) => item.id === action.payload
+        );
+        state.singleProduct = oneProduct;
+        const saveState = JSON.stringify(oneProduct);
+        sessionStorage.setItem("singleProduct", saveState);
+        console.log("oneProduct", oneProduct);
+      } catch (error) {
+        state.error = true;
+      }
+    },
   },
 });
 
-export const { filterChocolate } = productSlice.actions;
-
-export const selectFilteredChocolate = (state) =>
-  state.chocolates.filteredChocolate;
+export const { filterChocolate, singleProduct } = productSlice.actions;
 
 export default productSlice.reducer;

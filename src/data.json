@@ -121,7 +121,7 @@
       "carbohydrates": 24,
       "protein": 2
     },
-    "ingredients": ["Sugar", "Cocoa Butter", "Milk Solids", "Cookie Pieces"],
+    "ingredients": ["Sugar", " Cocoa Butter", "Milk Solids", "Cookie Pieces"],
     "rating": 4.7,
     "quantity": 10
   },

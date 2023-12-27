@@ -27,13 +27,14 @@ const FilteredProduct = () => {
           </h1>
         </div>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-12 py-8">
-          {chocolate
-            .filter((item) => item.brand === brand)
-            .map((item, index) => (
-              <div key={index}>
-                <CardsDetail item={item} />
-              </div>
-            ))}
+          {chocolate &&
+            chocolate
+              .filter((item) => item.brand === brand)
+              .map((item, index) => (
+                <div key={index}>
+                  <CardsDetail item={item} id={item.id} />
+                </div>
+              ))}
         </div>
       </div>
     </div>
