@@ -1,4 +1,4 @@
-[
+export const chocolates = [
   {
     id: 1,
     brand: "CADBURY",

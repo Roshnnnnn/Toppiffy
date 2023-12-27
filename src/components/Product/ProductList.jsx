@@ -4,7 +4,7 @@ import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { filteredProducts } from "../redux/slices/productSlice";
+import { filterChocolate } from "../redux/slices/productSlice";
 
 const ProductList = () => {
   const items = useSelector((state) => state.cart.items);
@@ -19,7 +19,10 @@ const ProductList = () => {
             <div key={index} className="">
               <div key={index} className="flex justify-center items-center">
                 <Link to={`/product-details/${item.id}`}>
-                  <CardsDetail item={item} />
+                  <CardsDetail
+                    item={item}
+                    onClick={() => filterChocolate(item)}
+                  />
                 </Link>
               </div>
             </div>

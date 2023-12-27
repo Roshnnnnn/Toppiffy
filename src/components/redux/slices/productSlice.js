@@ -1,32 +1,34 @@
 import { createSlice } from "@reduxjs/toolkit";
-import data from "../../../data.json";
+import { chocolates } from "../../../data.jsx";
 
 const initialState = {
-  filteredProducts: JSON.parse(sessionStorage.getItem("filteredData")) || data,
+  filteredChocolate: [],
 };
 
 const productSlice = createSlice({
-  name: "products",
+  name: "chocolates",
   initialState,
   reducers: {
-    filteredProducts: (state, action) => {
+    filterChocolate: (state, action) => {
       try {
-        const selectedBrand = action.payload;
-        const filter = data.filter((product) =>
-          selectedBrand ? product.brand === selectedBrand : true
+        const filter = chocolates.filter(
+          (choco) => choco.brand === action.payload
         );
-        state.filteredProducts = filter;
-        console.log("filter", filter);
+        state.filteredChocolate = filter;
+        state.error = false;
         const saveState = JSON.stringify(filter);
         sessionStorage.setItem("filteredData", saveState);
+        console.log("filter", filter);
       } catch (error) {
-        console.log(error);
-        return error;
+        state.error = true;
       }
     },
   },
 });
 
-export const { filteredProducts } = productSlice.actions;
+export const { filterChocolate } = productSlice.actions;
+
+export const selectFilteredChocolate = (state) =>
+  state.chocolates.filteredChocolate;
 
 export default productSlice.reducer;

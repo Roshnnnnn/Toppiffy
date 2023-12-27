@@ -2,7 +2,7 @@
 import Navbar from "../Navbar/Navbar";
 // import Footer from "../Footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
-import cartActions from "../redux/slices/cartSlice";
+// import cartActions from "../redux/slices/cartSlice";
 import { useParams } from "react-router-dom";
 
 // const ProductDetails = ({ product }) => {
@@ -139,7 +139,7 @@ import { useParams } from "react-router-dom";
 // export default ProductDetails;
 
 const ProductDetails = () => {
-  const items = useSelector((state) => state.cart.items);
+  const items = useSelector((state) => state.product.items);
   const dispatch = useDispatch();
   const { id } = useParams();
 

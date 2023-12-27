@@ -3,21 +3,18 @@ import Image1 from "../../assets/carousel1.webp";
 import Image2 from "../../assets/carousel2.webp";
 import Image3 from "../../assets/carousel3.webp";
 import Image4 from "../../assets/carousel4.webp";
-import Image5 from "../../assets/hershey.webp";
-import Image6 from "../../assets/Nestle.webp";
-import Image7 from "../../assets/Whittakars.webp";
-import { filteredProducts } from "../redux/slices/productSlice";
+import { filterChocolate } from "../redux/slices/productSlice";
 import CardsDetail from "../features/CardsDetail";
 import data from "../../data.json";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 const Header = () => {
   const [image, setImage] = useState(0);
   const images = [Image1, Image2, Image3, Image4];
-  const cardImage = [Image5, Image6, Image7];
+  const buttons = ["HERSHEYS", "NESTLE", "WHITTAKER"];
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -27,6 +24,11 @@ const Header = () => {
   }, [image]);
 
   const dispatch = useDispatch();
+  const { brand } = useParams();
+
+  useEffect(() => {
+    dispatch(filterChocolate(brand));
+  }, [dispatch, brand]);
 
   return (
     <div>
@@ -40,19 +42,25 @@ const Header = () => {
       </div>
       <div className="text-4xl justify-center text-center m-12">
         <div className="my-8">Top Brands</div>
-        <div className="grid sm:grid-cols-2  md:grid-cols-3 gap-4">
-          {cardImage.map((img, index) => (
-            <div key={index}>
-              <Link to={"filteredProducts/" + img.brand}>
-                <img
-                  src={img}
-                  alt=""
-                  className="h-full w-full rounded-custom"
-                  onClick={() => dispatch(filteredProducts())}
-                />
-              </Link>
-            </div>
-          ))}
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 justify-center items-center my-0">
+          {buttons.map((item, index) => {
+            return (
+              <div key={index}>
+                <div className="sm:p-8 md:p-8 lg-p-12 top-8 text-white  border rounded">
+                  <div className="justify-center items-center rounded border border-amber-600  hover:text-amber-600">
+                    <Link to={`/filteredProducts/${item}`}>
+                      <div
+                        className="bg-amber-600 hover:bg-white"
+                        onClick={() => dispatch(filterChocolate(item))}
+                      >
+                        {item}
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
       <div className="text-4xl justify-center text-center m-8">

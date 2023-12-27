@@ -1,12 +1,11 @@
-import { useDispatch, useSelector } from "react-redux";
-import { filteredProducts } from "../redux/slices/productSlice";
-
+import { useDispatch } from "react-redux";
+import { filterChocolate } from "../redux/slices/productSlice";
 const FilterSection = () => {
   const dispatch = useDispatch();
 
-  const handleBrandChange = (event) => {
-    const selectedBrand = event.target.value;
-    dispatch(filteredProducts(selectedBrand));
+  const handleBrandChange = (e) => {
+    const selectedBrand = e.target.value;
+    dispatch(filterChocolate(selectedBrand));
   };
 
   return (
