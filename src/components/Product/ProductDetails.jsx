@@ -1,6 +1,8 @@
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Accordion from "../features/Accordion";
+import Navbar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -10,13 +12,21 @@ const ProductDetails = () => {
 
   return (
     <div>
-      {product
-        .filter((item) => item.id === productId)
-        .map((item, index) => (
-          <div key={index}>
-            <div className="flex flex-col justify-between lg:flex-row p-4 gap-16 lg:items-center">
-              <div className="flex flex-col gap-6 lg:w-2/4">
-                <img src={item.images.image} alt="item-image" />
+      <Navbar />
+      <div>
+        {product
+          .filter((item) => item.id === productId)
+          .map((item, index) => (
+            <div
+              key={index}
+              className="flex flex-col lg:flex-row p-4 gap-16 lg:items-center"
+            >
+              <div className="flex flex-col gap-6 lg:w-2/4 rounded-full  border-8">
+                <img
+                  src={item.images.image}
+                  alt={item.name}
+                  className="rounded-full cursor-pointer"
+                />
               </div>
               <div className="flex flex-col gap-4 lg:w-2/4 items-center">
                 <div>
@@ -27,8 +37,8 @@ const ProductDetails = () => {
                 <div>
                   <h2 className="font-semibold text-2xl">{item.description}</h2>
                 </div>
-                <div className="flex gap-8">
-                  <div>
+                <div className="flex flex-col lg:flex-row gap-8">
+                  <div className="mb-4 lg:mb-0">
                     <Accordion title="Ingredients">
                       <ul className="list-none gap-2">
                         {item.ingredients.map((ingredient, i) => (
@@ -39,7 +49,7 @@ const ProductDetails = () => {
                       </ul>
                     </Accordion>
                   </div>
-                  <div>
+                  <div className="mb-4 lg:mb-0">
                     <Accordion title="Nutrition">
                       <ul className="list-none gap-2">
                         <li>Calories: {item.nutrition.calories}</li>
@@ -61,8 +71,9 @@ const ProductDetails = () => {
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+      </div>
+      <Footer />
     </div>
   );
 };

@@ -9,7 +9,7 @@ const Accordion = ({ title, children }) => {
 
   return (
     <div
-      className={`border rounded overflow-hidden mb-4 w-[10rem] transition-all duration-700 ease-in-out ${
+      className={`border rounded overflow-hidden mb-4 w-[13rem] transition-all duration-700 ease-in-out ${
         isOpen ? "max-h-[500px]" : "max-h-[3rem]"
       }`}
     >
