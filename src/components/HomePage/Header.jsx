@@ -3,16 +3,13 @@ import Image1 from "../../assets/carousel1.webp";
 import Image2 from "../../assets/carousel2.webp";
 import Image3 from "../../assets/carousel3.webp";
 import Image4 from "../../assets/carousel4.webp";
-import Image5 from "../../assets/hershey.webp";
-import Image6 from "../../assets/Nestle.webp";
-import Image7 from "../../assets/Whittakars.webp";
 import { filterChocolate } from "../redux/slices/productSlice";
 import CardsDetail from "../features/CardsDetail";
 import data from "../../data.json";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import { Link, useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Header = () => {
   const [image, setImage] = useState(0);
@@ -69,11 +66,11 @@ const Header = () => {
       <div className="text-4xl justify-center text-center m-8">
         <h2 className="my-8">Best Sellers</h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {/* {data.slice(0, 3).map((item, index) => (
-            <div key={index}>
-              <CardsDetail item={item} />
+          {data.slice(0, 3).map((item, index) => (
+            <div key={index} className="flex justify-center items-center my-0">
+              <CardsDetail item={item} brand={item.brand} id={item.id} />
             </div>
-          ))} */}
+          ))}
         </div>
       </div>
       <Footer />

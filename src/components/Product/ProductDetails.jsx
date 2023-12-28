@@ -25,7 +25,7 @@ const ProductDetails = () => {
                 <img
                   src={item.images.image}
                   alt={item.name}
-                  className="rounded-full cursor-pointer"
+                  className="rounded-full"
                 />
               </div>
               <div className="flex flex-col gap-4 lg:w-2/4 items-center">

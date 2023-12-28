@@ -9,9 +9,9 @@ const CardsDetail = ({ item, id }) => {
   return (
     <div className="flex justify-center items-center my-0">
       <div className="bg-slate-400 md:p-8 lg:p-12 top-8 ">
-        <Link to={`/filteredProducts/${brand}/` + id}>
+        <Link to={`/filteredProducts/${item.brand}/` + id}>
           <div
-            className="lg:w-full md:h-[10rem] lg:h-[10rem]"
+            className="lg:w-full md:h-[10rem] lg:h-[10rem] flex justify-center"
             onClick={() => dispatch(singleProduct(id))}
           >
             <img

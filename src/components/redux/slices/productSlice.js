@@ -5,7 +5,8 @@ const initialState = {
   filteredChocolate:
     JSON.parse(sessionStorage.getItem("filteredData")) || chocolates,
   singleProduct:
-    JSON.parse(sessionStorage.getItem("filteredData")) || chocolates,
+    JSON.parse(sessionStorage.getItem("singleProduct")) || chocolates,
+  error: false,
 };
 
 const productSlice = createSlice({
