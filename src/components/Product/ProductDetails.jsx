@@ -5,7 +5,7 @@ import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import { addToCart } from "../redux/slices/cartSlice";
 import { useDispatch } from "react-redux";
-import { useState } from "react";
+import Button from "../features/Button";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -75,22 +75,9 @@ const ProductDetails = () => {
 
               <div>
                 <div className="mt-6">
-                  <button
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded"
-                    onClick={() =>
-                      dispatch(
-                        addToCart({
-                          id: item.id,
-                          name: item.name,
-                          price: item.price,
-                          amount: 1,
-                          totalPrice: item.price,
-                        })
-                      )
-                    }
-                  >
-                    Add to Cart
-                  </button>
+                  <div className="mt-6">
+                    <Button product={item} />
+                  </div>
                 </div>
               </div>
             </div>
@@ -103,3 +90,5 @@ const ProductDetails = () => {
 };
 
 export default ProductDetails;
+
+ProductDetails.jsx;

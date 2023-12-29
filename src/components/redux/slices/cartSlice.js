@@ -100,7 +100,7 @@ const cartSlice = createSlice({
       const productId = action.payload;
       try {
         const exist = state.cart.find((item) => item.id === productId.id);
-        const amountToAdd = 1; // Set the amount to add
+        const amountToAdd = 1;
 
         if (exist) {
           exist.amount += amountToAdd;
@@ -113,6 +113,7 @@ const cartSlice = createSlice({
             totalPrice: productId.price * amountToAdd,
             name: productId.name,
             text: productId.description,
+            image: productId.images ? productId.images.image : null,
           });
         }
 
@@ -127,7 +128,7 @@ const cartSlice = createSlice({
       const productId = action.payload;
       try {
         const exist = state.cart.find((item) => item.id === productId.id);
-        const minQuantity = 1; // Set your minimum quantity here
+        const minQuantity = 1;
 
         if (exist) {
           if (exist.amount > minQuantity) {

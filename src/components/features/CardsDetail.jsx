@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { singleProduct } from "../redux/slices/productSlice";
 import { Link, useParams } from "react-router-dom";
+import Button from "./Button";
 
 const CardsDetail = ({ item, id }) => {
   const dispatch = useDispatch();
@@ -30,9 +31,7 @@ const CardsDetail = ({ item, id }) => {
           </div>
         </Link>
         <div className="w-full flex justify-center mt-4">
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue transition duration-300 ease-in-out transform hover:scale-105">
-            Add to Cart
-          </button>
+          <Button product={item} />
         </div>
       </div>
     </div>
