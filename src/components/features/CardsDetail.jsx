@@ -7,13 +7,13 @@ const CardsDetail = ({ item, id }) => {
   const { brand } = useParams();
 
   return (
-    <div className="flex justify-center items-center my-0 mt-16">
-      <div className="bg-gray-100 md:p-8 lg:p-12 top-8 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+    <div className="flex justify-center items-center mx-8 my-0 mt-16">
+      <div className="bg-gray-100 p-8 md:p-12 w-full top-8 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
         <Link
           to={`/filteredProducts/${item.brand}/${id}`}
           onClick={() => dispatch(singleProduct(id))}
         >
-          <div className="lg:w-full md:h-48 lg:h-48 flex justify-center overflow-hidden">
+          <div className="w-full h-48 flex justify-center overflow-hidden">
             <img
               src={item.images.image}
               alt={item.name}

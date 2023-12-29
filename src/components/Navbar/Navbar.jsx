@@ -47,8 +47,8 @@ const Nav = () => {
   };
 
   return (
-    <div className="shadow-md w-full top-0 left-0">
-      <div className="md:flex items-center justify-between bg-white py-4 md:px-10 px-7">
+    <div className="shadow-md w-full top-0 left-0 z-1">
+      <div className="md:flex items-center justify-between sticky bg-white py-4 md:px-10 px-7">
         <div className="cursor-pointer flex items-center">
           <Link to="/">
             <img src={Image} alt="" className="w-[15rem]" />
@@ -62,7 +62,7 @@ const Nav = () => {
           <GiChocolateBar name={open ? "close" : "menu"} />
         </div>
         <ul
-          className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static text-amber-600  bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-200 ease-in-out ${
+          className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static text-amber-600  bg-white md:z-1 sm:z-1 left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-200 ease-in-out ${
             open ? "top-20" : "top-[-490px]"
           }`}
         >
@@ -81,34 +81,6 @@ const Nav = () => {
               </NavLink>
             </li>
           ))}
-          <div className="relative">
-            <li
-              className="md:ml-8 text-xl md:my-0  my-7 mx-8 cursor-pointer"
-              onClick={handleSearch}
-            >
-              <FaSearch />
-            </li>
-            {searchBar && (
-              <div className="flex md:absolute lg:top-[5rem] lg:-left-[15rem] lg:w-[30rem] md:w-[20rem] md:top-[5rem] sm:-top-[1rem] md:-left-[4rem] bg-white p-2 focus:outline-none transition-all duration-500 ease-in-out opacity-100 delay-100">
-                <form onSubmit={submitHandler}>
-                  <div className="relative flex">
-                    <input
-                      type="text"
-                      value={term}
-                      onChange={(e) => {
-                        setTerm(e.target.value);
-                      }}
-                      className="lg:w-[28rem] p-2 rounded focus:outline-none pl-16"
-                      placeholder="Search your favourite"
-                    />
-                    <span className="absolute inset-y-0 left-4 flex items-center pl-3">
-                      <FaSearch onClick={handleSearch} />
-                    </span>
-                  </div>
-                </form>
-              </div>
-            )}
-          </div>
 
           <li className="md:ml-8 text-xl md:my-0 my-7 mx-8">
             <NavLink
@@ -132,7 +104,7 @@ const Nav = () => {
               </span>
             </button>
             {drop && (
-              <div className="absolute z-10 mt-2 right-0 w-36 bg-white rounded-md shadow-lg">
+              <div className="absolute z-10 mt-2 lg:right-0 md:right-4 w-36 bg-white rounded-md shadow-lg">
                 {auth.currentUser ? (
                   <button
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"

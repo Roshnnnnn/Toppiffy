@@ -3,10 +3,26 @@ import { useParams } from "react-router-dom";
 import Accordion from "../features/Accordion";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
+import { addToCart } from "../redux/slices/cartSlice";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
 
 const ProductDetails = () => {
   const { id } = useParams();
   const productId = parseInt(id);
+  const dispatch = useDispatch();
+
+  const [item, setItem] = useState(0);
+
+  const handleAdd = () => {
+    setItem(item + 1);
+  };
+
+  const handleSubtract = () => {
+    if (item > 0) {
+      setItem(item - 1);
+    }
+  };
 
   const product = useSelector((state) => state.chocolates?.singleProduct);
 
@@ -68,8 +84,23 @@ const ProductDetails = () => {
                 <div className="text-lg">Rating: {item.rating} ⭐</div>
               </div>
               <div className="text-2xl">$ {item.price}</div>
+
               <div>
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                <div></div>
+                <button
+                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                  onClick={() =>
+                    dispatch(
+                      addToCart({
+                        id: item.id,
+                        name: item.name,
+                        price: item.price,
+                        amount: 1,
+                        totalPrice: item.price,
+                      })
+                    )
+                  }
+                >
                   Add to Cart
                 </button>
               </div>
