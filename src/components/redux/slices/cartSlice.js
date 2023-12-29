@@ -40,7 +40,7 @@ const cartSlice = createSlice({
             totalPrice: productId.price * amountToAdd,
             name: productId.name,
             text: productId.description,
-            image: productId.images ? productId.images.image : null,
+            image: productId.image ? productId.images.image : null,
           });
         }
 
@@ -55,16 +55,15 @@ const cartSlice = createSlice({
       const productId = action.payload;
       try {
         const exist = state.cart.find((item) => item.id === productId.id);
-        const minQuantity = 1;
-
         if (exist) {
+          const minQuantity = 1;
+
           if (exist.amount > minQuantity) {
             exist.amount--;
-            exist.totalPrice -= productId.price;
+            exist.totalPrice = exist.price * exist.amount;
           } else {
             state.cart = state.cart.filter((item) => item.id !== productId.id);
           }
-
           state.totalAmount = calculateTotalAmount(state.cart);
           state.totalPrice = calculateTotalPrice(state.cart);
           localStorage.setItem("cartItem", JSON.stringify(state.cart));
@@ -73,6 +72,7 @@ const cartSlice = createSlice({
         console.error("Error removing from cart:", error);
       }
     },
+
     clearCart: (state) => {
       state.cart = [];
       state.totalAmount = 0;
