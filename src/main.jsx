@@ -19,6 +19,7 @@ import FilteredProduct from "./components/Product/FilteredProduct.jsx";
 import Reset from "./components/Profile/Reset.jsx";
 import store from "./components/redux/store.js";
 import { Provider } from "react-redux";
+import CheckoutForm from "./components/features/CheckoutForm.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -31,7 +32,7 @@ const router = createBrowserRouter(
       <Route path="signup" element={<Signup />} />
       <Route path="reset" element={<Reset />} />
       <Route path="cart" element={<Cart />} />
-
+      <Route path="checkout" element={<CheckoutForm />} />
       <Route path="/filteredProducts/:brand" element={<FilteredProduct />} />
       <Route path="*" element={<Error />} />
     </Route>
