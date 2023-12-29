@@ -1,7 +1,8 @@
-// AddToCartButton.jsx
 import React from "react";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/slices/cartSlice";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Button = ({ product }) => {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ const Button = ({ product }) => {
         image: product.images.image,
       })
     );
+    toast.success("Added to cart");
   };
 
   return (

@@ -1,11 +1,9 @@
-// import Navbar from "../Navbar/Navbar";
 import { Link } from "react-router-dom";
 import { FaHandPointLeft } from "react-icons/fa";
 
 const ContactUs = () => {
   return (
     <div>
-      {/* <Navbar /> */}
       <div
         className="bg-cover bg-center h-screen flex justify-center items-center"
         style={{
