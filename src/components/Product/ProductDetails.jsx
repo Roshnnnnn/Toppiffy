@@ -12,24 +12,12 @@ const ProductDetails = () => {
   const productId = parseInt(id);
   const dispatch = useDispatch();
 
-  const [item, setItem] = useState(0);
-
-  const handleAdd = () => {
-    setItem(item + 1);
-  };
-
-  const handleSubtract = () => {
-    if (item > 0) {
-      setItem(item - 1);
-    }
-  };
-
   const product = useSelector((state) => state.chocolates?.singleProduct);
 
   return (
     <div className=" min-h-screen">
       <Navbar />
-      <div className="container mx-auto py-8">
+      <div className="container m-auto py-8">
         {product.map((item, index) => (
           <div
             key={index}
@@ -86,23 +74,24 @@ const ProductDetails = () => {
               <div className="text-2xl">$ {item.price}</div>
 
               <div>
-                <div></div>
-                <button
-                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                  onClick={() =>
-                    dispatch(
-                      addToCart({
-                        id: item.id,
-                        name: item.name,
-                        price: item.price,
-                        amount: 1,
-                        totalPrice: item.price,
-                      })
-                    )
-                  }
-                >
-                  Add to Cart
-                </button>
+                <div className="mt-6">
+                  <button
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded"
+                    onClick={() =>
+                      dispatch(
+                        addToCart({
+                          id: item.id,
+                          name: item.name,
+                          price: item.price,
+                          amount: 1,
+                          totalPrice: item.price,
+                        })
+                      )
+                    }
+                  >
+                    Add to Cart
+                  </button>
+                </div>
               </div>
             </div>
           </div>
