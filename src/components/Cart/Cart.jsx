@@ -3,8 +3,11 @@ import { removeFromCart, clearCart } from "../redux/slices/cartSlice";
 import { Link } from "react-router-dom";
 import { FaHandPointLeft } from "react-icons/fa";
 import { useState } from "react";
-import Modal from "./Modal";
-import { addDoc, fireDB } from "../config/firebase";
+import Modal from "../features/Modal";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { fireDB } from "../config/firebase";
+import { collection, addDoc } from "firebase/firestore";
 
 const Cart = () => {
   const [name, setName] = useState("");
@@ -23,14 +26,68 @@ const Cart = () => {
     dispatch(clearCart());
   };
 
-  const handleProceed = () => {
-    console.log("Proceed button clicked");
-  };
-
   const totalQuantity = cart.reduce((total, item) => total + item.amount, 0);
   const totalAmount = cart.reduce((total, item) => total + item.totalPrice, 0);
 
-  const buyNow = async () => {};
+  const buyNow = async () => {
+    if (name === "" || address == "" || pincode == "" || phoneNumber == "") {
+      return toast.error("All fields are required", {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+    }
+    const addressInfo = {
+      name,
+      address,
+      pincode,
+      phoneNumber,
+      date: new Date().toLocaleString("en-US", {
+        month: "short",
+        day: "2-digit",
+        year: "numeric",
+      }),
+    };
+
+    var options = {
+      key: "rzp_test_djWvraFPQUHHQR",
+      key_secret: "pPH4I4hfWl9sgYvVSGOlPMN5",
+      amount: parseInt(totalAmount * 100),
+      currency: "USD",
+      order_receipt: "order_rcptid_" + name,
+      name: "ChocoKart",
+      description: "for testing purpose",
+      handler: function (response) {
+        toast.success("Payment Successful");
+        const paymentId = response.razorpay_payment_id;
+        const orderInfo = {
+          cart,
+          addressInfo,
+          date: new Date().toLocaleString("en-US", {
+            month: "short",
+            day: "2-digit",
+            year: "numeric",
+          }),
+          paymentId,
+        };
+
+        try {
+          const result = addDoc(collection(fireDB, "orders"), orderInfo);
+          handleEmptyCart();
+        } catch (error) {
+          console.log(error);
+        }
+      },
+    };
+
+    var pay = new window.Razorpay(options);
+    pay.open();
+  };
 
   return (
     <div className="mt-10 ml-10 transform -translate-x-1 -translate-y-1 text-amber-600 text-center">
@@ -79,7 +136,6 @@ const Cart = () => {
           )}
         </section>
 
-        {/* Total and Pay Now Section */}
         <section className="mt-8">
           {cart.length > 0 && (
             <div>
@@ -97,27 +153,23 @@ const Cart = () => {
               >
                 Empty Cart
               </button>
-              <button
-                onClick={handleProceed}
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
-              >
-                <Link to={"/checkout"}>Pay Now</Link>
-              </button>
             </div>
           )}
         </section>
       </div>
-      <Modal
-        name={name}
-        address={address}
-        pincode={pincode}
-        phoneNumber={phoneNumber}
-        setName={setName}
-        setAddress={setAddress}
-        setPincode={setPincode}
-        setPhoneNumber={setPhoneNumber}
-        buyNow={buyNow}
-      />
+      {cart.length > 0 && (
+        <Modal
+          name={name}
+          address={address}
+          pincode={pincode}
+          phoneNumber={phoneNumber}
+          setName={setName}
+          setAddress={setAddress}
+          setPincode={setPincode}
+          setPhoneNumber={setPhoneNumber}
+          buyNow={buyNow}
+        />
+      )}
     </div>
   );
 };
