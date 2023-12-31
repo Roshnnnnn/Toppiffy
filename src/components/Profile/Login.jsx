@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { BiUser } from "react-icons/bi";
-import { AiOutlineUnlock } from "react-icons/ai";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { useState } from "react";
 import { auth } from "../config/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -12,8 +12,13 @@ import { useDispatch } from "react-redux";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordVisible, setPasswordVisible] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+  };
 
   const signinUser = async (e) => {
     e.preventDefault();
@@ -25,7 +30,7 @@ const Login = () => {
         navigate("/");
       })
       .catch((error) => {
-        toast.error(error.message);
+        toast.error("user does not signed up yet");
       });
   };
 
@@ -86,7 +91,7 @@ const Login = () => {
               </div>
               <div className="my-4 relative">
                 <input
-                  type="password"
+                  type={passwordVisible ? "text" : "password"}
                   placeholder=""
                   required
                   className="block w-72 py-2.3 px-0 text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:text-white focus:border-blue-600 peer"
@@ -96,7 +101,17 @@ const Login = () => {
                 <label className="absolute text-sm text-white duration-300 transform -translate-y-8 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark-text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-4 peer-focus:scale-75 peer-focus:-translate-y-6">
                   Your Password
                 </label>
-                <AiOutlineUnlock className="absolute top-0 right-4" />
+                {passwordVisible ? (
+                  <AiOutlineEye
+                    className="absolute top-0 right-4 cursor-pointer"
+                    onClick={togglePasswordVisibility}
+                  />
+                ) : (
+                  <AiOutlineEyeInvisible
+                    className="absolute top-0 right-4 cursor-pointer"
+                    onClick={togglePasswordVisibility}
+                  />
+                )}
               </div>
               <div className="flex justify-between items-center">
                 <div className="flex gap-2 items-center">
