@@ -10,17 +10,21 @@ const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    SET_ACTIVE_USER: (state, action) => {
+    setActiveUser: (state, action) => {
       const { email, userId } = action.payload;
-      console.log(action.payload);
       state.isLoggedIn = true;
       state.email = email;
       state.userId = userId;
     },
+    logoutUser: (state) => {
+      state.isLoggedIn = false;
+      state.email = null;
+      state.userId = null;
+    },
   },
 });
 
-export const { SET_ACTIVE_USER } = authSlice.actions;
+export const { setActiveUser, logoutUser } = authSlice.actions;
 
 export const selectIsLoggedIn = (state) => state.auth.isLoggedIn;
 export const selectEmail = (state) => state.auth.email;

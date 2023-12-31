@@ -4,15 +4,16 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { useState } from "react";
 import { auth } from "../config/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { setActiveUser } from "../redux/slices/authSlice";
+import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { SET_ACTIVE_USER } from "../redux/slices/authSlice";
-import { useDispatch } from "react-redux";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -22,39 +23,50 @@ const Login = () => {
 
   const signinUser = async (e) => {
     e.preventDefault();
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user);
-        toast.success("Welcome Login Successful");
-        navigate("/");
-      })
-      .catch((error) => {
-        toast.error("user does not signed up yet");
-      });
+    setLoading(true);
+
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCredential.user;
+
+      dispatch(setActiveUser({ email: user.email, userId: user.uid }));
+      toast.success("Welcome! Login Successful");
+      navigate("/");
+    } catch (error) {
+      console.error("Login error:", error);
+      toast.error("Invalid credentials or user not signed up.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const guestLogin = async () => {
+    setLoading(true);
+
     try {
       const response = await signInWithEmailAndPassword(
         auth,
         "hello@gmail.com",
         "Hello@1234"
       );
-      if (response) {
-        dispatch(
-          SET_ACTIVE_USER({
-            email: "hello@.com",
-            userId: response.userId,
-          })
-        );
-        toast.success("Welcome Login Successful");
+      const user = response.user;
+
+      if (user) {
+        dispatch(setActiveUser({ email: user.email, userId: user.uid }));
+        toast.success("Welcome! Guest Login Successful");
         navigate("/");
       } else {
         console.log(response.message);
       }
     } catch (error) {
-      console.error("An error occurred:", error);
+      console.error("Guest login error:", error);
+      toast.error("An error occurred during guest login.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -124,16 +136,18 @@ const Login = () => {
               </div>
               <button
                 type="submit"
+                disabled={loading}
                 className="w-full mb-4 text-[18px] mt-6 rounded-full bg-white text-emerald-800 hover:bg-amber-600 hover:text-white py-2 transition-colors duration-300"
               >
-                Login
+                {loading ? "Logging in..." : "Login"}
               </button>
               <button
                 type="submit"
                 onClick={guestLogin}
+                disabled={loading}
                 className="w-full mb-4 text-[18px] mt-6 rounded-full bg-white text-emerald-800 hover:bg-amber-600 hover:text-white py-2 transition-colors duration-300"
               >
-                Guest Login
+                {loading ? "Logging in..." : "Guest Login"}
               </button>
               <div>
                 <span className="m-4 ">
