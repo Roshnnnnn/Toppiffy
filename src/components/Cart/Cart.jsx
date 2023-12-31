@@ -99,7 +99,7 @@ const Cart = () => {
   }, [isLoggedIn, navigate]);
 
   return (
-    <div className="mt-10 ml-10 transform -translate-x-1 -translate-y-1 text-amber-600 text-center">
+    <div className="mt-10 mx-auto max-w-2xl text-amber-600 text-center">
       <p className="text-5xl font-semibold">
         <Link to={"/"}>
           <FaHandPointLeft />
@@ -115,9 +115,9 @@ const Cart = () => {
               {cart.map((item) => (
                 <li
                   key={item.id}
-                  className="flex items-center justify-between border-b-2 py-2"
+                  className="flex flex-col md:flex-row items-center justify-between border-b-2 py-2"
                 >
-                  <div className="flex items-center space-x-4">
+                  <div className="flex items-center space-x-4 mb-2 md:mb-0">
                     <img
                       src={item.image}
                       alt={item.name}
@@ -128,7 +128,7 @@ const Cart = () => {
                       <p className="text-gray-600">${item.price}</p>
                     </div>
                   </div>
-                  <div className="flex items-center">
+                  <div className="flex items-center mt-2 md:mt-0">
                     <p className="text-gray-700 mr-4">
                       Quantity: {item.amount}
                     </p>
@@ -158,7 +158,7 @@ const Cart = () => {
               </div>
               <button
                 onClick={handleEmptyCart}
-                className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-4 mr-2"
+                className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-4"
               >
                 Empty Cart
               </button>
