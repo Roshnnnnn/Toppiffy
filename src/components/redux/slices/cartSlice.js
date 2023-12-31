@@ -72,6 +72,9 @@ const cartSlice = createSlice({
         console.error("Error removing from cart:", error);
       }
     },
+    calculateTotalQuantity: (state) => {
+      state.totalAmount = calculateTotalAmount(state.cart);
+    },
 
     clearCart: (state) => {
       state.cart = [];
@@ -82,6 +85,7 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addToCart, removeFromCart, clearCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, calculateTotalQuantity, clearCart } =
+  cartSlice.actions;
 
 export default cartSlice.reducer;
