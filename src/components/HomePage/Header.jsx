@@ -9,7 +9,7 @@ import data from "../../data.json";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import { Link, useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const Header = () => {
   const [image, setImage] = useState(0);
