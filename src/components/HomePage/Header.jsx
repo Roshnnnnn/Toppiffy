@@ -68,7 +68,7 @@ const Header = () => {
       <div className="text-4xl justify-center text-center m-8">
         <h2 className="my-8">Best Sellers</h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {data.slice(0, 3).map((item, index) => (
+          {data.slice(0, 6).map((item, index) => (
             <div key={index} className="flex justify-center items-center my-0">
               <CardsDetail item={item} brand={item.brand} id={item.id} />
             </div>

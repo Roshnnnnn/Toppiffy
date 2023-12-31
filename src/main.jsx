@@ -6,6 +6,8 @@ import {
   createRoutesFromElements,
   Route,
   RouterProvider,
+  Navigate,
+  Outlet,
 } from "react-router-dom";
 import Header from "./components/HomePage/Header.jsx";
 import Login from "./components/Profile/Login.jsx";
@@ -19,19 +21,40 @@ import FilteredProduct from "./components/Product/FilteredProduct.jsx";
 import Reset from "./components/Profile/Reset.jsx";
 import store from "./components/redux/store.js";
 import { Provider } from "react-redux";
+import { auth } from "./components/config/firebase.js";
+import { useState, useEffect } from "react";
+
+function ProtectedRoute({ children }) {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setIsLoggedIn(!!user);
+    });
+
+    return unsubscribe;
+  }, []);
+
+  return isLoggedIn ? <Outlet /> : <Navigate to="/login" replace />;
+}
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
-      <Route path="/" element={<Header />} />
-      <Route path="product" element={<ProductList />} />
-      <Route path="filteredProducts/:brand/:id" element={<ProductDetails />} />
-      <Route path="contact" element={<ContactUs />} />
+      <Route index element={<Header />} />{" "}
+      <Route element={<ProtectedRoute />}>
+        <Route path="product" element={<ProductList />} />
+        <Route
+          path="filteredProducts/:brand/:id"
+          element={<ProductDetails />}
+        />
+        <Route path="contact" element={<ContactUs />} />
+        <Route path="cart" element={<Cart />} />
+        <Route path="/filteredProducts/:brand" element={<FilteredProduct />} />
+      </Route>
       <Route path="login" element={<Login />} />
       <Route path="signup" element={<Signup />} />
       <Route path="reset" element={<Reset />} />
-      <Route path="cart" element={<Cart />} />
-      <Route path="/filteredProducts/:brand" element={<FilteredProduct />} />
       <Route path="*" element={<Error />} />
     </Route>
   )

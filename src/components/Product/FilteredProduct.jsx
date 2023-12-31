@@ -15,6 +15,10 @@ const FilteredProduct = () => {
     dispatch(action);
   }, [dispatch, brand]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const chocolate = useSelector((state) => state.chocolates?.filteredChocolate);
 
   return (

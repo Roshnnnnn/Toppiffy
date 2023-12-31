@@ -22,10 +22,6 @@ const Cart = () => {
     dispatch(removeFromCart({ id: productId }));
   };
 
-  const handleEmptyCart = () => {
-    dispatch(clearCart());
-  };
-
   const totalQuantity = cart.reduce((total, item) => total + item.amount, 0);
   const totalAmount = cart.reduce((total, item) => total + item.totalPrice, 0);
 
@@ -78,15 +74,20 @@ const Cart = () => {
 
         try {
           const result = addDoc(collection(fireDB, "orders"), orderInfo);
+          console.log("Order information added to Firestore:", result);
           handleEmptyCart();
         } catch (error) {
-          console.log(error);
+          console.error("Error adding order information to Firestore:", error);
+          toast.error("Error processing the order. Please try again.");
         }
       },
     };
 
     var pay = new window.Razorpay(options);
     pay.open();
+  };
+  const handleEmptyCart = () => {
+    dispatch(clearCart());
   };
 
   return (
