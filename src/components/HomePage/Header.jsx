@@ -34,11 +34,13 @@ const Header = () => {
     <div>
       <Navbar />
       <div className="w-full">
-        <img
-          src={images[image]}
-          alt={`Image ${image + 1}`}
-          className="w-full lg:h-[40rem] object-contain md:object-cover md:w-screen md:h-[25rem] sm:h-[19rem]"
-        />
+        <Link to={"/product"}>
+          <img
+            src={images[image]}
+            alt={`Image ${image + 1}`}
+            className="w-full lg:h-[40rem] object-contain md:object-cover md:w-screen md:h-[25rem] sm:h-[19rem]"
+          />
+        </Link>
       </div>
       <div className="text-4xl justify-center text-center m-12">
         <div className="my-8">Top Brands</div>
