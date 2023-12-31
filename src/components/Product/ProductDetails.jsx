@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import Accordion from "../features/Accordion";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
-import { addToCart } from "../redux/slices/cartSlice";
 import { useDispatch } from "react-redux";
 import Button from "../features/Button";
 

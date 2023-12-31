@@ -45,7 +45,7 @@ const Nav = () => {
   }, [dispatch]);
 
   return (
-    <div className=" z-50 shadow-md w-full top-0 left-0">
+    <div className="sticky z-50 shadow-md w-full top-0 left-0">
       <div className="md:flex items-center justify-between sticky bg-white py-4 md:px-10 px-7">
         <div className="cursor-pointer flex items-center">
           <Link to="/">

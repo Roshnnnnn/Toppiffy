@@ -1,8 +1,9 @@
 import { useSelector, useDispatch } from "react-redux";
 import { removeFromCart, clearCart } from "../redux/slices/cartSlice";
-import { Link } from "react-router-dom";
+import { selectIsLoggedIn } from "../redux/slices/authSlice";
+import { Link, useNavigate } from "react-router-dom";
 import { FaHandPointLeft } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Modal from "../features/Modal";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -10,6 +11,8 @@ import { fireDB } from "../config/firebase";
 import { collection, addDoc } from "firebase/firestore";
 
 const Cart = () => {
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [pincode, setPincode] = useState("");
@@ -74,11 +77,9 @@ const Cart = () => {
 
         try {
           const result = addDoc(collection(fireDB, "orders"), orderInfo);
-          console.log("Order information added to Firestore:", result);
           handleEmptyCart();
         } catch (error) {
-          console.error("Error adding order information to Firestore:", error);
-          toast.error("Error processing the order. Please try again.");
+          console.log(error);
         }
       },
     };
@@ -86,9 +87,16 @@ const Cart = () => {
     var pay = new window.Razorpay(options);
     pay.open();
   };
+
   const handleEmptyCart = () => {
     dispatch(clearCart());
   };
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate("/login");
+    }
+  }, [isLoggedIn, navigate]);
 
   return (
     <div className="mt-10 ml-10 transform -translate-x-1 -translate-y-1 text-amber-600 text-center">
