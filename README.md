@@ -15,7 +15,7 @@ Chocokart is a dynamic ecommerce website where users can conveniently order a va
 
 ## Technologies Used
 
-- **Frontend:** HTML, CSS, JavaScript
+- **Frontend:** HTML, CSS, Reactjs
 - **Backend:** Firebase
 - **Payment Integration:** Stripe
 
