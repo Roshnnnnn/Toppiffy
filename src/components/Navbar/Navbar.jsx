@@ -47,7 +47,7 @@ const Nav = () => {
   return (
     <>
       <div className="sticky z-50 shadow-md w-full top-0 left-0">
-        <div className="md:flex items-center justify-between sticky bg-white py-4 md:px-10 px-7">
+        <nav className="md:flex items-center justify-between sticky bg-white py-4 md:px-10 px-7">
           <div className="cursor-pointer flex items-center">
             <Link to="/">
               <img src={Image} alt="" className="w-[15rem]" />
@@ -127,7 +127,7 @@ const Nav = () => {
               )}
             </li>
           </ul>
-        </div>
+        </nav>
       </div>
     </>
   );
