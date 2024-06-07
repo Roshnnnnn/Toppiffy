@@ -4,8 +4,7 @@ import { chocolates } from "../../../data.jsx";
 const initialState = {
   filteredChocolate:
     JSON.parse(sessionStorage.getItem("filteredData")) || chocolates,
-  singleProduct:
-    JSON.parse(sessionStorage.getItem("singleProduct")) || chocolates,
+  singleProduct: JSON.parse(sessionStorage.getItem("singleProduct")) || null,
   error: false,
 };
 
@@ -29,7 +28,7 @@ const productSlice = createSlice({
     },
     singleProduct: (state, action) => {
       try {
-        const oneProduct = chocolates.filter(
+        const oneProduct = chocolates.find(
           (item) => item.id === action.payload
         );
         state.singleProduct = oneProduct;
