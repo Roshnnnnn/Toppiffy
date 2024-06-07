@@ -50,7 +50,7 @@ const Nav = () => {
         <nav className="md:flex items-center justify-between sticky bg-white py-4 md:px-10 px-7">
           <div className="cursor-pointer flex items-center">
             <Link to="/">
-              <img src={Image} alt="" className="w-[15rem]" />
+              <img src={Image} alt="image" className="w-[15rem]" />
             </Link>
           </div>
 

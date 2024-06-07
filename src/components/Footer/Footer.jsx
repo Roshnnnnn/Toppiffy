@@ -12,7 +12,11 @@ const Footer = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mx-5">
                 {/* Company Info */}
                 <div className="md:col-span-2 text-center md:text-left">
-                  <img src={Image} alt="" className="mb-4 mx-auto md:mx-0" />
+                  <img
+                    src={Image}
+                    alt="image"
+                    className="mb-4 mx-auto md:mx-0"
+                  />
                   <p className="text-sm md:w-70 w-full mx-auto md:mx-0 mb-4">
                     Toppiffy is India's #1 Omni-channel retailer and official
                     distributor of Imported Chocolates. All our products are
