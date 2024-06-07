@@ -66,7 +66,7 @@ const Nav = () => {
             }`}
           >
             {Links.map((link, index) => (
-              <li key={index} className="md:ml-8 text-xl md:my-0 my-7 mx-8">
+              <li key={index} className="md:ml-8 text-xl md:my-0 my-7 mx-8 ">
                 <NavLink
                   to={link.link}
                   className={({ isActive }) =>
@@ -80,7 +80,7 @@ const Nav = () => {
               </li>
             ))}
 
-            <li className="md:ml-8 text-xl md:my-0 my-7 mx-8 relative">
+            <li className="md:ml-8 text-xl md:my-0 my-7 mx-8 relative w-[10%]">
               <NavLink
                 to="/cart"
                 className={({ isActive }) =>
@@ -91,13 +91,13 @@ const Nav = () => {
               >
                 <FaShoppingBag />
                 {totalQuantity > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-red-500 text-white px-1 py-0.5 rounded-full">
+                  <span className="absolute -top-6 -right-2 bg-red-500 text-white px-1  rounded-full">
                     {totalQuantity}
                   </span>
                 )}
               </NavLink>
             </li>
-            <li className="md:ml-8 text-xl md:my-0 my-7 mx-8 justify-center cursor-pointer relative">
+            <li className="md:ml-8 text-xl md:my-0 my-7 mx-8 justify-center cursor-pointer relative w-[10%]">
               <button
                 className="text-amber-600 font-semibold rounded inline-flex items-center"
                 onClick={() => setDrop(!drop)}
