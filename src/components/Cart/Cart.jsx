@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { fireDB } from "../config/firebase";
 import { collection, addDoc } from "firebase/firestore";
+import { Helmet } from "react-helmet-async";
 
 const Cart = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -99,87 +100,96 @@ const Cart = () => {
   }, [isLoggedIn, navigate]);
 
   return (
-    <div className="mt-10 mx-auto max-w-2xl text-amber-600 text-center">
-      <p className="text-5xl font-semibold">
-        <Link to="/">
-          <FaHandPointLeft />
-        </Link>
-      </p>
-      <div className="container mx-auto my-8 p-8 bg-white rounded shadow">
-        <h2 className="text-2xl font-semibold mb-4">Shopping Cart</h2>
-        <section>
-          {cart.length === 0 ? (
-            <p className="text-gray-600">Your cart is empty.</p>
-          ) : (
-            <ul>
-              {cart.map((item) => (
-                <li
-                  key={item.id}
-                  className="flex flex-col md:flex-row items-center justify-between border-b-2 py-2"
-                >
-                  <div className="flex items-center space-x-4 mb-2 md:mb-0">
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="w-12 h-12 object-cover rounded"
-                    />
-                    <div>
-                      <p className="text-lg font-semibold">{item.name}</p>
-                      <p className="text-gray-600">${item.price}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center mt-2 md:mt-0">
-                    <p className="text-gray-700 mr-4">
-                      Quantity: {item.amount}
-                    </p>
-                    <button
-                      onClick={() => handleRemove(item.id)}
-                      className="text-red-500 hover:text-red-700"
-                    >
-                      Remove
-                    </button>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          )}
-        </section>
-
-        <section className="mt-8">
-          {cart.length > 0 && (
-            <div>
-              <div className="mt-4">
-                <p className="text-lg font-semibold">
-                  Total Quantity: {totalQuantity}
-                </p>
-                <p className="text-lg font-semibold">
-                  Total Amount: ${totalAmount.toFixed(2)}
-                </p>
-              </div>
-              <button
-                onClick={handleEmptyCart}
-                className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-4"
-              >
-                Empty Cart
-              </button>
-            </div>
-          )}
-        </section>
-      </div>
-      {cart.length > 0 && (
-        <Modal
-          name={name}
-          address={address}
-          pincode={pincode}
-          phoneNumber={phoneNumber}
-          setName={setName}
-          setAddress={setAddress}
-          setPincode={setPincode}
-          setPhoneNumber={setPhoneNumber}
-          buyNow={buyNow}
+    <>
+      <Helmet>
+        <title>Shopping Cart - ChocoKart</title>
+        <meta
+          name="description"
+          content="View and manage your shopping cart on ChocoKart. Review your selected toffees and chocolates before proceeding to checkout."
         />
-      )}
-    </div>
+      </Helmet>
+      <div className="mt-10 mx-auto max-w-2xl text-amber-600 text-center">
+        <p className="text-5xl font-semibold">
+          <Link to="/">
+            <FaHandPointLeft />
+          </Link>
+        </p>
+        <div className="container mx-auto my-8 p-8 bg-white rounded shadow">
+          <h2 className="text-2xl font-semibold mb-4">Shopping Cart</h2>
+          <section>
+            {cart.length === 0 ? (
+              <p className="text-gray-600">Your cart is empty.</p>
+            ) : (
+              <ul>
+                {cart.map((item) => (
+                  <li
+                    key={item.id}
+                    className="flex flex-col md:flex-row items-center justify-between border-b-2 py-2"
+                  >
+                    <div className="flex items-center space-x-4 mb-2 md:mb-0">
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="w-12 h-12 object-cover rounded"
+                      />
+                      <div>
+                        <p className="text-lg font-semibold">{item.name}</p>
+                        <p className="text-gray-600">${item.price}</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center mt-2 md:mt-0">
+                      <p className="text-gray-700 mr-4">
+                        Quantity: {item.amount}
+                      </p>
+                      <button
+                        onClick={() => handleRemove(item.id)}
+                        className="text-red-500 hover:text-red-700"
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </section>
+
+          <section className="mt-8">
+            {cart.length > 0 && (
+              <div>
+                <div className="mt-4">
+                  <p className="text-lg font-semibold">
+                    Total Quantity: {totalQuantity}
+                  </p>
+                  <p className="text-lg font-semibold">
+                    Total Amount: ${totalAmount.toFixed(2)}
+                  </p>
+                </div>
+                <button
+                  onClick={handleEmptyCart}
+                  className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-4"
+                >
+                  Empty Cart
+                </button>
+              </div>
+            )}
+          </section>
+        </div>
+        {cart.length > 0 && (
+          <Modal
+            name={name}
+            address={address}
+            pincode={pincode}
+            phoneNumber={phoneNumber}
+            setName={setName}
+            setAddress={setAddress}
+            setPincode={setPincode}
+            setPhoneNumber={setPhoneNumber}
+            buyNow={buyNow}
+          />
+        )}
+      </div>
+    </>
   );
 };
 
