@@ -19,19 +19,20 @@ import FilteredProduct from "./components/Product/FilteredProduct.jsx";
 import Reset from "./components/Profile/Reset.jsx";
 import store from "./components/redux/store.js";
 import { Provider } from "react-redux";
+import { HelmetProvider } from "react-helmet-async";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route path="/" element={<Header />} />
       <Route path="product" element={<ProductList />} />
-      <Route path="filteredProducts/:brand/:id" element={<ProductDetails />} />
+      <Route path="/:brand/:id" element={<ProductDetails />} />
       <Route path="contact" element={<ContactUs />} />
       <Route path="login" element={<Login />} />
       <Route path="signup" element={<Signup />} />
       <Route path="reset" element={<Reset />} />
       <Route path="cart" element={<Cart />} />
-      <Route path="/filteredProducts/:brand" element={<FilteredProduct />} />
+      <Route path="/:brand" element={<FilteredProduct />} />
       <Route path="*" element={<Error />} />
     </Route>
   )
@@ -39,6 +40,8 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
-    <RouterProvider router={router} />
+    <HelmetProvider>
+      <RouterProvider router={router} />
+    </HelmetProvider>
   </Provider>
 );
