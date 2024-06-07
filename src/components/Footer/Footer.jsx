@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import Image from "../../assets/logo_here.avif";
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -12,7 +14,7 @@ const Footer = () => {
                 <div className="md:col-span-2 text-center md:text-left">
                   <img src={Image} alt="" className="mb-4 mx-auto md:mx-0" />
                   <p className="text-sm md:w-70 w-full mx-auto md:mx-0 mb-4">
-                    CocoCart is India's #1 Omni-channel retailer and official
+                    Toppiffy is India's #1 Omni-channel retailer and official
                     distributor of Imported Chocolates. All our products are
                     100% authentic and sourced directly from brands.
                   </p>
@@ -20,8 +22,8 @@ const Footer = () => {
 
                 {/* Categories */}
                 <div className="md:col-span-1 text-center md:text-left">
-                  <h4 className="text-base font-semibold mb-2">Categories</h4>
-                  <ul className="list-none m-0">
+                  <h1 className="text-xl font-bold mb-2">Categories</h1>
+                  <ul className="list-none m-0 text-sm">
                     <li className="mb-1">Biscuits & Spreads</li>
                     <li className="mb-1">Milk Chocolate</li>
                     <li className="mb-1">Coffee & Hot Chocolate</li>
@@ -32,8 +34,8 @@ const Footer = () => {
 
                 {/* Useful Links */}
                 <div className="md:col-span-1 text-center md:text-left">
-                  <h4 className="text-base font-semibold mb-2">Useful Links</h4>
-                  <ul className="list-none m-0">
+                  <h1 className="text-xl font-bold mb-2 ">Useful Links</h1>
+                  <ul className="list-none m-0 text-sm">
                     <li className="mb-1">Coco Cafe</li>
                     <li className="mb-1">Track Your Order</li>
                     <li className="mb-1">My Account</li>
@@ -46,11 +48,27 @@ const Footer = () => {
 
                 {/* Get in Touch */}
                 <div className="md:col-span-1 text-center md:text-left">
-                  <h4 className="text-base font-semibold mb-2">Get in Touch</h4>
-                  <ul className="list-none m-0">
+                  <h1 className="text-base font-semibold mb-2">Get in Touch</h1>
+                  <ul className="list-none m-0 mb-4">
                     <li className="mb-1">+1 800 120 2278</li>
-                    <li className="mb-1">Email@email.com</li>
+                    <Link to="https://gmail.com" className="mb-1">
+                      Email@email.com
+                    </Link>
                   </ul>
+                  <div className="flex justify-center md:justify-start space-x-4">
+                    <Link to="https://facebook.com" className="text-blue-600">
+                      <FaFacebook size="24" />
+                    </Link>
+                    <Link to="https://twitter.com" className="text-blue-400">
+                      <FaTwitter size="24" />
+                    </Link>
+                    <Link to="https://instagram.com" className="text-pink-500">
+                      <FaInstagram size="24" />
+                    </Link>
+                    <Link to="https://linkedin.com" className="text-blue-700">
+                      <FaLinkedin size="24" />
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

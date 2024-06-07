@@ -115,7 +115,7 @@ const Cart = () => {
           </Link>
         </p>
         <div className="container mx-auto my-8 p-8 bg-white rounded shadow">
-          <h2 className="text-2xl font-semibold mb-4">Shopping Cart</h2>
+          <h1 className="text-2xl font-semibold mb-4">Shopping Cart</h1>
           <section>
             {cart.length === 0 ? (
               <p className="text-gray-600">Your cart is empty.</p>
