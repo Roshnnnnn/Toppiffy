@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
 import Image from "../../assets/logo_here.avif";
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedin,
+  FaPhone,
+} from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -54,7 +60,10 @@ const Footer = () => {
                 <div className="md:col-span-1 text-center md:text-left">
                   <h1 className="text-base font-semibold mb-2">Get in Touch</h1>
                   <ul className="list-none m-0 mb-4">
-                    <li className="mb-1">+1 800 120 2278</li>
+                    <li className="mb-1 flex">
+                      <FaPhone />
+                      +1 800 120 2278
+                    </li>
                     <Link to="https://gmail.com" className="mb-1">
                       Email@email.com
                     </Link>
