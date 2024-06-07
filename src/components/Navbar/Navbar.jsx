@@ -45,89 +45,91 @@ const Nav = () => {
   }, [dispatch]);
 
   return (
-    <div className="sticky z-50 shadow-md w-full top-0 left-0">
-      <div className="md:flex items-center justify-between sticky bg-white py-4 md:px-10 px-7">
-        <div className="cursor-pointer flex items-center">
-          <Link to="/">
-            <img src={Image} alt="" className="w-[15rem]" />
-          </Link>
-        </div>
+    <>
+      <div className="sticky z-50 shadow-md w-full top-0 left-0">
+        <div className="md:flex items-center justify-between sticky bg-white py-4 md:px-10 px-7">
+          <div className="cursor-pointer flex items-center">
+            <Link to="/">
+              <img src={Image} alt="" className="w-[15rem]" />
+            </Link>
+          </div>
 
-        <div
-          onClick={() => setOpen(!open)}
-          className="text-3xl absolute right-8 top-6 cursor-pointer md:hidden"
-        >
-          <GiChocolateBar />
-        </div>
-        <ul
-          className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static text-amber-600 bg-white z-50 left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-200 ease-in-out ${
-            open ? "top-20" : "top-[-490px]"
-          }`}
-        >
-          {Links.map((link, index) => (
-            <li key={index} className="md:ml-8 text-xl md:my-0 my-7 mx-8">
+          <div
+            onClick={() => setOpen(!open)}
+            className="text-3xl absolute right-8 top-6 cursor-pointer md:hidden"
+          >
+            <GiChocolateBar />
+          </div>
+          <ul
+            className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static text-amber-600 bg-white z-50 left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-200 ease-in-out ${
+              open ? "top-20" : "top-[-490px]"
+            }`}
+          >
+            {Links.map((link, index) => (
+              <li key={index} className="md:ml-8 text-xl md:my-0 my-7 mx-8">
+                <NavLink
+                  to={link.link}
+                  className={({ isActive }) =>
+                    `hover:text-gray-400 duration-500 ${
+                      isActive ? "text-black" : "text-amber-600"
+                    }`
+                  }
+                >
+                  {link.name}
+                </NavLink>
+              </li>
+            ))}
+
+            <li className="md:ml-8 text-xl md:my-0 my-7 mx-8 relative">
               <NavLink
-                to={link.link}
+                to="/cart"
                 className={({ isActive }) =>
                   `hover:text-gray-400 duration-500 ${
                     isActive ? "text-black" : "text-amber-600"
                   }`
                 }
               >
-                {link.name}
+                <FaShoppingBag />
+                {totalQuantity > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-red-500 text-white px-1 py-0.5 rounded-full">
+                    {totalQuantity}
+                  </span>
+                )}
               </NavLink>
             </li>
-          ))}
-
-          <li className="md:ml-8 text-xl md:my-0 my-7 mx-8 relative">
-            <NavLink
-              to="/cart"
-              className={({ isActive }) =>
-                `hover:text-gray-400 duration-500 ${
-                  isActive ? "text-black" : "text-amber-600"
-                }`
-              }
-            >
-              <FaShoppingBag />
-              {totalQuantity > 0 && (
-                <span className="absolute -top-2 -right-2 bg-red-500 text-white px-1 py-0.5 rounded-full">
-                  {totalQuantity}
+            <li className="md:ml-8 text-xl md:my-0 my-7 mx-8 justify-center cursor-pointer relative">
+              <button
+                className="text-amber-600 font-semibold rounded inline-flex items-center"
+                onClick={() => setDrop(!drop)}
+              >
+                <span className="mr-1">
+                  <FaRegUser />
                 </span>
+              </button>
+              {drop && (
+                <div className="absolute z-50 mt-2 lg:right-0 md:right-4 w-36 bg-white rounded-md shadow-lg">
+                  {auth.currentUser ? (
+                    <button
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
+                      onClick={handleLogout}
+                    >
+                      Logout
+                    </button>
+                  ) : (
+                    <button
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
+                      onClick={handleLogin}
+                    >
+                      Login
+                    </button>
+                  )}
+                </div>
               )}
-            </NavLink>
-          </li>
-          <li className="md:ml-8 text-xl md:my-0 my-7 mx-8 justify-center cursor-pointer relative">
-            <button
-              className="text-amber-600 font-semibold rounded inline-flex items-center"
-              onClick={() => setDrop(!drop)}
-            >
-              <span className="mr-1">
-                <FaRegUser />
-              </span>
-            </button>
-            {drop && (
-              <div className="absolute z-50 mt-2 lg:right-0 md:right-4 w-36 bg-white rounded-md shadow-lg">
-                {auth.currentUser ? (
-                  <button
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
-                    onClick={handleLogout}
-                  >
-                    Logout
-                  </button>
-                ) : (
-                  <button
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
-                    onClick={handleLogin}
-                  >
-                    Login
-                  </button>
-                )}
-              </div>
-            )}
-          </li>
-        </ul>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
