@@ -14,7 +14,7 @@ const ProductDetails = () => {
   const product = useSelector((state) => state.chocolates?.singleProduct);
 
   return (
-    <div className=" min-h-screen">
+    <div className="min-h-screen">
       <Navbar />
       <div className="container m-auto py-8">
         {product.map((item, index) => (
@@ -74,9 +74,7 @@ const ProductDetails = () => {
 
               <div>
                 <div className="mt-6">
-                  <div className="mt-6">
-                    <Button product={item} />
-                  </div>
+                  <Button product={item} />
                 </div>
               </div>
             </div>

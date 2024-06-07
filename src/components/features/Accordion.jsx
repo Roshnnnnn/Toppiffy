@@ -19,7 +19,11 @@ const Accordion = ({ title, children }) => {
       >
         <span className="font-semibold">{title}</span>
       </button>
-      <div className="p-4 bg-white">
+      <div
+        className={`p-4 bg-white transition-all duration-700 ease-in-out ${
+          isOpen ? "max-h-[500px]" : "max-h-0"
+        } overflow-hidden`}
+      >
         <div className="text-gray-700">{children}</div>
       </div>
     </div>

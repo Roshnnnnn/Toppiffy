@@ -142,7 +142,7 @@ const Login = () => {
                 {loading ? "Logging in..." : "Login"}
               </button>
               <button
-                type="submit"
+                type="button"
                 onClick={guestLogin}
                 disabled={loading}
                 className="w-full mb-4 text-[18px] mt-6 rounded-full bg-white text-emerald-800 hover:bg-amber-600 hover:text-white py-2 transition-colors duration-300"
@@ -150,7 +150,7 @@ const Login = () => {
                 {loading ? "Logging in..." : "Guest Login"}
               </button>
               <div>
-                <span className="m-4 ">
+                <span className="m-4">
                   New Here?
                   <Link to="/signup" className="text-blue-600">
                     SignUp

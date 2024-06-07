@@ -57,10 +57,10 @@ const Nav = () => {
           onClick={() => setOpen(!open)}
           className="text-3xl absolute right-8 top-6 cursor-pointer md:hidden"
         >
-          <GiChocolateBar name={open ? "close" : "menu"} />
+          <GiChocolateBar />
         </div>
         <ul
-          className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static text-amber-600 bg-white z-50 md:z-1 sm:z-1 left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-200 ease-in-out ${
+          className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static text-amber-600 bg-white z-50 left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-200 ease-in-out ${
             open ? "top-20" : "top-[-490px]"
           }`}
         >
@@ -68,9 +68,8 @@ const Nav = () => {
             <li key={index} className="md:ml-8 text-xl md:my-0 my-7 mx-8">
               <NavLink
                 to={link.link}
-                key={index}
                 className={({ isActive }) =>
-                  ` hover:text-gray-400 duration-500 ${
+                  `hover:text-gray-400 duration-500 ${
                     isActive ? "text-black" : "text-amber-600"
                   }`
                 }
@@ -84,14 +83,14 @@ const Nav = () => {
             <NavLink
               to="/cart"
               className={({ isActive }) =>
-                `mb-7 hover:text-gray-400 duration-500 ${
+                `hover:text-gray-400 duration-500 ${
                   isActive ? "text-black" : "text-amber-600"
                 }`
               }
             >
               <FaShoppingBag />
               {totalQuantity > 0 && (
-                <span className="absolute -top-8 -right-2 bg-red-500 text-white px-1 py-0.5 rounded-full">
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white px-1 py-0.5 rounded-full">
                   {totalQuantity}
                 </span>
               )}

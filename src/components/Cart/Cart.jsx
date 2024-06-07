@@ -76,7 +76,7 @@ const Cart = () => {
         };
 
         try {
-          const result = addDoc(collection(fireDB, "orders"), orderInfo);
+          addDoc(collection(fireDB, "orders"), orderInfo);
           handleEmptyCart();
         } catch (error) {
           console.log(error);
@@ -101,7 +101,7 @@ const Cart = () => {
   return (
     <div className="mt-10 mx-auto max-w-2xl text-amber-600 text-center">
       <p className="text-5xl font-semibold">
-        <Link to={"/"}>
+        <Link to="/">
           <FaHandPointLeft />
         </Link>
       </p>

@@ -1,9 +1,44 @@
+// import { createSlice } from "@reduxjs/toolkit";
+
+// const initialState = {
+//   isLoggedIn: false,
+//   email: null,
+//   userId: null,
+// };
+
+// const authSlice = createSlice({
+//   name: "auth",
+//   initialState,
+//   reducers: {
+//     setActiveUser: (state, action) => {
+//       const { email, userId } = action.payload;
+//       state.isLoggedIn = true;
+//       state.email = email;
+//       state.userId = userId;
+//     },
+//     logoutUser: (state) => {
+//       state.isLoggedIn = false;
+//       state.email = null;
+//       state.userId = null;
+//     },
+//   },
+// });
+
+// export const { setActiveUser, logoutUser } = authSlice.actions;
+
+// export const selectIsLoggedIn = (state) => state.auth.isLoggedIn;
+// export const selectEmail = (state) => state.auth.email;
+// export const selectUserId = (state) => state.auth.userId;
+
+// export default authSlice.reducer;
+
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   isLoggedIn: false,
   email: null,
   userId: null,
+  isSpecialMember: false,
 };
 
 const authSlice = createSlice({
@@ -11,15 +46,17 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setActiveUser: (state, action) => {
-      const { email, userId } = action.payload;
+      const { email, userId, isSpecialMember } = action.payload;
       state.isLoggedIn = true;
       state.email = email;
       state.userId = userId;
+      state.isSpecialMember = isSpecialMember;
     },
     logoutUser: (state) => {
       state.isLoggedIn = false;
       state.email = null;
       state.userId = null;
+      state.isSpecialMember = false;
     },
   },
 });
@@ -29,5 +66,6 @@ export const { setActiveUser, logoutUser } = authSlice.actions;
 export const selectIsLoggedIn = (state) => state.auth.isLoggedIn;
 export const selectEmail = (state) => state.auth.email;
 export const selectUserId = (state) => state.auth.userId;
+export const selectIsSpecialMember = (state) => state.auth.isSpecialMember;
 
 export default authSlice.reducer;

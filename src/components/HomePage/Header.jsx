@@ -31,10 +31,10 @@ const Header = () => {
   }, [dispatch, brand]);
 
   return (
-    <div>
+    <header>
       <Navbar />
       <div className="w-full">
-        <Link to={"/product"}>
+        <Link to="/product">
           <img
             src={images[image]}
             alt={`Image ${image + 1}`}
@@ -48,18 +48,18 @@ const Header = () => {
           {buttons.map((item, index) => {
             return (
               <div key={index}>
-                <div className="sm:p-8 md:p-8 lg-p-12 top-8 text-white  border rounded">
-                  <div className="justify-center items-center rounded border border-amber-600  hover:text-amber-600">
+                <section className="sm:p-8 md:p-8 lg:p-12 top-8 text-white border rounded">
+                  <div className="justify-center items-center rounded border border-amber-600 hover:text-amber-600">
                     <Link to={`/filteredProducts/${item}`}>
                       <div
-                        className="bg-amber-600 hover:bg-white"
+                        className="bg-amber-600 hover:bg-white p-4"
                         onClick={() => dispatch(filterChocolate(item))}
                       >
                         {item}
                       </div>
                     </Link>
                   </div>
-                </div>
+                </section>
               </div>
             );
           })}
@@ -76,7 +76,7 @@ const Header = () => {
         </div>
       </div>
       <Footer />
-    </div>
+    </header>
   );
 };
 
