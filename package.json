@@ -2,12 +2,15 @@
   "name": "toppiffy",
   "private": true,
   "version": "0.0.0",
+  "proxy": "https://toppiffy-ecommerce.netlify.app/",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "react-scripts vite",
+    "build": "react-scripts vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
