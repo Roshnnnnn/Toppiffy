@@ -11,7 +11,7 @@ const CardsDetail = ({ item, id }) => {
     <div className="flex justify-center items-center mx-8 my-0 mt-16">
       <div className="bg-gray-100 p-8 md:p-12 w-full top-8 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
         <Link
-          to={`/filteredProducts/${item.brand}/${id}`}
+          to={`/${item.brand}/${id}`}
           onClick={() => dispatch(singleProduct(id))}
         >
           <div className="w-full h-48 flex justify-center overflow-hidden">
