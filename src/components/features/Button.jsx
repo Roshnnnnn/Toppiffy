@@ -22,7 +22,7 @@ const Button = ({ product }) => {
 
   return (
     <button
-      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded"
+      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 sm:py-2 sm:px-6 rounded text-sm"
       onClick={handleAddToCart}
     >
       Add to Cart
