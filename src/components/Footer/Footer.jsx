@@ -32,7 +32,7 @@ const Footer = () => {
 
                 {/* Categories */}
                 <div className="md:col-span-1 text-center md:text-left">
-                  <h1 className="text-xl font-bold mb-2">Categories</h1>
+                  <h2 className="text-xl font-bold mb-2">Categories</h2>
                   <ul className="list-none m-0 text-sm">
                     <li className="mb-1">Biscuits & Spreads</li>
                     <li className="mb-1">Milk Chocolate</li>
@@ -44,7 +44,7 @@ const Footer = () => {
 
                 {/* Useful Links */}
                 <div className="md:col-span-1 text-center md:text-left">
-                  <h1 className="text-xl font-bold mb-2 ">Useful Links</h1>
+                  <h2 className="text-xl font-bold mb-2 ">Useful Links</h2>
                   <ul className="list-none m-0 text-sm">
                     <li className="mb-1">Coco Cafe</li>
                     <li className="mb-1">Track Your Order</li>
@@ -58,7 +58,7 @@ const Footer = () => {
 
                 {/* Get in Touch */}
                 <div className="md:col-span-1 text-center md:text-left">
-                  <h1 className="text-base font-semibold mb-2">Get in Touch</h1>
+                  <h2 className="text-base font-semibold mb-2">Get in Touch</h2>
                   <ul className="list-none m-0 mb-4">
                     <li className="mb-1 flex">
                       <FaPhone />
