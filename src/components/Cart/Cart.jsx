@@ -30,7 +30,7 @@ const Cart = () => {
   const totalAmount = cart.reduce((total, item) => total + item.totalPrice, 0);
 
   const buyNow = async () => {
-    if (name === "" || address == "" || pincode == "" || phoneNumber == "") {
+    if (name === "" || address === "" || pincode === "" || phoneNumber === "") {
       return toast.error("All fields are required", {
         position: "top-center",
         autoClose: 1000,
@@ -42,6 +42,7 @@ const Cart = () => {
         theme: "colored",
       });
     }
+
     const addressInfo = {
       name,
       address,
@@ -62,7 +63,7 @@ const Cart = () => {
       order_receipt: "order_rcptid_" + name,
       name: "ChocoKart",
       description: "for testing purpose",
-      handler: function (response) {
+      handler: async function (response) {
         toast.success("Payment Successful");
         const paymentId = response.razorpay_payment_id;
         const orderInfo = {
@@ -77,15 +78,51 @@ const Cart = () => {
         };
 
         try {
-          addDoc(collection(fireDB, "orders"), orderInfo);
+          await addDoc(collection(fireDB, "orders"), orderInfo);
           handleEmptyCart();
+          navigate("/");
         } catch (error) {
           console.log(error);
         }
       },
+      modal: {
+        ondismiss: function () {
+          toast.error("Payment process was interrupted. Please try again.");
+        },
+      },
     };
 
     var pay = new window.Razorpay(options);
+
+    pay.on("payment.failed", function (response) {
+      if (response.error.reason === "international_cards_not_supported") {
+        toast.error(
+          "International cards are not supported. Please contact our support team for help.",
+          {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          }
+        );
+      } else {
+        toast.error("Payment failed. Please try again.", {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      }
+    });
+
     pay.open();
   };
 
