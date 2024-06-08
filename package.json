@@ -5,8 +5,8 @@
   "proxy": "https://toppiffy-ecommerce.netlify.app/",
   "type": "module",
   "scripts": {
-    "dev": "react-scripts vite",
-    "build": "react-scripts vite /build",
+    "dev": " vite",
+    "build": " /build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "test": "react-scripts test",
