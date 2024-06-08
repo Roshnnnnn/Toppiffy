@@ -57,14 +57,14 @@ const Footer = () => {
                 </div>
 
                 {/* Get in Touch */}
-                <div className="md:col-span-1 text-center md:text-left">
+                <div className="md:col-span-1 text-center md:text-left flex flex-col justify-center">
                   <h2 className="text-base font-semibold mb-2">Get in Touch</h2>
                   <ul className="list-none m-0 mb-4">
-                    <li className="mb-1 flex">
-                      <FaPhone />
-                      +1 800 120 2278
+                    <li className="mb-1 flex items-center justify-center md:justify-start">
+                      <FaPhone className="mr-1" />
+                      <span>+1 800 120 2278</span>
                     </li>
-                    <Link to="https://gmail.com" className="mb-1">
+                    <Link to="mailto:email@email.com" className="mb-1">
                       Email@email.com
                     </Link>
                   </ul>
