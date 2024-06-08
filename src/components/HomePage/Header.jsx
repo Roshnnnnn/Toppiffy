@@ -12,6 +12,7 @@ import { Link, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Helmet } from "react-helmet-async";
 import Trusted from "./Trusted";
+import Testimonials from "./Testimonials";
 
 const Header = () => {
   const [image, setImage] = useState(0);
@@ -88,8 +89,11 @@ const Header = () => {
             ))}
           </div>
         </div>
-        <div>
+        <div className="my-[2rem]">
           <Trusted />
+        </div>
+        <div className="my-[2rem]">
+          <Testimonials />
         </div>
         <Footer />
       </header>
