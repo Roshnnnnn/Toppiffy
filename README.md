@@ -21,10 +21,14 @@ Chocokart is a dynamic ecommerce website where users can conveniently order a va
 
 ![Home](./src/assets/home.png)
 ![Cart](./src/assets/cart.png)
+![Contact](./src/assets/Contact.png)
+![Login](./src/assets/Login.png)
+![Payment](./src/assets/payment.png)
+![order](./src/assets/OrderPlaced.png)
 
 ## Live Demo
 
-[Explore Chocokart](https://chocokart.netlify.app/)
+[Explore Chocokart](https://toppiffy-ecommerce.netlify.app/)
 
 ## Contributing
 
