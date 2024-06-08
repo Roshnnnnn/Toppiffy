@@ -89,10 +89,10 @@ const Header = () => {
             ))}
           </div>
         </div>
-        <div className="my-[2rem]">
+        <div className="my-[2rem] ">
           <Trusted />
         </div>
-        <div className="my-[2rem]">
+        <div className="my-[2rem] ">
           <Testimonials />
         </div>
         <Footer />
