@@ -11,6 +11,7 @@ import Footer from "../Footer/Footer";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Helmet } from "react-helmet-async";
+import Trusted from "./Trusted";
 
 const Header = () => {
   const [image, setImage] = useState(0);
@@ -86,6 +87,9 @@ const Header = () => {
               </div>
             ))}
           </div>
+        </div>
+        <div>
+          <Trusted />
         </div>
         <Footer />
       </header>
