@@ -3,13 +3,11 @@ import Image1 from "../../assets/carousel1.webp";
 import Image2 from "../../assets/carousel2.webp";
 import Image3 from "../../assets/carousel3.webp";
 import Image4 from "../../assets/carousel4.webp";
-import { filterChocolate } from "../redux/slices/productSlice";
+import { fetchAllProducts } from "../redux/slices/productSlice";
 import CardsDetail from "../features/CardsDetail";
-import data from "../../data.json";
 import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
 import { Link, useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Helmet } from "react-helmet-async";
 import Trusted from "./Trusted";
 import Testimonials from "./Testimonials";
@@ -29,8 +27,12 @@ const Header = () => {
   const dispatch = useDispatch();
   const { brand } = useParams();
 
+  const { filterChocolate, products } = useSelector(
+    (state) => state.chocolates
+  );
+
   useEffect(() => {
-    dispatch(filterChocolate(brand));
+    dispatch(fetchAllProducts());
   }, [dispatch, brand]);
 
   return (
@@ -63,7 +65,7 @@ const Header = () => {
                     <div className="justify-center items-center rounded border border-amber-600 hover:text-amber-600">
                       <Link to={`/${item}`}>
                         <div
-                          className="bg-amber-600 hover:bg-white p-4 text-sm"
+                          className="bg-amber-600 hover:bg-white p-4 text-sm cursor-pointer"
                           onClick={() => dispatch(filterChocolate(item))}
                         >
                           {item}
@@ -79,7 +81,7 @@ const Header = () => {
         <div className="text-4xl justify-center text-center m-8">
           <h2 className="my-8">Best Sellers</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {data.slice(0, 6).map((item, index) => (
+            {products.slice(0, 6).map((item, index) => (
               <div
                 key={index}
                 className="flex justify-center items-center my-0"
@@ -95,7 +97,6 @@ const Header = () => {
         <div className="my-[2rem] ">
           <Testimonials />
         </div>
-        <Footer />
       </header>
     </>
   );
