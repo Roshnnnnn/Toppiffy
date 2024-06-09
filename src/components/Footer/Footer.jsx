@@ -11,7 +11,7 @@ import {
 const Footer = () => {
   return (
     <div>
-      <footer className="p-5 md:p-12 lg:p-25 text-amber-800 leading-5">
+      <footer className="p-5 md:p-12 lg:p-25  leading-5">
         <div className="bg-slate-300 rounded-lg">
           <div className="py-6 md:py-12 border-t border-solid">
             <div className="max-w-7xl mx-auto">
@@ -62,10 +62,13 @@ const Footer = () => {
                   <ul className="list-none m-0 mb-4">
                     <li className="mb-1 flex items-center justify-center md:justify-start">
                       <FaPhone className="mr-1" />
-                      <span>+1 800 120 2278</span>
+                      <span>+91 9893018968</span>
                     </li>
-                    <Link to="mailto:email@email.com" className="mb-1">
-                      Email@email.com
+                    <Link
+                      to="mailto:roshankumar.02yadav@gmail.com"
+                      className="mb-1"
+                    >
+                      roshankumar.02yadav@gmail.com
                     </Link>
                   </ul>
                   <div className="flex justify-center md:justify-start space-x-4">
