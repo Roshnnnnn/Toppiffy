@@ -1,45 +1,33 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { chocolates } from "../../../data.jsx";
-import { get, getDatabase, ref, set } from "firebase/database";
+import { getDatabase, ref, get } from "firebase/database";
 import app from "../../config/firebase.js";
 
 const db = getDatabase(app);
 
-export const uploadJsonData = async () => {
+export const fetchAllProducts = () => async (dispatch) => {
   try {
-    await set(ref(db, "products/"), chocolates);
-    console.log("Attempting to upload data to Firebase...");
-    console.log("Data successfully uploaded to Firebase");
-  } catch (error) {
-    console.error("Error uploading data to Firebase", error);
-  }
-};
-
-uploadJsonData();
-
-export const getJsonData = async () => {
-  const productRef = ref(db, "products");
-  try {
+    dispatch(setLoading(true));
+    const productRef = ref(db, "products");
     const snapshot = await get(productRef);
     if (snapshot.exists()) {
       const data = snapshot.val();
-      console.log("Tension ni lena ka data aa gya h", data);
-      return data;
+      console.log("Data fetched successfully:", data);
+      dispatch(setProducts(data));
     } else {
-      console.log("Daya Kuch to gadbad hai");
-      return null;
+      console.log("No data available");
+      dispatch(fetchProductsFailed("No data available"));
     }
   } catch (error) {
-    console.log("Error getting data from firebase", error);
+    console.error("Error fetching products:", error);
+    dispatch(fetchProductsFailed(error.message));
+  } finally {
+    dispatch(setLoading(false));
   }
 };
 
-getJsonData();
-
 const initialState = {
-  filteredChocolate:
-    JSON.parse(sessionStorage.getItem("filteredData")) || chocolates,
-  singleProduct: JSON.parse(sessionStorage.getItem("singleProduct")) || null,
+  filteredChocolate: [],
+  singleProduct: null,
   products: [],
   loading: false,
   error: false,
@@ -49,38 +37,43 @@ const productSlice = createSlice({
   name: "chocolates",
   initialState,
   reducers: {
+    setProducts: (state, action) => {
+      state.products = action.payload;
+      state.loading = false;
+      state.error = false;
+
+      const filter = state.products.filter(
+        (choco) => choco.brand === state.currentBrand
+      );
+      state.filteredChocolate = filter;
+    },
+    fetchProductsFailed: (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    },
+    setLoading: (state, action) => {
+      state.loading = action.payload;
+    },
     filterChocolate: (state, action) => {
-      try {
-        const filter = chocolates.filter(
-          (choco) => choco.brand === action.payload
-        );
-        state.filteredChocolate = filter;
-        state.error = false;
-        const saveState = JSON.stringify(filter);
-        sessionStorage.setItem("filteredData", saveState);
-        console.log("Filtered chocolates:", filter);
-      } catch (error) {
-        state.error = true;
-        console.error("Error filtering chocolates", error);
-      }
+      state.currentBrand = action.payload;
+      const filter = state.products.filter(
+        (choco) => choco.brand === action.payload
+      );
+      state.filteredChocolate = filter;
     },
     singleProduct: (state, action) => {
-      try {
-        const oneProduct = chocolates.find(
-          (item) => item.id === action.payload
-        );
-        state.singleProduct = oneProduct;
-        const saveState = JSON.stringify(oneProduct);
-        sessionStorage.setItem("singleProduct", saveState);
-        console.log("Single product:", oneProduct);
-      } catch (error) {
-        state.error = true;
-        console.error("Error setting single product", error);
-      }
+      const single = state.products.find((item) => item.id === action.payload);
+      state.singleProduct = single;
     },
   },
 });
 
-export const { filterChocolate, singleProduct } = productSlice.actions;
+export const {
+  setProducts,
+  fetchProductsFailed,
+  setLoading,
+  filterChocolate,
+  singleProduct,
+} = productSlice.actions;
 
 export default productSlice.reducer;
