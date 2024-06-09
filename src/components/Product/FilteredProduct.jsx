@@ -9,7 +9,6 @@ import { Helmet } from "react-helmet-async";
 const FilteredProduct = () => {
   const dispatch = useDispatch();
   const { brand } = useParams();
-  console.log(brand, "params");
 
   useEffect(() => {
     const action = filterChocolate(brand);
