@@ -12,12 +12,15 @@ const ProductDetails = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(singleProduct(parseInt(id)));
+    const productId = parseInt(id);
+    if (!productId) {
+      dispatch(singleProduct(productId));
+    }
   }, [dispatch, id]);
 
   const product = useSelector((state) => state.chocolates.singleProduct);
 
-  if (!product) {
+  if (!product || Object.keys(product).length === 0) {
     return <div>Loading...</div>;
   }
 
@@ -34,15 +37,16 @@ const ProductDetails = () => {
         <Navbar />
         <div className="container mx-auto py-8 px-4 lg:px-8 ">
           <div className="flex flex-col lg:flex-row gap-4 lg:items-start bg-white rounded-lg shadow-md">
-            <div className="lg:w-1/2">
+            <div className="lg:w-1/2 flex justify-center items-center mt-[3rem]">
               <img
                 src={product.images.image}
                 alt={product.name}
-                className="rounded-lg shadow-md w-full"
+                className="rounded-lg shadow-md w-[60%]"
               />
             </div>
-            <div className="lg:w-1/2 p-4 lg:p-[6rem]">
-              <h1 className="text-3xl lg:text-4xl font-semibold text-amber-700 mb-2">
+
+            <div className="lg:w-1/2 p-4 lg:p-[6rem] mx-auto justify-center items-center">
+              <h1 className="text-4xl font-semibold text-amber-700 mb-2">
                 {product.name}
               </h1>
               <p className="text-lg mb-4">{product.description}</p>
