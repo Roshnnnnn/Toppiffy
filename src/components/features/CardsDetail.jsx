@@ -13,12 +13,24 @@ const CardsDetail = ({ item, id }) => {
         <Link
           to={`/${item.brand}/${id}`}
           onClick={() => dispatch(singleProduct(id))}
+          className="block relative group"
         >
-          <div className="w-full h-40 sm:h-48 flex justify-center overflow-hidden">
+          <div className="relative overflow-hidden rounded-md">
             <img
-              src={item.images.image}
+              src={
+                item.images.image ||
+                "https://www.ameliechocolat.co.uk/product_images/i/079/Amelie_50_1000_x_1000__97003_zoom.jpg"
+              }
               alt={item.name}
-              className="object-cover w-full h-full rounded-md"
+              className="object-cover w-full h-40 sm:h-48 rounded-md transition-opacity duration-300 opacity-100 group-hover:opacity-0"
+            />
+            <img
+              src={
+                item.images.image_secondary &&
+                "https://www.ameliechocolat.co.uk/product_images/i/079/Amelie_50_1000_x_1000__97003_zoom.jpg"
+              }
+              alt={`${item.name} hover`}
+              className="object-cover w-full h-40 sm:h-48 rounded-md absolute top-0 left-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
             />
           </div>
           <div className="flex flex-col justify-center mt-4">
