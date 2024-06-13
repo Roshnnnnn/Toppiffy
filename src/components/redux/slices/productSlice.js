@@ -1,8 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getDatabase, ref, get } from "firebase/database";
+import { getDatabase, ref, get, set } from "firebase/database";
 import app from "../../config/firebase.js";
+import { chocolates } from "../../../data.jsx";
 
 const db = getDatabase(app);
+
+export const uploadJsonData = async () => {
+  try {
+    await set(ref(db, "products/"), chocolates);
+    console.log("Attempting to upload data to Firebase...");
+    console.log("Data successfully uploaded to Firebase");
+  } catch (error) {
+    console.error("Error uploading data to Firebase", error);
+  }
+};
+
+uploadJsonData();
 
 export const fetchAllProducts = () => async (dispatch) => {
   try {
