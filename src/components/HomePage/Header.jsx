@@ -3,7 +3,14 @@ import Image1 from "../../assets/carousel1.webp";
 import Image2 from "../../assets/carousel2.webp";
 import Image3 from "../../assets/carousel3.webp";
 import Image4 from "../../assets/carousel4.webp";
-import { fetchAllProducts } from "../redux/slices/productSlice";
+import image5 from "../../assets/Feastables.png";
+import image6 from "../../assets/Hershey.png";
+import image7 from "../../assets/Nestle.png";
+import image8 from "../../assets/Whittaker.png";
+import {
+  fetchAllProducts,
+  filterChocolate,
+} from "../redux/slices/productSlice";
 import CardsDetail from "../features/CardsDetail";
 import Navbar from "../Navbar/Navbar";
 import { Link, useParams } from "react-router-dom";
@@ -15,7 +22,12 @@ import Testimonials from "./Testimonials";
 const Header = () => {
   const [image, setImage] = useState(0);
   const images = [Image1, Image2, Image3, Image4];
-  const buttons = ["HERSHEYS", "NESTLE", "WHITTAKER"];
+  const buttons = [
+    { name: "Feastables", image: image5 },
+    { name: "HERSHEYS", image: image6 },
+    { name: "NESTLE", image: image7 },
+    { name: "WHITTAKER", image: image8 },
+  ];
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -27,13 +39,15 @@ const Header = () => {
   const dispatch = useDispatch();
   const { brand } = useParams();
 
-  const { filterChocolate, products } = useSelector(
-    (state) => state.chocolates
-  );
+  const { products } = useSelector((state) => state.chocolates);
 
   useEffect(() => {
     dispatch(fetchAllProducts());
   }, [dispatch, brand]);
+
+  const handleFilter = (brandName) => {
+    dispatch(filterChocolate(brandName));
+  };
 
   return (
     <>
@@ -57,25 +71,27 @@ const Header = () => {
         </div>
         <div className="text-4xl justify-center text-center m-12">
           <div className="my-8">Top Brands</div>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 justify-center items-center my-0">
-            {buttons.map((item, index) => {
-              return (
-                <div key={index}>
-                  <section className="sm:p-8 md:p-8 lg:p-12 top-8 text-white border rounded">
-                    <div className="justify-center items-center rounded border border-amber-600 hover:text-amber-600">
-                      <Link to={`/${item}`}>
-                        <div
-                          className="bg-amber-600 hover:bg-white p-4 text-sm cursor-pointer"
-                          onClick={() => dispatch(filterChocolate(item))}
-                        >
-                          {item}
-                        </div>
-                      </Link>
-                    </div>
-                  </section>
-                </div>
-              );
-            })}
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 justify-center items-center my-0">
+            {buttons.map((button, index) => (
+              <div key={index}>
+                <section className="sm:p-8 md:p-8 lg:p-12 top-8 text-white border rounded h-[10rem]">
+                  <div className="justify-center items-center rounded border border-amber-600 hover:text-amber-600">
+                    <Link to={`/${button.name}`}>
+                      <div
+                        className="bg-white hover:bg-amber-500 p-4 text-sm cursor-pointer"
+                        onClick={() => handleFilter(button.name)} // Call handleFilter with brand name
+                      >
+                        <img
+                          src={button.image}
+                          alt={`${button.name} Brand`}
+                          className="w-full h-[2rem] object-contain"
+                        />
+                      </div>
+                    </Link>
+                  </div>
+                </section>
+              </div>
+            ))}
           </div>
         </div>
         <div className="text-4xl justify-center text-center m-8">
@@ -91,10 +107,10 @@ const Header = () => {
             ))}
           </div>
         </div>
-        <div className="my-[2rem] ">
+        <div className="my-[2rem]">
           <Trusted />
         </div>
-        <div className="my-[2rem] ">
+        <div className="my-[2rem]">
           <Testimonials />
         </div>
       </header>
