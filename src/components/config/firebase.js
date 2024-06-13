@@ -10,7 +10,7 @@ export const firebaseConfig = {
   messagingSenderId: "832109864732",
   appId: "1:832109864732:web:e1e7089f8f4caa2482fcd9",
   measurementId: "G-016L7KVFMV",
-  databaseURL: "https://chocokart-ee033-default-rtdb.firebaseio.com",
+  databaseURL: "https://chocokart-ee033-default-rtdb.firebaseio.com/",
 };
 
 const app = initializeApp(firebaseConfig);
