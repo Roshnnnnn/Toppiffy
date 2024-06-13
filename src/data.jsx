@@ -285,7 +285,7 @@ export const chocolates = [
       image:
         "https://www.bigbasket.com/media/uploads/p/l/286721_2-nestle-kit-kat-4-finger-bar-dark-chocolate.jpg",
       image_secondary:
-        "https://www.luluhypermarket.in/medias/766676-001.jpg-1200Wx1200H?context=bWFzdGVyfGltYWdlc3wyMjU2NTN8aW1hZ2UvanBlZ3xhR1UyTDJoalppODRPRFk0TmpVME5UUTJPVGMwTHpjMk5qWTNOaTB3TURFdWFuQm5YekV5TURCWGVERXlNREJJfDM5YzUxOWEyZWU3ZDAxYjM5MjBmZmY5NGE3ZWI2NmE5YzBkZTlkYjE1Y2RiNjc2NzZmNjUyZjUyMzA2NDM1M2E",
+        "https://5.imimg.com/data5/SELLER/Default/2020/10/RY/KW/ND/20986101/gaicou0411-2.jpg",
     },
     price: 3.49,
     description:
@@ -350,7 +350,7 @@ export const chocolates = [
     images: {
       image: "https://m.media-amazon.com/images/I/418KFSpg72L.jpg",
       image_secondary:
-        "https://www.chocotown.in/cdn/shop/products/NestleAeroPeppermintChocolateBlock118gmchocotown.jpg?v=1641232751",
+        "https://www.howtocookthat.net/public_html/wp-content/uploads/2016/10/P2200165-550x413.jpg",
     },
     price: 4.49,
     description:
