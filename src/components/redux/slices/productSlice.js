@@ -24,14 +24,12 @@ export const fetchAllProducts = () => async (dispatch) => {
     const snapshot = await get(productRef);
     if (snapshot.exists()) {
       const data = snapshot.val();
-      console.log("Data fetched successfully:", data);
       dispatch(setProducts(data));
     } else {
       console.log("No data available");
       dispatch(fetchProductsFailed("No data available"));
     }
   } catch (error) {
-    console.error("Error fetching products:", error);
     dispatch(fetchProductsFailed(error.message));
   } finally {
     dispatch(setLoading(false));
