@@ -26,7 +26,7 @@ const CardsDetail = ({ item, id }) => {
             />
             <img
               src={
-                item.images.image_secondary &&
+                item.images.image_secondary ||
                 "https://www.ameliechocolat.co.uk/product_images/i/079/Amelie_50_1000_x_1000__97003_zoom.jpg"
               }
               alt={`${item.name} hover`}
