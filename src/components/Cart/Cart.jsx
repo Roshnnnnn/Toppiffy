@@ -18,6 +18,8 @@ const Cart = () => {
   const [address, setAddress] = useState("");
   const [pincode, setPincode] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const altImage =
+    "https://upload.wikimedia.org/wikipedia/commons/c/cd/Green_and_Black%27s_dark_chocolate_bar_2.jpg";
 
   const cart = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
@@ -146,7 +148,7 @@ const Cart = () => {
         />
       </Helmet>
       <div className="mt-10 mx-auto max-w-2xl text-amber-600 text-center">
-        <p className="text-5xl font-semibold">
+        <p className="text-5xl font-semibold w-[4rem]">
           <Link to="/">
             <FaHandPointLeft />
           </Link>
@@ -166,8 +168,8 @@ const Cart = () => {
                     <div className="flex items-center space-x-4 mb-2 md:mb-0">
                       <img
                         src={item.image}
-                        alt={item.name}
-                        className="w-12 h-12 object-cover rounded"
+                        alt={altImage}
+                        className="w-14 h-14 object-cover rounded"
                       />
                       <div>
                         <p className="text-lg font-semibold">{item.name}</p>
