@@ -469,4 +469,114 @@ export const chocolates = [
     rating: 4.7,
     quantity: 10,
   },
+  {
+    id: 21,
+    brand: "Feastables",
+    name: "Chocolate Almond",
+    images: {
+      image:
+        "https://feastables.com/cdn/shop/files/product-image-dark-chocolate-sea-salt.png?v=1713285174",
+      image_secondary: "https://m.media-amazon.com/images/I/413GXbQh0WL.jpg",
+    },
+    price: 5.97,
+    description:
+      "Mr. Beast Milk Chocolate Sea Salt Layered on Top of Our Delicious Chocolate For a Duo That Just Can't be Beat",
+    nutrition: {
+      calories: 280,
+      fat: 18,
+      carbohydrates: 24,
+      protein: 4,
+    },
+    ingredients: [
+      "Cane Sugar",
+      "Organic Cocoa Butter",
+      "Organic Chocolate Liquor",
+      "Organic Milk and Organic Vanilla Powder",
+    ],
+    rating: 4.7,
+    quantity: 10,
+  },
+  {
+    id: 22,
+    brand: "Feastables",
+    name: "Dark Chocolate",
+    images: {
+      image:
+        "https://feastables.com/cdn/shop/files/product-image-dark-chocolate_1.png?v=1713285086",
+      image_secondary: "https://m.media-amazon.com/images/I/5109yQylvOL.jpg",
+    },
+    price: 5.97,
+    description:
+      "Feastables MrBeast Milk Chocolate Bars - Made with Grass-Fed Milk Chocolate and Organic Cocoa.",
+    nutrition: {
+      calories: 280,
+      fat: 18,
+      carbohydrates: 24,
+      protein: 4,
+    },
+    ingredients: [
+      "Cane Sugar",
+      "Organic Cocoa Butter",
+      "Organic Chocolate Liquor",
+      "Organic Milk and Organic Vanilla Powder",
+    ],
+    rating: 4.7,
+    quantity: 10,
+  },
+  {
+    id: 23,
+    brand: "Feastables",
+    name: "Peanut Butter Crunch",
+    images: {
+      image:
+        "https://feastables.com/cdn/shop/files/product-image-peanut-butter-crunch-chocolate.png?v=1713297581",
+      image_secondary:
+        "https://m.media-amazon.com/images/I/715d9-VyntL._SY879_.jpg",
+    },
+    price: 5.97,
+    description:
+      "Mr. Beast Deez Nuts With Peanut Butter Feastables Covered With Delicious Smooth & Creme Milk Chocolate",
+    nutrition: {
+      calories: 280,
+      fat: 18,
+      carbohydrates: 24,
+      protein: 4,
+    },
+    ingredients: [
+      "Cane Sugar",
+      "Organic Cocoa Butter",
+      "Organic Chocolate Liquor",
+      "Organic Milk and Organic Vanilla Powder",
+    ],
+    rating: 4.7,
+    quantity: 10,
+  },
+  {
+    id: 24,
+    brand: "Feastables",
+    name: "Milk Chocolate",
+    images: {
+      image:
+        "https://feastables.com/cdn/shop/files/product-image-milk-chocolate_1.png?v=1711228829",
+      image_secondary:
+        "https://m.media-amazon.com/images/I/611HgGqpBOL._SX679_.jpg",
+    },
+    price: 5.97,
+    description:
+      "Feastables MrBeast Milk Chocolate Bars - Made with Grass-Fed Milk Chocolate and Organic Cocoa.",
+    nutrition: {
+      calories: 280,
+      fat: 18,
+      carbohydrates: 24,
+      protein: 4,
+    },
+    ingredients: [
+      "Cane Sugar",
+      "Organic Cocoa Butter",
+      "Organic Chocolate Liquor",
+      "Organic Milk and Organic Vanilla Powder",
+    ],
+    rating: 4.7,
+    quantity: 10,
+  },
 ];
