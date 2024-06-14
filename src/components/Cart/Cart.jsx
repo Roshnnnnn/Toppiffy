@@ -1,18 +1,23 @@
 import { useSelector, useDispatch } from "react-redux";
-import { removeFromCart, clearCart } from "../redux/slices/cartSlice";
-import { selectIsLoggedIn } from "../redux/slices/authSlice";
+import {
+  removeFromCart,
+  clearCart,
+  clearFirestoreCart,
+} from "../redux/slices/cartSlice";
+import { selectIsLoggedIn, selectUserId } from "../redux/slices/authSlice";
 import { Link, useNavigate } from "react-router-dom";
 import { FaHandPointLeft } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import Modal from "../features/Modal";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { fireDB } from "../config/firebase";
-import { collection, addDoc } from "firebase/firestore";
+import { db } from "../config/firebase";
+import { addDoc, collection, doc } from "firebase/firestore";
 import { Helmet } from "react-helmet-async";
 
 const Cart = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
+  const userId = useSelector(selectUserId);
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
@@ -80,8 +85,13 @@ const Cart = () => {
         };
 
         try {
-          await addDoc(collection(fireDB, "orders"), orderInfo);
-          handleEmptyCart();
+          const userRef = doc(db, "users", userId);
+          const ordersCollectionRef = collection(userRef, "orders");
+
+          await addDoc(ordersCollectionRef, orderInfo);
+          dispatch(clearCart());
+          await clearFirestoreCart();
+
           navigate("/");
         } catch (error) {
           console.log(error);
@@ -167,7 +177,7 @@ const Cart = () => {
                   >
                     <div className="flex items-center space-x-4 mb-2 md:mb-0">
                       <img
-                        src={item.image}
+                        src={item.image || altImage}
                         alt={altImage}
                         className="w-14 h-14 object-cover rounded"
                       />
