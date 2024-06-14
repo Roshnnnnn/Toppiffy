@@ -7,17 +7,27 @@ const Button = ({ product }) => {
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
-    dispatch(
-      addToCart({
-        id: product.id,
-        name: product.name,
-        price: product.price,
-        amount: 1,
-        totalPrice: product.price,
-        image: product.images.image,
-      })
-    );
-    toast.success("Added to cart");
+    try {
+      if (!product.images?.image) {
+        throw new Error("Product image is undefined");
+      }
+
+      console.log("Product data:", product);
+      dispatch(
+        addToCart({
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          amount: 1,
+          totalPrice: product.price,
+          image: product.images.image,
+        })
+      );
+      toast.success("Added to cart");
+    } catch (error) {
+      console.error("Error adding to cart:", error);
+      toast.error("Error adding to cart");
+    }
   };
 
   return (
