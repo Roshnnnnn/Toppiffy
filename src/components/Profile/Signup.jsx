@@ -32,7 +32,6 @@ const Signup = () => {
         const user = userCredential.user;
         console.log(user);
 
-        // Save additional user info to Firestore
         await setDoc(doc(db, "users", user.uid), {
           username: username,
           email: email,
