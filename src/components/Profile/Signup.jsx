@@ -2,13 +2,15 @@ import { Link, useNavigate } from "react-router-dom";
 import { BiUser } from "react-icons/bi";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { useState } from "react";
-import { auth } from "../config/firebase";
+import { auth, db } from "../config/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet-async";
 
 const Signup = () => {
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [cnfrmPass, setCnfrmPass] = useState("");
@@ -26,9 +28,17 @@ const Signup = () => {
     }
 
     createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
+      .then(async (userCredential) => {
         const user = userCredential.user;
         console.log(user);
+
+        // Save additional user info to Firestore
+        await setDoc(doc(db, "users", user.uid), {
+          username: username,
+          email: email,
+          isSpecialMember: isSpecialMember,
+        });
+
         toast.success("Sign up complete");
         navigate("/login");
       })
@@ -69,6 +79,20 @@ const Signup = () => {
                 Sign Up
               </h1>
               <form action="" className="flex flex-col" onSubmit={registerUser}>
+                <div className="my-4 relative">
+                  <input
+                    type="text"
+                    className="block w-72 py-2.3 px-0 text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:text-white focus:border-blue-600 peer"
+                    placeholder=""
+                    required
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                  />
+                  <label className="absolute text-sm text-white duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark-text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-4 peer-focus:scale-75 peer-focus:-translate-y-6">
+                    Username
+                  </label>
+                  <BiUser className="absolute top-0 right-4" />
+                </div>
                 <div className="my-4 relative">
                   <input
                     type="email"
