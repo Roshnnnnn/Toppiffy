@@ -3,18 +3,6 @@ import { getAuth } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../config/firebase";
 
-const loadStateFromSessionStorage = () => {
-  try {
-    const serializedState = sessionStorage.getItem("cartState");
-    if (serializedState === null) {
-      return undefined;
-    }
-    return JSON.parse(serializedState);
-  } catch (err) {
-    return undefined;
-  }
-};
-
 export const clearFirestoreCart = async () => {
   const user = getAuth().currentUser;
   if (!user) return;
@@ -27,7 +15,7 @@ export const clearFirestoreCart = async () => {
   }
 };
 
-const initialState = loadStateFromSessionStorage() || {
+const initialState = {
   cart: [],
   totalAmount: 0,
   totalPrice: 0,
