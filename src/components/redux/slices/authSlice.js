@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../../config/firebase";
 
 const loadStateFromSessionStorage = () => {
   try {
@@ -24,11 +26,24 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setActiveUser: (state, action) => {
-      const { email, userId, isSpecialMember } = action.payload;
+      const { email, userId, isSpecialMember = false } = action.payload;
       state.isLoggedIn = true;
       state.email = email;
       state.userId = userId;
       state.isSpecialMember = isSpecialMember;
+
+      sessionStorage.setItem("authState", JSON.stringify(state));
+
+      // Save to Firestore
+      const userRef = doc(db, "users", userId);
+      setDoc(userRef, { email, userId, isSpecialMember }, { merge: true });
+    },
+    loadUserFromFirestore: (state, action) => {
+      const user = action.payload;
+      state.isLoggedIn = true;
+      state.email = user.email;
+      state.userId = user.userId;
+      state.isSpecialMember = user.isSpecialMember;
 
       sessionStorage.setItem("authState", JSON.stringify(state));
     },
@@ -43,7 +58,8 @@ const authSlice = createSlice({
   },
 });
 
-export const { setActiveUser, logoutUser } = authSlice.actions;
+export const { setActiveUser, logoutUser, loadUserFromFirestore } =
+  authSlice.actions;
 
 export const selectIsLoggedIn = (state) => state.auth.isLoggedIn;
 export const selectEmail = (state) => state.auth.email;
