@@ -5,10 +5,13 @@ import { useState } from "react";
 import { auth } from "../config/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { setActiveUser } from "../redux/slices/authSlice";
+import { setCart } from "../redux/slices/cartSlice";
 import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet-async";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../config/firebase";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -34,7 +37,29 @@ const Login = () => {
       );
       const user = userCredential.user;
 
-      dispatch(setActiveUser({ email: user.email, userId: user.uid }));
+      const userRef = doc(db, "users", user.uid);
+      const userDoc = await getDoc(userRef);
+
+      if (userDoc.exists()) {
+        const userData = userDoc.data();
+        dispatch(
+          setActiveUser({
+            email: user.email,
+            userId: user.uid,
+            isSpecialMember: userData.isSpecialMember ?? false,
+          })
+        );
+        dispatch(setCart(userData.cart || []));
+      } else {
+        dispatch(
+          setActiveUser({
+            email: user.email,
+            userId: user.uid,
+            isSpecialMember: false,
+          })
+        );
+      }
+
       toast.success("Welcome! Login Successful");
       navigate("/");
     } catch (error) {
@@ -51,13 +76,35 @@ const Login = () => {
     try {
       const response = await signInWithEmailAndPassword(
         auth,
-        "hello@gmail.com",
-        "Hello@1234"
+        "admin@gmail.com",
+        "1234567890"
       );
       const user = response.user;
 
       if (user) {
-        dispatch(setActiveUser({ email: user.email, userId: user.uid }));
+        const userRef = doc(db, "users", user.uid);
+        const userDoc = await getDoc(userRef);
+
+        if (userDoc.exists()) {
+          const userData = userDoc.data();
+          dispatch(
+            setActiveUser({
+              email: user.email,
+              userId: user.uid,
+              isSpecialMember: userData.isSpecialMember ?? false,
+            })
+          );
+          dispatch(setCart(userData.cart || []));
+        } else {
+          dispatch(
+            setActiveUser({
+              email: user.email,
+              userId: user.uid,
+              isSpecialMember: false,
+            })
+          );
+        }
+
         toast.success("Welcome! Guest Login Successful");
         navigate("/");
       } else {
