@@ -34,7 +34,6 @@ const authSlice = createSlice({
 
       sessionStorage.setItem("authState", JSON.stringify(state));
 
-      // Save to Firestore
       const userRef = doc(db, "users", userId);
       setDoc(userRef, { email, userId, isSpecialMember }, { merge: true });
     },
