@@ -17,6 +17,7 @@ import Error from "./Error.jsx";
 import Cart from "./components/Cart/Cart.jsx";
 import FilteredProduct from "./components/Product/FilteredProduct.jsx";
 import Reset from "./components/Profile/Reset.jsx";
+import Dashboard from "./components/Dashboard/Dashboard.jsx";
 import store from "./components/redux/store.js";
 import { Provider } from "react-redux";
 import { HelmetProvider } from "react-helmet-async";
@@ -32,6 +33,7 @@ const router = createBrowserRouter(
       <Route path="signup" element={<Signup />} />
       <Route path="reset" element={<Reset />} />
       <Route path="cart" element={<Cart />} />
+      <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/:brand" element={<FilteredProduct />} />
       <Route path="*" element={<Error />} />
     </Route>
