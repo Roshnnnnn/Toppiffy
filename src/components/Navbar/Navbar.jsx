@@ -9,6 +9,7 @@ import { signOut } from "firebase/auth";
 import { auth } from "../config/firebase";
 import { useDispatch, useSelector } from "react-redux";
 import { calculateTotalQuantity } from "../redux/slices/cartSlice";
+import { selectIsSpecialMember } from "../redux/slices/authSlice"; // Ensure the correct import path
 
 const Nav = () => {
   let Links = [
@@ -39,6 +40,7 @@ const Nav = () => {
 
   const dispatch = useDispatch();
   const totalQuantity = useSelector((state) => state.cart.totalAmount);
+  const isSpecialMember = useSelector(selectIsSpecialMember);
 
   useEffect(() => {
     dispatch(calculateTotalQuantity());
@@ -79,6 +81,21 @@ const Nav = () => {
                 </NavLink>
               </li>
             ))}
+
+            {isSpecialMember && (
+              <li className="md:ml-8 text-xl md:my-0 my-7 mx-8">
+                <NavLink
+                  to="/dashboard"
+                  className={({ isActive }) =>
+                    `hover:text-gray-400 duration-500 ${
+                      isActive ? "text-black" : "text-amber-600"
+                    }`
+                  }
+                >
+                  DASHBOARD
+                </NavLink>
+              </li>
+            )}
 
             <li className="md:ml-8 text-xl md:my-0 my-7 mx-8 relative w-[10%]">
               <NavLink
