@@ -478,7 +478,7 @@ export const chocolates = [
         "https://feastables.com/cdn/shop/files/product-image-dark-chocolate-sea-salt.png?v=1713285174",
       image_secondary: "https://m.media-amazon.com/images/I/413GXbQh0WL.jpg",
     },
-    price: 5.97,
+    price: 8.97,
     description:
       "Mr. Beast Milk Chocolate Sea Salt Layered on Top of Our Delicious Chocolate For a Duo That Just Can't be Beat",
     nutrition: {
@@ -505,7 +505,7 @@ export const chocolates = [
         "https://feastables.com/cdn/shop/files/product-image-dark-chocolate_1.png?v=1713285086",
       image_secondary: "https://m.media-amazon.com/images/I/5109yQylvOL.jpg",
     },
-    price: 5.97,
+    price: 4.97,
     description:
       "Feastables MrBeast Milk Chocolate Bars - Made with Grass-Fed Milk Chocolate and Organic Cocoa.",
     nutrition: {
@@ -533,7 +533,7 @@ export const chocolates = [
       image_secondary:
         "https://m.media-amazon.com/images/I/715d9-VyntL._SY879_.jpg",
     },
-    price: 5.97,
+    price: 59.97,
     description:
       "Mr. Beast Deez Nuts With Peanut Butter Feastables Covered With Delicious Smooth & Creme Milk Chocolate",
     nutrition: {
@@ -561,7 +561,7 @@ export const chocolates = [
       image_secondary:
         "https://m.media-amazon.com/images/I/611HgGqpBOL._SX679_.jpg",
     },
-    price: 5.97,
+    price: 55.97,
     description:
       "Feastables MrBeast Milk Chocolate Bars - Made with Grass-Fed Milk Chocolate and Organic Cocoa.",
     nutrition: {
