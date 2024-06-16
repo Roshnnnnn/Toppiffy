@@ -76,7 +76,7 @@ const Login = () => {
     try {
       const response = await signInWithEmailAndPassword(
         auth,
-        "admin@gmail.com",
+        "user@user.com",
         "1234567890"
       );
       const user = response.user;
