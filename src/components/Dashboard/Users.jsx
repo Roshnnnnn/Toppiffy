@@ -2,6 +2,9 @@ import { collection, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../config/firebase";
 
+const placeholderImageUrl =
+  "https://cdn.dribbble.com/users/2370289/screenshots/6150406/media/6579b4e1f9a6658157cf653538b25a8b.jpg?resize=400x0";
+
 const Users = () => {
   const [users, setUsers] = useState([]);
   const [selectedCart, setSelectedCart] = useState([]);
@@ -16,7 +19,6 @@ const Users = () => {
           const userData = userDoc.data();
           const userId = userDoc.id;
 
-          // Fetch orders for the user
           const ordersCollection = collection(db, `users/${userId}/orders`);
           const ordersSnapshot = await getDocs(ordersCollection);
           const ordersList = ordersSnapshot.docs.map((orderDoc) => ({
@@ -24,7 +26,6 @@ const Users = () => {
             ...orderDoc.data(),
           }));
 
-          // Assume the cart is stored directly within the user document
           const cartData = userData.cart || [];
 
           return {
@@ -86,7 +87,13 @@ const Users = () => {
               </li>
             ))
           ) : (
-            <div className="text-sm text-gray-600">No items in cart</div>
+            <div className="flex items-center justify-center">
+              <img
+                src={placeholderImageUrl}
+                alt="No items in cart"
+                className="w-64 h-64"
+              />
+            </div>
           )}
         </ul>
       </div>
@@ -141,7 +148,13 @@ const Users = () => {
               </li>
             ))
           ) : (
-            <div className="text-sm text-gray-600">No orders</div>
+            <div className="flex items-center justify-center">
+              <img
+                src={placeholderImageUrl}
+                alt="No orders"
+                className="w-64 h-64"
+              />
+            </div>
           )}
         </ul>
       </div>
