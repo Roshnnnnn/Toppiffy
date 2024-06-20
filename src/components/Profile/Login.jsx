@@ -74,10 +74,12 @@ const Login = () => {
     setLoading(true);
 
     try {
+      const guestEmail = "user@user.com";
+      const guestPassword = "1234567890";
       const response = await signInWithEmailAndPassword(
         auth,
-        "user@user.com",
-        "1234567890"
+        guestEmail,
+        guestPassword
       );
       const user = response.user;
 
@@ -108,7 +110,7 @@ const Login = () => {
         toast.success("Welcome! Guest Login Successful");
         navigate("/");
       } else {
-        console.log(response.message);
+        console.log("User object is null");
       }
     } catch (error) {
       console.error("Guest login error:", error);
