@@ -4,7 +4,6 @@ import CardsDetail from "../features/CardsDetail";
 import { Helmet } from "react-helmet-async";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllProducts } from "../redux/slices/productSlice";
-import { uploadJsonData } from "../config/uploadJson";
 
 const ProductList = () => {
   const dispatch = useDispatch();
@@ -31,11 +30,8 @@ const ProductList = () => {
 
   useEffect(() => {
     setLoading(false);
+    console.log(products);
   }, [products]);
-
-  useEffect(() => {
-    uploadJsonData();
-  }, []);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
