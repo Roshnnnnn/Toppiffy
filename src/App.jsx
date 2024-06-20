@@ -3,40 +3,30 @@ import { Outlet } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./components/Footer/Footer";
-// import { useEffect, useState } from "react";
-// import { Watch } from "react-loader-spinner";
+import { useEffect, useState } from "react";
+import Loader from "./components/features/Loader";
 
 const App = () => {
-  // const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setLoading(false);
-  //   }, 3000);
-  // }, []);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
 
   return (
     <>
-      {/* {loading ? (
-        <div className="flex items-center justify-center min-h-screen">
-          <Watch
-            visible={true}
-            height="80"
-            width="80"
-            radius="48"
-            color="#924D3A"
-            ariaLabel="watch-loading"
-            wrapperStyle={{}}
-            wrapperClass=""
-          />
-        </div>
-      ) : ( */}
-      <>
-        <ToastContainer />
-        <Outlet />
-        <Footer />
-      </>
-      {/* )} */}
+      <ToastContainer />
+
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <Outlet />
+          <Footer />
+        </>
+      )}
     </>
   );
 };
