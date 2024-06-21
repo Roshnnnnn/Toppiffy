@@ -19,19 +19,19 @@ const Products = () => {
         <table className="min-w-full bg-white border border-gray-200 divide-y divide-gray-200">
           <thead className="bg-gray-100">
             <tr>
-              <th className="border border-gray-200 px-4 py-2 text-sm md:text-base">
+              <th className="border border-gray-200 px-2 md:px-4 py-2 text-xs md:text-base">
                 Image
               </th>
-              <th className="border border-gray-200 px-4 py-2 text-sm md:text-base">
+              <th className="border border-gray-200 px-2 md:px-4 py-2 text-xs md:text-base">
                 Brand
               </th>
-              <th className="border border-gray-200 px-4 py-2 text-sm md:text-base">
+              <th className="border border-gray-200 px-2 md:px-4 py-2 text-xs md:text-base">
                 Name
               </th>
-              <th className="border border-gray-200 px-4 py-2 text-sm md:text-base">
+              <th className="border border-gray-200 px-2 md:px-4 py-2 text-xs md:text-base">
                 Price
               </th>
-              <th className="border border-gray-200 px-4 py-2 text-sm md:text-base">
+              <th className="border border-gray-200 px-2 md:px-4 py-2 text-xs md:text-base">
                 Quantity
               </th>
             </tr>
@@ -40,28 +40,30 @@ const Products = () => {
             {products.length > 0 ? (
               products.map((product) => (
                 <tr key={product.id} className="border-b border-gray-200">
-                  <td className="border border-gray-200 px-4 py-2 text-center relative">
-                    <img
-                      src={product.images.image}
-                      alt={product.name}
-                      className="h-16 w-16 md:h-20 md:w-20 object-cover mx-auto transition duration-300 transform hover:scale-110"
-                    />
-                    <img
-                      src={product.images.hoverImage}
-                      alt={product.name}
-                      className="h-16 w-16 md:h-20 md:w-20 object-cover mx-auto absolute top-0 left-0 opacity-0 pointer-events-none transition duration-300 transform scale-95 hover:opacity-100"
-                    />
+                  <td className="border border-gray-200 px-2 md:px-4 py-2 text-center relative">
+                    <div className="relative h-16 w-16 md:h-20 md:w-20 mx-auto">
+                      <img
+                        src={product.images.image}
+                        alt={product.name}
+                        className="object-cover w-full h-full transition duration-300 transform hover:scale-110"
+                      />
+                      <img
+                        src={product.images.hoverImage}
+                        alt={product.name}
+                        className="absolute top-0 left-0 object-cover w-full h-full opacity-0 transition duration-300 transform scale-95 hover:opacity-100 pointer-events-none"
+                      />
+                    </div>
                   </td>
-                  <td className="border border-gray-200 px-4 py-2 text-sm md:text-base">
+                  <td className="border border-gray-200 px-2 md:px-4 py-2 text-xs md:text-base">
                     {product.brand}
                   </td>
-                  <td className="border border-gray-200 px-4 py-2 text-sm md:text-base">
+                  <td className="border border-gray-200 px-2 md:px-4 py-2 text-xs md:text-base">
                     {product.name}
                   </td>
-                  <td className="border border-gray-200 px-4 py-2 text-sm md:text-base">
+                  <td className="border border-gray-200 px-2 md:px-4 py-2 text-xs md:text-base">
                     ${product.price.toFixed(2)}
                   </td>
-                  <td className="border border-gray-200 px-4 py-2 text-sm md:text-base">
+                  <td className="border border-gray-200 px-2 md:px-4 py-2 text-xs md:text-base">
                     <span className="md:hidden">{product.quantity}</span>
                     <span className="hidden md:inline">{`${product.quantity} pieces`}</span>
                   </td>
@@ -70,7 +72,7 @@ const Products = () => {
             ) : (
               <tr>
                 <td
-                  className="border border-gray-200 px-4 py-2 text-sm md:text-base"
+                  className="border border-gray-200 px-2 md:px-4 py-2 text-xs md:text-base"
                   colSpan="5"
                 >
                   No products found
