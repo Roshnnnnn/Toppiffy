@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getAuth } from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc, getDoc } from "firebase/firestore";
 import { db } from "../../config/firebase";
 
 export const clearFirestoreCart = async () => {
@@ -15,10 +15,25 @@ export const clearFirestoreCart = async () => {
   }
 };
 
+const CGST_RATE = 0.09;
+const SGST_RATE = 0.09;
+
 const initialState = {
   cart: [],
   totalAmount: 0,
   totalPrice: 0,
+  totalPriceWithTaxes: 0,
+  CGST: 0,
+  SGST: 0,
+  totalTax: 0,
+  shippingInfo: {
+    name: "",
+    address: "",
+    pincode: "",
+    phoneNumber: "",
+    city: "",
+    state: "",
+  },
 };
 
 const calculateTotalAmount = (cart) => {
@@ -27,6 +42,18 @@ const calculateTotalAmount = (cart) => {
 
 const calculateTotalPrice = (cart) => {
   return cart.reduce((total, item) => total + item.totalPrice, 0);
+};
+
+const calculateTotalTaxAmount = (cart) => {
+  const totalCGST = cart.reduce(
+    (total, item) => total + item.price * item.amount * CGST_RATE,
+    0
+  );
+  const totalSGST = cart.reduce(
+    (total, item) => total + item.price * item.amount * SGST_RATE,
+    0
+  );
+  return { totalCGST, totalSGST };
 };
 
 const sanitizeCartData = (cart) => {
@@ -49,7 +76,11 @@ const cartSlice = createSlice({
       state.cart = action.payload;
       state.totalAmount = calculateTotalAmount(state.cart);
       state.totalPrice = calculateTotalPrice(state.cart);
-      saveStateToSessionStorage(state);
+      const { totalCGST, totalSGST } = calculateTotalTaxAmount(state.cart);
+      state.CGST = totalCGST;
+      state.SGST = totalSGST;
+      state.totalTax = totalCGST + totalSGST;
+      state.totalPriceWithTaxes = state.totalPrice + state.totalTax;
     },
     addToCart: (state, action) => {
       const product = action.payload;
@@ -73,7 +104,11 @@ const cartSlice = createSlice({
 
       state.totalAmount = calculateTotalAmount(state.cart);
       state.totalPrice = calculateTotalPrice(state.cart);
-      saveStateToSessionStorage(state);
+      const { totalCGST, totalSGST } = calculateTotalTaxAmount(state.cart);
+      state.CGST = totalCGST;
+      state.SGST = totalSGST;
+      state.totalTax = totalCGST + totalSGST;
+      state.totalPriceWithTaxes = state.totalPrice + state.totalTax;
 
       updateFirestoreCart(state.cart);
     },
@@ -91,7 +126,11 @@ const cartSlice = createSlice({
         }
         state.totalAmount = calculateTotalAmount(state.cart);
         state.totalPrice = calculateTotalPrice(state.cart);
-        saveStateToSessionStorage(state);
+        const { totalCGST, totalSGST } = calculateTotalTaxAmount(state.cart);
+        state.CGST = totalCGST;
+        state.SGST = totalSGST;
+        state.totalTax = totalCGST + totalSGST;
+        state.totalPriceWithTaxes = state.totalPrice + state.totalTax;
 
         updateFirestoreCart(state.cart);
       }
@@ -103,21 +142,31 @@ const cartSlice = createSlice({
       state.cart = [];
       state.totalAmount = 0;
       state.totalPrice = 0;
-      saveStateToSessionStorage(state);
+      state.CGST = 0;
+      state.SGST = 0;
+      state.totalTax = 0;
+      state.totalPriceWithTaxes = 0;
 
       clearFirestoreCart();
     },
+    setShippingInfo(state, action) {
+      const {
+        name,
+        address,
+        pincode,
+        phoneNumber,
+        city,
+        state: shippingState,
+      } = action.payload;
+      state.shippingInfo.name = name;
+      state.shippingInfo.address = address;
+      state.shippingInfo.pincode = pincode;
+      state.shippingInfo.phoneNumber = phoneNumber;
+      state.shippingInfo.city = city;
+      state.shippingInfo.state = shippingState;
+    },
   },
 });
-
-const saveStateToSessionStorage = (state) => {
-  try {
-    const serializedState = JSON.stringify(state);
-    sessionStorage.setItem("cartState", serializedState);
-  } catch (err) {
-    console.error("Error saving state to session storage:", err);
-  }
-};
 
 const updateFirestoreCart = async (cart) => {
   const user = getAuth().currentUser;
@@ -126,6 +175,7 @@ const updateFirestoreCart = async (cart) => {
   try {
     const userRef = doc(db, "users", user.uid);
     await setDoc(userRef, { cart: sanitizeCartData(cart) }, { merge: true });
+    console.log("cart updated");
   } catch (error) {
     console.error("Error updating cart in Firestore:", error);
   }
@@ -137,6 +187,26 @@ export const {
   addToCart,
   removeFromCart,
   clearCart,
+  setShippingInfo,
 } = cartSlice.actions;
 
+export const selectShippingInfo = (state) => state.cart.shippingInfo;
+
 export default cartSlice.reducer;
+
+export const initializeCartFromFirestore = () => async (dispatch) => {
+  const user = getAuth().currentUser;
+  if (!user) return;
+
+  try {
+    const userRef = doc(db, "users", user.uid);
+    const userDoc = await getDoc(userRef);
+
+    if (userDoc.exists()) {
+      const userData = userDoc.data();
+      dispatch(setCart(userData.cart || []));
+    }
+  } catch (error) {
+    console.error("Error initializing cart from Firestore:", error);
+  }
+};
