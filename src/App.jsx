@@ -2,11 +2,13 @@ import "./App.css";
 import { Outlet } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Footer from "./components/Footer/Footer";
 import { useEffect, useState } from "react";
 import Loader from "./components/features/Loader";
+import { useDispatch } from "react-redux";
+import { initializeCartFromFirestore } from "./components/redux/slices/cartSlice";
 
 const App = () => {
+  const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -14,6 +16,10 @@ const App = () => {
       setLoading(false);
     }, 3000);
   }, []);
+
+  useEffect(() => {
+    dispatch(initializeCartFromFirestore());
+  }, [dispatch]);
 
   return (
     <>
@@ -24,7 +30,6 @@ const App = () => {
       ) : (
         <>
           <Outlet />
-          <Footer />
         </>
       )}
     </>
