@@ -5,6 +5,7 @@ import Navbar from "../Navbar/Navbar";
 import { useEffect } from "react";
 import { filterChocolate } from "../redux/slices/productSlice";
 import { Helmet } from "react-helmet-async";
+import Footer from "../Footer/Footer";
 
 const FilteredProduct = () => {
   const dispatch = useDispatch();
@@ -50,6 +51,7 @@ const FilteredProduct = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };
