@@ -21,6 +21,7 @@ import Dashboard from "./components/Dashboard/Dashboard.jsx";
 import store from "./components/redux/store.js";
 import { Provider } from "react-redux";
 import { HelmetProvider } from "react-helmet-async";
+import Invoice from "./components/Cart/Invoice.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -35,6 +36,7 @@ const router = createBrowserRouter(
       <Route path="cart" element={<Cart />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/:brand" element={<FilteredProduct />} />
+      <Route path="/invoice/:orderId" element={<Invoice />} />
       <Route path="*" element={<Error />} />
     </Route>
   )
