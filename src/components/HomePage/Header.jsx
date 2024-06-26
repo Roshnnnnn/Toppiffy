@@ -20,6 +20,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Helmet } from "react-helmet-async";
 import Trusted from "./Trusted";
 import Testimonials from "./Testimonials";
+import Footer from "../Footer/Footer";
+// import { uploadJson } from "../config/uploadJson";
 
 const Header = () => {
   const [currentBrandIndex, setCurrentBrandIndex] = useState(0);
@@ -52,6 +54,7 @@ const Header = () => {
 
   useEffect(() => {
     dispatch(fetchAllProducts());
+    // uploadJson();
   }, [dispatch, brand]);
 
   const handleFilter = (brandName) => {
@@ -124,6 +127,7 @@ const Header = () => {
           <Testimonials />
         </div>
       </header>
+      <Footer />
     </>
   );
 };
