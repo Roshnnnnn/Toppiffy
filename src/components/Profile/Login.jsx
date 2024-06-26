@@ -1,17 +1,16 @@
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { BiUser } from "react-icons/bi";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import { useState } from "react";
-import { auth } from "../config/firebase";
+import { useDispatch } from "react-redux";
+import { Helmet } from "react-helmet-async";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { doc, getDoc } from "firebase/firestore";
+import { auth, db } from "../config/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { setActiveUser } from "../redux/slices/authSlice";
 import { setCart } from "../redux/slices/cartSlice";
-import { useDispatch } from "react-redux";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { Helmet } from "react-helmet-async";
-import { doc, getDoc } from "firebase/firestore";
-import { db } from "../config/firebase";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -59,12 +58,18 @@ const Login = () => {
           })
         );
       }
-
       toast.success("Welcome! Login Successful");
       navigate("/");
     } catch (error) {
       console.error("Login error:", error);
-      toast.error("Invalid credentials or user not signed up.");
+      if (
+        error.code === "auth/user-not-found" ||
+        error.code === "auth/wrong-password"
+      ) {
+        toast.error("Invalid email or password. Please try again.");
+      } else {
+        toast.error("Login failed. Please try again later.");
+      }
     } finally {
       setLoading(false);
     }
@@ -106,7 +111,6 @@ const Login = () => {
             })
           );
         }
-
         toast.success("Welcome! Guest Login Successful");
         navigate("/");
       } else {
