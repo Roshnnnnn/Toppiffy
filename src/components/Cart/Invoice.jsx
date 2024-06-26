@@ -10,6 +10,7 @@ import {
   selectShippingInfo,
 } from "../redux/slices/cartSlice";
 import { FaHandPointLeft, FaDownload } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 const Invoice = () => {
   const shippingInfo = useSelector(selectShippingInfo);
@@ -61,6 +62,13 @@ const Invoice = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Invoice - ChocoKart</title>
+        <meta
+          name="description"
+          content="View your detailed invoice for your ChocoKart order, including itemized charges, taxes, and shipping information. Thank you for shopping with us!"
+        />
+      </Helmet>
       <div className="bg-gray-400">
         <div className="flex justify-between p-4">
           <Link to="/">
