@@ -1,6 +1,7 @@
 export const chocolates = [
   {
     id: 1,
+    title: "Food",
     brand: "CADBURY",
     name: "Dairy Milk Silk",
     images: {
@@ -24,6 +25,7 @@ export const chocolates = [
   },
   {
     id: 2,
+    title: "Food",
     brand: "CADBURY",
     name: "5 Star",
     images: {
@@ -46,6 +48,7 @@ export const chocolates = [
   },
   {
     id: 3,
+    title: "Food",
     brand: "CADBURY",
     name: "Silk Oreo",
     images: {
@@ -75,6 +78,7 @@ export const chocolates = [
   },
   {
     id: 4,
+    title: "Food",
     brand: "CADBURY",
     name: "Bournville",
     images: {
@@ -97,6 +101,7 @@ export const chocolates = [
   },
   {
     id: 5,
+    title: "Food",
     brand: "HERSHEYS",
     name: "Kisses Dark ",
     images: {
@@ -119,6 +124,7 @@ export const chocolates = [
   },
   {
     id: 6,
+    title: "Food",
     brand: "HERSHEYS",
     name: "Kisses Creamy Milk",
     images: {
@@ -142,6 +148,7 @@ export const chocolates = [
   },
   {
     id: 7,
+    title: "Food",
     brand: "HERSHEYS",
     name: "Kisses Extra Creamy Milk",
     images: {
@@ -165,6 +172,7 @@ export const chocolates = [
   },
   {
     id: 8,
+    title: "Food",
     brand: "HERSHEYS",
     name: "Kisses Milk With Hazelnuts",
     images: {
@@ -188,6 +196,7 @@ export const chocolates = [
   },
   {
     id: 9,
+    title: "Food",
     brand: "WHITTAKER",
     name: "Pick & Mix Milk Squares",
     images: {
@@ -211,6 +220,7 @@ export const chocolates = [
   },
   {
     id: 10,
+    title: "Food",
     brand: "WHITTAKER",
     name: "White Bar",
     images: {
@@ -233,6 +243,7 @@ export const chocolates = [
   },
   {
     id: 11,
+    title: "Food",
     brand: "FERRERO",
     name: "Ferrero Rocher",
     images: {
@@ -256,6 +267,7 @@ export const chocolates = [
   },
   {
     id: 12,
+    title: "Food",
     brand: "FERRERO",
     name: "Ferrero Rondnoir",
     images: {
@@ -279,6 +291,7 @@ export const chocolates = [
   },
   {
     id: 13,
+    title: "Food",
     brand: "NESTLE",
     name: "Kit Kat",
     images: {
@@ -302,6 +315,7 @@ export const chocolates = [
   },
   {
     id: 14,
+    title: "Food",
     brand: "NESTLE",
     name: "Crunch",
     images: {
@@ -324,6 +338,7 @@ export const chocolates = [
   },
   {
     id: 15,
+    title: "Food",
     brand: "NESTLE",
     name: "Milky Bar",
     images: {
@@ -345,6 +360,7 @@ export const chocolates = [
   },
   {
     id: 16,
+    title: "Food",
     brand: "NESTLE",
     name: "Aero",
     images: {
@@ -367,6 +383,7 @@ export const chocolates = [
   },
   {
     id: 17,
+    title: "Food",
     brand: "WHITTAKER",
     name: "Creamy Milk Bar",
     images: {
@@ -390,6 +407,7 @@ export const chocolates = [
   },
   {
     id: 18,
+    title: "Food",
     brand: "WHITTAKER",
     name: "Creamy Milk Mini Slabs",
     images: {
@@ -413,6 +431,7 @@ export const chocolates = [
   },
   {
     id: 19,
+    title: "Food",
     brand: "FERRERO",
     name: "Golden Gallery",
     images: {
@@ -442,6 +461,7 @@ export const chocolates = [
   },
   {
     id: 20,
+    title: "Food",
     brand: "FERRERO",
     name: "Ferrero Collection",
     images: {
@@ -471,6 +491,7 @@ export const chocolates = [
   },
   {
     id: 21,
+    title: "Food",
     brand: "Feastables",
     name: "Chocolate Almond",
     images: {
@@ -498,6 +519,7 @@ export const chocolates = [
   },
   {
     id: 22,
+    title: "Food",
     brand: "Feastables",
     name: "Dark Chocolate",
     images: {
@@ -525,6 +547,7 @@ export const chocolates = [
   },
   {
     id: 23,
+    title: "Food",
     brand: "Feastables",
     name: "Peanut Butter Crunch",
     images: {
@@ -553,6 +576,7 @@ export const chocolates = [
   },
   {
     id: 24,
+    title: "Food",
     brand: "Feastables",
     name: "Milk Chocolate",
     images: {
