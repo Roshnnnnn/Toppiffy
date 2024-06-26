@@ -2,23 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../config/firebase";
 
-const loadStateFromSessionStorage = () => {
-  try {
-    const serializedState = sessionStorage.getItem("authState");
-    if (serializedState === null) {
-      return undefined;
-    }
-    return JSON.parse(serializedState);
-  } catch (err) {
-    return undefined;
-  }
-};
-
-const initialState = loadStateFromSessionStorage() || {
-  isLoggedIn: false,
-  email: null,
-  userId: null,
-  isSpecialMember: false,
+const initialState = {
+  isLoggedIn: localStorage.getItem("isLoggedIn") === "true",
+  email: localStorage.getItem("email") || null,
+  userId: localStorage.getItem("userId") || null,
+  isSpecialMember: localStorage.getItem("isSpecialMember") === "true",
 };
 
 const authSlice = createSlice({
@@ -32,7 +20,14 @@ const authSlice = createSlice({
       state.userId = userId;
       state.isSpecialMember = isSpecialMember;
 
-      sessionStorage.setItem("authState", JSON.stringify(state));
+      // Save to localStorage
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("email", email);
+      localStorage.setItem("userId", userId);
+      localStorage.setItem(
+        "isSpecialMember",
+        isSpecialMember ? "true" : "false"
+      );
 
       const userRef = doc(db, "users", userId);
       setDoc(userRef, { email, userId, isSpecialMember }, { merge: true });
@@ -43,16 +38,12 @@ const authSlice = createSlice({
       state.email = user.email;
       state.userId = user.userId;
       state.isSpecialMember = user.isSpecialMember;
-
-      sessionStorage.setItem("authState", JSON.stringify(state));
     },
     logoutUser: (state) => {
       state.isLoggedIn = false;
       state.email = null;
       state.userId = null;
       state.isSpecialMember = false;
-
-      sessionStorage.removeItem("authState");
     },
   },
 });
