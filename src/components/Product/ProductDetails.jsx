@@ -6,6 +6,7 @@ import Navbar from "../Navbar/Navbar";
 import Button from "../features/Button";
 import { Helmet } from "react-helmet-async";
 import { singleProduct } from "../redux/slices/productSlice";
+import Footer from "../Footer/Footer";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -86,6 +87,7 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };
