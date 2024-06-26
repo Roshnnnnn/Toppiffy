@@ -4,6 +4,7 @@ import CardsDetail from "../features/CardsDetail";
 import { Helmet } from "react-helmet-async";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllProducts } from "../redux/slices/productSlice";
+import Footer from "../Footer/Footer";
 
 const ProductList = () => {
   const dispatch = useDispatch();
@@ -30,7 +31,6 @@ const ProductList = () => {
 
   useEffect(() => {
     setLoading(false);
-    console.log(products);
   }, [products]);
 
   useEffect(() => {
@@ -39,6 +39,10 @@ const ProductList = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [handleScroll]);
+
+  useEffect(() => {
+    fetchAllProducts();
+  }, []);
 
   return (
     <>
@@ -71,6 +75,7 @@ const ProductList = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };
