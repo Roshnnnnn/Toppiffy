@@ -24,6 +24,11 @@ const Nav = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("email");
+    localStorage.removeItem("userId");
+    localStorage.removeItem("isSpecialMember");
+
     signOut(auth)
       .then(() => {
         toast.success("Logout Done");
