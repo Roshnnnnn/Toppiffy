@@ -43,6 +43,7 @@ const Products = () => {
                   <td className="border border-gray-200 px-2 md:px-4 py-2 text-center relative">
                     <div className="relative h-16 w-16 md:h-20 md:w-20 mx-auto">
                       <img
+                        loading="lazy"
                         src={product.images.image}
                         alt={product.name}
                         className="object-cover w-full h-full transition duration-300 transform hover:scale-110"

@@ -17,6 +17,7 @@ const CardsDetail = ({ item, id }) => {
         >
           <div className="relative overflow-hidden rounded-md">
             <img
+              loading="lazy"
               src={
                 item.images.image ||
                 "https://www.ameliechocolat.co.uk/product_images/i/079/Amelie_50_1000_x_1000__97003_zoom.jpg"
