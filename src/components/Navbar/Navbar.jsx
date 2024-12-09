@@ -55,13 +55,20 @@ const Nav = () => {
       <nav className="md:flex items-center justify-between bg-white py-4 md:px-10 px-7">
         <div className="cursor-pointer flex items-center">
           <Link to="/">
-            <img src={Image} alt="ChocoKart Logo" className="w-[15rem]" />
+            <img
+              src={Image}
+              alt="CocoKart Logo"
+              className="w-[15rem]"
+              width="300" // Set explicit width based on the actual size
+              height="200" // Set explicit height based on the actual size
+            />
           </Link>
         </div>
 
         <div
           onClick={() => setOpen(!open)}
-          className="text-3xl absolute right-8 top-6 cursor-pointer md:hidden"
+          className="text-3xl absolute right-8 cursor-pointer md:hidden"
+          style={{ top: "3.5rem" }}
         >
           <GiChocolateBar />
         </div>
@@ -72,14 +79,18 @@ const Nav = () => {
           }`}
         >
           {Links.map((link, index) => (
-            <li key={index} className="md:ml-8 text-xl md:my-0 my-7 mx-8">
+            <li
+              key={index}
+              className="md:ml-8 lg:text-xl md:text-sm md:my-0 my-7 lg:mx-4 md:mx-2"
+            >
               <NavLink
                 to={link.link}
                 className={({ isActive }) =>
-                  `hover:text-gray-400 duration-500 ${
+                  `hover:text-gray-400 duration-500 uppercase ${
                     isActive ? "text-black" : "text-amber-600"
                   }`
                 }
+                aria-label={`Navigate to ${link.name}`}
               >
                 {link.name}
               </NavLink>
@@ -87,11 +98,11 @@ const Nav = () => {
           ))}
 
           {isSpecialMember && (
-            <li className="md:ml-8 text-xl md:my-0 my-7 mx-8">
+            <li className="md:ml-8 lg:text-xl md:text-sm md:my-0 my-7 mx-8">
               <NavLink
                 to="/dashboard"
                 className={({ isActive }) =>
-                  `hover:text-gray-400 duration-500 ${
+                  `hover:text-gray-400 duration-500 uppercase ${
                     isActive ? "text-black" : "text-amber-600"
                   }`
                 }
@@ -112,7 +123,7 @@ const Nav = () => {
             >
               <FaShoppingBag />
               {totalQuantity > 0 && (
-                <span className="absolute -top-6 -right-2 bg-red-500 text-white px-1 rounded-full">
+                <span className="absolute -top-6 bg-red-500 text-white px-1 rounded-full">
                   {totalQuantity}
                 </span>
               )}
@@ -123,11 +134,12 @@ const Nav = () => {
             <button
               className="text-amber-600 font-semibold rounded inline-flex items-center"
               onClick={() => setDrop(!drop)}
+              aria-label="User account options"
             >
               <FaRegUser />
             </button>
             {drop && (
-              <div className="absolute z-50 mt-2 right-0 w-36 bg-white rounded-md shadow-lg">
+              <div className="absolute z-50 mt-2 w-36 bg-white rounded-md shadow-lg">
                 {auth.currentUser ? (
                   <button
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"

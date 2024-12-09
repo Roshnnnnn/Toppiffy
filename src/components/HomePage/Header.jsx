@@ -69,20 +69,25 @@ const Header = () => {
           name="description"
           content="Welcome to ChocoKart. Explore our delightful range of chocolates."
         />
+        <link rel="preload" href={images[0]} as="image" />
       </Helmet>
       <header>
         <Navbar />
-        <div className="w-full relative">
+        <div className="w-full relative ">
           <Link to="/product">
             <img
               src={images[0]}
               alt={`Brand ${currentBrandIndex + 1}`}
-              className="w-full lg:h-[40rem] object-contain md:object-cover md:w-screen md:h-[25rem] sm:h-[19rem]"
+              className="w-full lg:h-[30rem] object-cover md:object-cover md:w-screen md:h-[25rem] sm:h-[19rem]"
+              // className="object-cover w-full h-full sm:h-48 rounded-md transition-opacity duration-300"
+              loading="lazy"
+              width="800"
+              height="320"
             />
           </Link>
         </div>
         <div className="text-4xl justify-center text-center m-12">
-          <div className="my-8">Top Brands</div>
+          <h2 className="my-8">Top Brands</h2>
 
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 justify-center items-center my-0">
             {brands
@@ -99,6 +104,8 @@ const Header = () => {
                           src={brand.image}
                           alt={`${brand.name} Brand`}
                           className="w-full h-[3rem] object-contain"
+                          width="50" // Specify the width based on the actual size
+                          height="30" // Specify the height based on the actual size
                         />
                       </div>
                     </Link>

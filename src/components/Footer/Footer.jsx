@@ -72,16 +72,25 @@ const Footer = () => {
                     </Link>
                   </ul>
                   <div className="flex justify-center md:justify-start space-x-4">
-                    <Link to="https://facebook.com" className="text-blue-600">
+                    <Link
+                      to="https://www.facebook.com/profile.php?id=100004939748879"
+                      className="text-blue-600"
+                    >
                       <FaFacebook size="24" />
                     </Link>
-                    <Link to="https://twitter.com" className="text-blue-400">
+                    <Link to="https://x.com/Roshn843" className="text-blue-400">
                       <FaTwitter size="24" />
                     </Link>
-                    <Link to="https://instagram.com" className="text-pink-500">
+                    <Link
+                      to="https://www.instagram.com/http.roshn/"
+                      className="text-pink-500"
+                    >
                       <FaInstagram size="24" />
                     </Link>
-                    <Link to="https://linkedin.com" className="text-blue-700">
+                    <Link
+                      to="https://www.linkedin.com/in/roshan-yadav-220208288/"
+                      className="text-blue-700"
+                    >
                       <FaLinkedin size="24" />
                     </Link>
                   </div>
